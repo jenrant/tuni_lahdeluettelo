@@ -31,26 +31,25 @@
   <!-- Variable containing all necessary data for a certain style of bibliography. -->
   <xsl:variable name="data">
     <general>
-      <stylename>Harvard - AGPS*</stylename>
+      <stylename>ACS - Citation Sequence (italic)</stylename>
       <version>2009.05.23</version>
-      <description>An implementation of the Harvard reference style based on the description by the University of Southern Queensland.</description>
-      <URL></URL>
       <author>Yves Dhondt (yves.dhondt@gmail.com)</author>
+      <description>ACS - Citation Sequence (italic)</description>
+      <URL>http://bibliography.codeplex.com/updateStyle?id=123</URL>
       <comments>
-        Based on http://www.usq.edu.au/library/Breeze/Fac_Business/Harvard_AGPS/Harvard_AGPS_PDF_Guide.pdf
-        and http://www.usq.edu.au/library/help/ehelp/ref_guides/harvard.htm
+        An implementation of the ACS style based on chapter 14 of "The ACS Style Guide Effective Communication of Scientific Information, 3rd ed.".
       </comments>
       <display_errors>yes</display_errors>
-      <citation_as_link>no</citation_as_link>
+      <citation_as_link>yes</citation_as_link>
     </general>
     <importantfields>
       <source type="ArticleInAPeriodical">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
         <b:ImportantField>b:Title</b:ImportantField>
         <b:ImportantField>b:PeriodicalTitle</b:ImportantField>
-        <b:ImportantField>b:Day</b:ImportantField>
-        <b:ImportantField>b:Month</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
+        <b:ImportantField>b:Month</b:ImportantField>
+        <b:ImportantField>b:Day</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
       </source>
       <source type="Book">
@@ -58,6 +57,7 @@
         <b:ImportantField>b:Author/b:Editor/b:NameList</b:ImportantField>
         <b:ImportantField>b:Title</b:ImportantField>
         <b:ImportantField>b:Edition</b:ImportantField>
+        <b:ImportantField>b:Volume</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
         <b:ImportantField>b:City</b:ImportantField>
         <b:ImportantField>b:Publisher</b:ImportantField>
@@ -68,105 +68,177 @@
         <b:ImportantField>b:Title</b:ImportantField>
         <b:ImportantField>b:BookTitle</b:ImportantField>
         <b:ImportantField>b:Edition</b:ImportantField>
+        <b:ImportantField>b:Volume</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
         <b:ImportantField>b:City</b:ImportantField>
         <b:ImportantField>b:Publisher</b:ImportantField>
+        <b:ImportantField>b:Pages</b:ImportantField>
       </source>
       <source type="ConferenceProceedings">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
         <b:ImportantField>b:Title</b:ImportantField>
         <b:ImportantField>b:ConferenceName</b:ImportantField>
-        <b:ImportantField>b:Publisher</b:ImportantField>
-        <b:ImportantField>b:City</b:ImportantField>
+        <b:ImportantField>b:Day</b:ImportantField>
+        <b:ImportantField>b:Month</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
+        <b:ImportantField>b:City</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
       </source>
       <source type="DocumentFromInternetSite">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
         <b:ImportantField>b:Title</b:ImportantField>
-        <b:ImportantField>b:Publisher</b:ImportantField>
+        <b:ImportantField>b:InternetSiteTitle</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
-        <b:ImportantField>b:Pages</b:ImportantField>
-        <b:ImportantField>b:DayAccessed</b:ImportantField>
-        <b:ImportantField>b:MonthAccessed</b:ImportantField>
         <b:ImportantField>b:YearAccessed</b:ImportantField>
+        <b:ImportantField>b:MonthAccessed</b:ImportantField>
+        <b:ImportantField>b:DayAccessed</b:ImportantField>
         <b:ImportantField>b:URL</b:ImportantField>
       </source>
-      <source type="Film">
+      <source type="InternetSite">
+        <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
         <b:ImportantField>b:Title</b:ImportantField>
-        <b:ImportantField>b:Medium</b:ImportantField>
-        <b:ImportantField>b:ProductionCompany</b:ImportantField>
-        <b:ImportantField>b:City</b:ImportantField>
-        <b:ImportantField>b:CountryRegion</b:ImportantField>
-        <b:ImportantField>b:Year</b:ImportantField>
-        <b:ImportantField>b:Comments</b:ImportantField>
+        <b:ImportantField>b:InternetSiteTitle</b:ImportantField>
+        <b:ImportantField>b:YearAccessed</b:ImportantField>
+        <b:ImportantField>b:MonthAccessed</b:ImportantField>
+        <b:ImportantField>b:DayAccessed</b:ImportantField>
+        <b:ImportantField>b:URL</b:ImportantField>
       </source>
       <source type="JournalArticle">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
         <b:ImportantField>b:Title</b:ImportantField>
         <b:ImportantField>b:JournalName</b:ImportantField>
+        <b:ImportantField>b:Year</b:ImportantField>
         <b:ImportantField>b:Volume</b:ImportantField>
         <b:ImportantField>b:Issue</b:ImportantField>
-        <b:ImportantField>b:Year</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
       </source>
       <source type="Report">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
         <b:ImportantField>b:Title</b:ImportantField>
-        <b:ImportantField>b:Department</b:ImportantField>
-        <b:ImportantField>b:Institution</b:ImportantField>
-        <b:ImportantField>b:StandardNumber</b:ImportantField>
-        <b:ImportantField>b:Year</b:ImportantField>
-        <b:ImportantField>b:City</b:ImportantField>
-        <b:ImportantField>b:Publisher</b:ImportantField>
         <b:ImportantField>b:ThesisType</b:ImportantField>
+        <b:ImportantField>b:Year</b:ImportantField>
+        <b:ImportantField>b:Month</b:ImportantField>
+        <b:ImportantField>b:Day</b:ImportantField>
+        <b:ImportantField>b:City</b:ImportantField>
+        <b:ImportantField>b:Institution</b:ImportantField>
+        <b:ImportantField>b:Pages</b:ImportantField>
+      </source>
+      <source type="Patent">
+        <b:ImportantField>b:Author/b:Inventor/b:NameList</b:ImportantField>
+        <b:ImportantField>b:Title</b:ImportantField>
+        <b:ImportantField>b:PatentNumber</b:ImportantField>
+        <b:ImportantField>b:Year</b:ImportantField>
+        <b:ImportantField>b:Month</b:ImportantField>
+        <b:ImportantField>b:Day</b:ImportantField>
       </source>
     </importantfields>
     <citation>
       <openbracket>(</openbracket>
       <closebracket>)</closebracket>
-      <separator>; </separator>
+      <separator>,</separator>
       <noauthor>-Artist-Author-BookAuthor-Compiler-Composer-Conductor-Counsel-Director-Editor-Interviewee-Interviewer-Inventor-Performer-ProducerName-Translator-Writer-</noauthor>
       <notitle>-Title-AlbumTitle-BookTitle-BroadcastTitle-InternetSiteTitle-PeriodicalTitle-PublicationTitle-ShortTitle-</notitle>
-      <noyear>-Day-DayAccessed-Month-MonthAccessed-Year-YearAccessed-"n.d."-</noyear>
+      <noyear>-Year-YearAccessed-"n.d."-</noyear>
       <source type="Placeholder">
         <format>[%Tag%]</format>
       </source>
       <source type="ArticleInAPeriodical">
-        <format>{%CitationPrefix%}{%Author:1% {%Year%{%YearSuffix%}}}{{%PeriodicalTitle% }{{%Day% }%Month:s% }%Year%}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
       </source>
       <source type="Book">
-        <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
       </source>
       <source type="BookSection">
-        <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
       </source>
       <source type="ConferenceProceedings">
-        <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
       </source>
       <source type="DocumentFromInternetSite">
-        <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
       </source>
-      <source type="Film">
-        <format>{%CitationPrefix%}{%ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+      <source type="InternetSite">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
       </source>
       <source type="JournalArticle">
-        <format>{%CitationPrefix%}{%Author:1|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
       </source>
       <source type="Report">
-        <format>{%CitationPrefix%}{%Author:1|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
       </source>
-      <source type="Standard">
-        <format>{%CitationPrefix%}{%Author:1|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+      <source type="Patent">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="ElectronicBook">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="ElectronicBookSection">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="ElectronicJournalArticle">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="Theses">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
       </source>
     </citation>
+    <footnotecitation>
+      <openbracket>(</openbracket>
+      <closebracket>)</closebracket>
+      <separator>,</separator>
+      <noauthor>-Artist-Author-BookAuthor-Compiler-Composer-Conductor-Counsel-Director-Editor-Interviewee-Interviewer-Inventor-Performer-ProducerName-Translator-Writer-</noauthor>
+      <notitle>-Title-AlbumTitle-BookTitle-BroadcastTitle-InternetSiteTitle-PeriodicalTitle-PublicationTitle-ShortTitle-</notitle>
+      <noyear>-Year-YearAccessed-"n.d."-</noyear>
+      <source type="Placeholder">
+        <format>[%Tag%]</format>
+      </source>
+      <source type="ArticleInAPeriodical">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="Book">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="BookSection">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="ConferenceProceedings">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="DocumentFromInternetSite">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="InternetSite">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="JournalArticle">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="Report">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="Patent">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="ElectronicBook">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="ElectronicBookSection">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="ElectronicJournalArticle">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+      <source type="Theses">
+        <format>&lt;i&gt;%RefOrder%&lt;/i&gt;</format>
+      </source>
+    </footnotecitation>
     <bibliography>
-      <columns>1</columns>
+      <columns>2</columns>
       <source type="Placeholder">
         <column id="1">
-          <halign>left</halign>
+          <halign>right</halign>
           <valign>top</valign>
-          <format>%RefOrder%</format>
+          <format>%RefOrder%.</format>
         </column>
         <column id="2">
           <halign>left</halign>
@@ -176,75 +248,159 @@
       </source>
       <source type="ArticleInAPeriodical">
         <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3%{ %Year:r%{%YearSuffix%}}{, '%Title|ShortTitle%'}{, &lt;i&gt;%PeriodicalTitle%&lt;/i&gt;}}{&lt;i&gt;%PeriodicalTitle%&lt;/i&gt;{ %Year:r%{%YearSuffix%}}{, '%Title|ShortTitle%'}}{, {{%Day% }%Month:s% }%Year%}{, %Pages:p. :pp. %}{, viewed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%}{, &lt;%URL:l%&gt;}{, %Comments%}.</format>
+          <format>{%Author:2%.}{ %Title|ShortTitle%.}{ &lt;i&gt;%PeriodicalTitle%,&lt;/i&gt;}{ {%Month:s% {%Day%, }}%Year%,}{ %Pages:::e%}{, %Comments%}.</format>
         </column>
-        <sortkey>{%Author:0|PeriodicalTitle|Title|ShortTitle|BookTitle%}{ %Year%}{ %Title|ShortTitle%}{ %PeriodicalArticle%}</sortkey>
       </source>
       <source type="Book">
         <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}}, }{&lt;i&gt;%Title|ShortTitle%&lt;/i&gt;{ %Year%{%YearSuffix%}}}{, %Edition:o% edn}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}{, viewed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%}{, &lt;%URL:l%&gt;}{, %Comments%}.</format>          
+          <format>{%Author:2|Editor:3%.}{ &lt;i&gt;%Title%,&lt;/i&gt; %Edition:o% ed.;}{ &lt;i&gt;%Title%;&lt;/i&gt;}{ %Publisher%{: %City|StateProvince|CountryRegion%{, %StateProvince%{, %CountryRegion%}}}}{ %City|StateProvince|CountryRegion%{, %StateProvince%{, %CountryRegion%}}}{, %Year%};{ Vol. %Volume%,}{ %NumberVolumes% vols.,}{ %Pages:p :pp :e%}{, %Comments%}.</format>
         </column>
-        <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
       </source>
       <source type="BookSection">
         <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}}, }{'%Title|ShortTitle%'{ %Year%{%YearSuffix%}}}{, in {%Editor:5%, }&lt;i&gt;%BookTitle%&lt;/i&gt;}{, %Edition:o% edn}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}{, viewed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%}{, &lt;%URL:l%&gt;}.</format>
+          <format>{%Author:2%.}{ %Title%.}{ In &lt;i&gt;%BookTitle%,&lt;/i&gt; %Edition:o% ed.;}{ In &lt;i&gt;%BookTitle%;&lt;/i&gt;}{ %Editor:3%;}{ %Publisher%{: %City|StateProvince|CountryRegion%{, %StateProvince%{, %CountryRegion%}}}}{ %City|StateProvince|CountryRegion%{, %StateProvince%{, %CountryRegion%}}}{, %Year%};{ Chapter %ChapterNumber%,}{ Vol. %Volume%,}{ %NumberVolumes% vols.,}{ %Pages:p :pp :e%}{, %Comments%}.</format>
         </column>
-        <sortkey>{%Author:0|Editor:0|Title|ShortTitle|BookTitle%}{ %Year%}{ %Title|ShortTitle|BookTitle%}</sortkey>
       </source>
       <source type="ConferenceProceedings">
         <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3%{ %Year%{%YearSuffix%}}, }{'%Title|ShortTitle%'{ %Year%{%YearSuffix%}}}{, &lt;i&gt;%ConferenceName%&lt;/i&gt;}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}{, viewed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%}{, &lt;%URL:l%&gt;}{, %Comments%}.</format>
+          <format>{%Author:2%.}{ %Title%.}{ &lt;i&gt;%ConferenceName%&lt;/i&gt;,}{ %City|StateProvince|CountryRegion%{, %StateProvince%{, %CountryRegion%}}}{, {%Month:s% {%Day%, }}%Year%}{; %Pages:p :pp :e%}{, %Comments%}.</format>
         </column>
-        <sortkey>{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}{ %ConferenceName%}</sortkey>
       </source>
       <source type="DocumentFromInternetSite">
         <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3%{ %Year%{%YearSuffix%}}, }{&lt;i&gt;%Title|ShortTitle%&lt;/i&gt;{ %Year%{%YearSuffix%}}}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}{, viewed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%}{, &lt;%URL:l%&gt;}{, %Comments%}.</format>
+          <format>{%Author:2%.}{ %Title|ShortTitle%}{, %Year%}.{ %InternetSiteTitle%.}{ %URL:l%}{ (accessed {%MonthAccessed:s% {%DayAccessed%, }}%YearAccessed%)}{, %Pages:::e%}.</format>
         </column>
-        <sortkey>{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}{ %JournalName%}</sortkey>
       </source>
-      <source type="Film">
+      <source type="InternetSite">
         <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{&lt;i&gt;%Title|ShortTitle%&lt;/i&gt;}{ %Year%{%YearSuffix%}}{, %Medium%}{, %ProductionCompany%}{, %City%}{, %StateProvince%}{, %CountryRegion%}{, {%Day% }%Month:s%}{. %Comments%}.</format>
+          <format>{%Author:2%.}{ %Title|InternetSiteTitle|ShortTitle%.}{ %URL:l%}{ (accessed {%MonthAccessed:s% {%DayAccessed%, }}%YearAccessed%)}{, %Pages:::e%}.</format>
         </column>
-        <sortkey>{%Title|ShortTitle%}{ %Year%}</sortkey>
       </source>
       <source type="JournalArticle">
         <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3%{ %Year%{%YearSuffix%}}, }{'%Title|ShortTitle%'{ %Year%{%YearSuffix%}}}{, &lt;i&gt;%JournalName%&lt;/i&gt;}{, vol %Volume%}{, no. %Issue%}{, %Pages:p. :pp. %}{, viewed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%}{, &lt;%URL:l%&gt;}{, %Comments%}.</format>
+          <format>{%Author:2%.}{ %Title|ShortTitle%.}{ &lt;i&gt;%JournalName%&lt;/i&gt;}{ &lt;b&gt;%Year%,&lt;/b&gt;}{ &lt;i&gt;%Volume%&lt;/i&gt; (%Issue%),}{ &lt;i&gt;%Volume%,&lt;/i&gt;}{ No. %Issue%,}{ %Pages:::e%}{, %Comments%}.</format>
         </column>
-        <sortkey>{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}{ %JournalName%}</sortkey>
       </source>
       <source type="Report">
         <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3%{ %Year%{%YearSuffix%}}, }{'%Title|ShortTitle%'{ %Year%{%YearSuffix%}}}{, %ThesisType%}{, %Department%}{, %Institution%}{, %StandardNumber%}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}.</format>
+          <format>{%Author:2%.}{ &lt;i&gt;%Title|ShortTitle%;&lt;/i&gt;}{ %ThesisType%;}{ %Publisher|Institution|Department%{: %City|StateProvince|CountryRegion%{, %StateProvince%{, %CountryRegion%}}}}{ %City|StateProvince|CountryRegion%{, %StateProvince%{, %CountryRegion%}}}{, {%Month:s%{ %Day%,} }%Year%}{, %Comments%}.</format>
         </column>
-        <sortkey>{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
       </source>
-      <source type="Standard">
+      <source type="Patent">
         <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3%{ %Year%{%YearSuffix%}}, }{&lt;i&gt;%Title|ShortTitle%&lt;/i&gt;{ %Year%{%YearSuffix%}}}{, %StandardNumber%}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}.</format>
+          <format>{%Inventor:2%.}{ %Title|ShortTitle%.}{ %PatentNumber%}{, {%Month:s%{ %Day%,} }%Year%}{, %Comments%}.</format>
         </column>
-        <sortkey>{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+      </source>
+      <source type="ElectronicBook">
+        <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2|Editor:3%.}{ &lt;i&gt;%Title%,&lt;/i&gt;{ %Edition:o% ed.} [Online];}{ %Publisher%{: %City|StateProvince|CountryRegion%{, %StateProvince%{, %CountryRegion%}}}}{ %City|StateProvince|CountryRegion%{, %StateProvince%{, %CountryRegion%}}}{, %Year%};{ Vol. %Volume%,}{ %NumberVolumes% vols.,}{ %Pages:p :pp :e%}.{ %URL:l%}{ (accessed {%MonthAccessed:s% {%DayAccessed%, }}%YearAccessed%)}.</format>
+        </column>
+      </source>
+      <source type="ElectronicBookSection">
+        <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2%.}{ %Title%.}{ In &lt;i&gt;%BookTitle%,&lt;/i&gt;{ %Edition:o% ed.} [Online];}{ %Editor:3%;}{ %Publisher%{: %City|StateProvince|CountryRegion%{, %StateProvince%{, %CountryRegion%}}}}{ %City|StateProvince|CountryRegion%{, %StateProvince%{, %CountryRegion%}}}{, %Year%};{ Chapter %ChapterNumber%,}{ Vol. %Volume%,}{ %NumberVolumes% vols.,}{ %Pages:p :pp :e%}.{ %URL:l%}{ (accessed {%MonthAccessed:s% {%DayAccessed%, }}%YearAccessed%)}.</format>
+        </column>
+      </source>
+      <source type="ElectronicJournalArticle">
+        <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2%.}{ %Title|ShortTitle%.}{ &lt;i&gt;%JournalName%&lt;/i&gt;} [Online]{ &lt;b&gt;%Year%,&lt;/b&gt;}{ &lt;i&gt;%Volume%&lt;/i&gt; (%Issue%),}{ &lt;i&gt;%Volume%,&lt;/i&gt;}{ No. %Issue%,}{ %Pages:::e%}.{ %URL:l%}{ (accessed {%MonthAccessed:s% {%DayAccessed%, }}%YearAccessed%)}.</format>
+        </column>
+      </source>
+      <source type="Theses">
+        <column id="1">
+          <halign>right</halign>
+          <valign>top</valign>
+          <format>%RefOrder%.</format>
+        </column>
+        <column id="2">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2%.}{ %Title|ShortTitle%.}{ %ThesisType%,}{ %Institution%,}{ {%Month:s% }%Year%}{, %Comments%}.</format>
+        </column>
       </source>
     </bibliography>
     <namelists>
@@ -252,8 +408,8 @@
         <single_prefix></single_prefix>
         <multi_prefix></multi_prefix>
         <corporate>{%Corporate%}</corporate>
-        <first_person>{%Last|First|Middle%}</first_person>
-        <other_persons>{%Last|First|Middle%}</other_persons>
+        <first_person>{%Last|First%}</first_person>
+        <other_persons>{%Last|First%}</other_persons>
         <separator_between_if_two> </separator_between_if_two>
         <separator_between_if_more_than_two> </separator_between_if_more_than_two>
         <separator_before_last></separator_before_last>
@@ -263,125 +419,74 @@
         <single_suffix></single_suffix>
         <multi_suffix></multi_suffix>
       </list>
-      <list name="citation_author" id="1">
+      <list name="citation" id="1">
         <single_prefix></single_prefix>
         <multi_prefix></multi_prefix>
         <corporate>{%Corporate%}</corporate>
-        <first_person>{%Last|First|Middle%}</first_person>
-        <other_persons>{%Last|First|Middle%}</other_persons>
-        <separator_between_if_two> &amp; </separator_between_if_two>
+        <first_person>{%Last|First%}{ %First:a%}{%Middle:a%}</first_person>
+        <other_persons>{%Last|First%}{ %First:a%}{%Middle:a%}</other_persons>
+        <separator_between_if_two> and </separator_between_if_two>
         <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
-        <separator_before_last> &amp; </separator_before_last>
-        <max_number_of_persons_to_display>3</max_number_of_persons_to_display>
+        <separator_before_last>, and </separator_before_last>
+        <max_number_of_persons_to_display>2</max_number_of_persons_to_display>
         <number_of_persons_to_display_if_more_than_max>1</number_of_persons_to_display_if_more_than_max>
         <overflow> et al.</overflow>
         <single_suffix></single_suffix>
         <multi_suffix></multi_suffix>
       </list>
-      <list name="citation_editor" id="2">
+      <list name="author" id="2">
         <single_prefix></single_prefix>
         <multi_prefix></multi_prefix>
         <corporate>{%Corporate%}</corporate>
-        <first_person>{%Last|First|Middle%}</first_person>
-        <other_persons>{%Last|First|Middle%}</other_persons>
-        <separator_between_if_two> &amp; </separator_between_if_two>
-        <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
-        <separator_before_last> &amp; </separator_before_last>
-        <max_number_of_persons_to_display>3</max_number_of_persons_to_display>
-        <number_of_persons_to_display_if_more_than_max>1</number_of_persons_to_display_if_more_than_max>
-        <overflow> et al.</overflow>
-        <single_suffix> (ed.)</single_suffix>
-        <multi_suffix> (eds.)</multi_suffix>
-      </list>
-      <list name="author" id="3">
-        <single_prefix></single_prefix>
-        <multi_prefix></multi_prefix>
-        <corporate>{%Corporate%}</corporate>
-        <first_person>{%Last|First|Middle%{, %First:adu|Middle:adu%{%Middle:adu%}}}</first_person>
-        <other_persons>{%Last|First|Middle%{, %First:adu|Middle:adu%{%Middle:adu%}}}</other_persons>
-        <separator_between_if_two> &amp; </separator_between_if_two>
-        <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
-        <separator_before_last> &amp; </separator_before_last>
-        <max_number_of_persons_to_display>20</max_number_of_persons_to_display>
-        <number_of_persons_to_display_if_more_than_max>20</number_of_persons_to_display_if_more_than_max>
+        <first_person>{%Last|First|Middle%{, %First:adps|Middle:adps%{ %Middle:adps%}}}</first_person>
+        <other_persons>{%Last|First|Middle%{, %First:adps|Middle:adps%{ %Middle:adps%}}}</other_persons>
+        <separator_between_if_two>; </separator_between_if_two>
+        <separator_between_if_more_than_two>; </separator_between_if_more_than_two>
+        <separator_before_last>; </separator_before_last>
+        <max_number_of_persons_to_display>100</max_number_of_persons_to_display>
+        <number_of_persons_to_display_if_more_than_max>100</number_of_persons_to_display_if_more_than_max>
         <overflow>, et al.</overflow>
         <single_suffix></single_suffix>
         <multi_suffix></multi_suffix>
       </list>
-      <list name="editor_as_author" id="4">
+      <list name="editor" id="3">
         <single_prefix></single_prefix>
         <multi_prefix></multi_prefix>
         <corporate>{%Corporate%}</corporate>
-        <first_person>{%Last|First|Middle%{, %First:adu|Middle:adu%{%Middle:adu%}}}</first_person>
-        <other_persons>{%Last|First|Middle%{, %First:adu|Middle:adu%{%Middle:adu%}}}</other_persons>
+        <first_person>{%Last|First|Middle%{, %First:adps|Middle:adps%{ %Middle:adps%}}}</first_person>
+        <other_persons>{%Last|First|Middle%{, %First:adps|Middle:adps%{ %Middle:adps%}}}</other_persons>
         <separator_between_if_two>, </separator_between_if_two>
         <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
         <separator_before_last>, </separator_before_last>
-        <max_number_of_persons_to_display>20</max_number_of_persons_to_display>
-        <number_of_persons_to_display_if_more_than_max>20</number_of_persons_to_display_if_more_than_max>
+        <max_number_of_persons_to_display>100</max_number_of_persons_to_display>
+        <number_of_persons_to_display_if_more_than_max>100</number_of_persons_to_display_if_more_than_max>
         <overflow>, et al.</overflow>
-        <single_suffix> (ed.)</single_suffix>
-        <multi_suffix> (eds.)</multi_suffix>
-      </list>
-      <list name="editor_not_as_author" id="5">
-        <single_prefix></single_prefix>
-        <multi_prefix></multi_prefix>
-        <corporate>{%Corporate%}</corporate>
-        <first_person>{{%First:adu|Middle:adu%{%Middle:adu%} }%Last|First|Middle%}</first_person>
-        <other_persons>{{%First:adu|Middle:adu%{%Middle:adu%} }%Last|First|Middle%}</other_persons>
-        <separator_between_if_two>, </separator_between_if_two>
-        <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
-        <separator_before_last>, </separator_before_last>
-        <max_number_of_persons_to_display>10</max_number_of_persons_to_display>
-        <number_of_persons_to_display_if_more_than_max>10</number_of_persons_to_display_if_more_than_max>
-        <overflow>, et al.</overflow>
-        <single_suffix> (ed.)</single_suffix>
-        <multi_suffix> (eds.)</multi_suffix>
+        <single_suffix>, Ed.</single_suffix>
+        <multi_suffix>, Eds.</multi_suffix>
       </list>
     </namelists>
     <strings>
       <months>
-        <month number="1">January</month>
-        <month number="2">February</month>
+        <month number="1">Jan</month>
+        <month number="2">Feb</month>
         <month number="3">March</month>
         <month number="4">April</month>
         <month number="5">May</month>
         <month number="6">June</month>
         <month number="7">July</month>
-        <month number="8">August</month>
-        <month number="9">September</month>
-        <month number="10">October</month>
-        <month number="11">November</month>
-        <month number="12">December</month>
+        <month number="8">Aug</month>
+        <month number="9">Sept</month>
+        <month number="10">Oct</month>
+        <month number="11">Nov</month>
+        <month number="12">Dec</month>
       </months>
     </strings>
     <extensions>
       <source type="ArticleInAPeriodical">
-        <yearsuffix>{%Author:1|PeriodicalTitle%}{%Year%}</yearsuffix>
+        <yearsuffix>{%Author:0%}{%Year%}</yearsuffix>
       </source>
       <source type="Book">
-        <yearsuffix>{%Author:1|Editor:2%}{%Year%}</yearsuffix>
-      </source>
-      <source type="BookSection">
-        <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
-      </source>
-      <source type="ConferenceProceedings">
-        <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
-      </source>
-      <source type="DocumentFromInternetSite">
-        <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
-      </source>
-      <source type="Film">
-        <yearsuffix>{%Title|ShortTitle%}{%Year%}</yearsuffix>
-      </source>
-      <source type="JournalArticle">
-        <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
-      </source>
-      <source type="Report">
-        <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
-      </source>
-      <source type="Standard">
-        <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
+        <yearsuffix>{%Author:0%}{%Year%}</yearsuffix>
       </source>
     </extensions>
   </xsl:variable>

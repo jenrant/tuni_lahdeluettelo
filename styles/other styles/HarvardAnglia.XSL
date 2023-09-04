@@ -31,15 +31,16 @@
   <!-- Variable containing all necessary data for a certain style of bibliography. -->
   <xsl:variable name="data">
     <general>
-      <stylename>Harvard - AGPS*</stylename>
+      <stylename>Harvard - Anglia*</stylename>
       <version>2009.05.23</version>
-      <description>An implementation of the Harvard reference style based on the description by the University of Southern Queensland.</description>
+      <description>An implementation of the Harvard reference style based on the description by the Anglia Rushkin University.</description>
       <URL></URL>
-      <author>Yves Dhondt (yves.dhondt@gmail.com)</author>
-      <comments>
-        Based on http://www.usq.edu.au/library/Breeze/Fac_Business/Harvard_AGPS/Harvard_AGPS_PDF_Guide.pdf
-        and http://www.usq.edu.au/library/help/ehelp/ref_guides/harvard.htm
-      </comments>
+      <auhtor>Yves Dhondt (yves.dhondt@gmail.com)</auhtor>
+      <comment>
+        Based on Anglia Rushkin notes (http://libweb.anglia.ac.uk/referencing/files/Harvard_referencing.pdf)
+        It is unclear if a comma is required between the names of authors.
+        It is unclear if a comma is required between the names and editor indication (name, ed. vs name ed.).
+      </comment>
       <display_errors>yes</display_errors>
       <citation_as_link>no</citation_as_link>
     </general>
@@ -48,9 +49,9 @@
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
         <b:ImportantField>b:Title</b:ImportantField>
         <b:ImportantField>b:PeriodicalTitle</b:ImportantField>
-        <b:ImportantField>b:Day</b:ImportantField>
-        <b:ImportantField>b:Month</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
+        <b:ImportantField>b:Month</b:ImportantField>
+        <b:ImportantField>b:Day</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
       </source>
       <source type="Book">
@@ -71,93 +72,106 @@
         <b:ImportantField>b:Year</b:ImportantField>
         <b:ImportantField>b:City</b:ImportantField>
         <b:ImportantField>b:Publisher</b:ImportantField>
+        <b:ImportantField>b:Pages</b:ImportantField>
       </source>
       <source type="ConferenceProceedings">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
-        <b:ImportantField>b:Title</b:ImportantField>
-        <b:ImportantField>b:ConferenceName</b:ImportantField>
-        <b:ImportantField>b:Publisher</b:ImportantField>
-        <b:ImportantField>b:City</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
+        <b:ImportantField>b:Title</b:ImportantField>
+        <b:ImportantField>b:Author/b:Editor/b:NameList</b:ImportantField>
+        <b:ImportantField>b:ConferenceName</b:ImportantField>
+        <b:ImportantField>b:City</b:ImportantField>
+        <b:ImportantField>b:Publisher</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
       </source>
       <source type="DocumentFromInternetSite">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
-        <b:ImportantField>b:Title</b:ImportantField>
-        <b:ImportantField>b:Publisher</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
-        <b:ImportantField>b:Pages</b:ImportantField>
+        <b:ImportantField>b:Title</b:ImportantField>
+        <b:ImportantField>b:InternetSiteTitle</b:ImportantField>
+        <b:ImportantField>b:City</b:ImportantField>
+        <b:ImportantField>b:Medium</b:ImportantField>
+        <b:ImportantField>b:ProductionCompany</b:ImportantField>
         <b:ImportantField>b:DayAccessed</b:ImportantField>
         <b:ImportantField>b:MonthAccessed</b:ImportantField>
         <b:ImportantField>b:YearAccessed</b:ImportantField>
         <b:ImportantField>b:URL</b:ImportantField>
+        <b:ImportantField>b:Version</b:ImportantField>
       </source>
       <source type="Film">
         <b:ImportantField>b:Title</b:ImportantField>
         <b:ImportantField>b:Medium</b:ImportantField>
-        <b:ImportantField>b:ProductionCompany</b:ImportantField>
+        <b:ImportantField>b:Author/b:Director/b:NameList</b:ImportantField>
         <b:ImportantField>b:City</b:ImportantField>
         <b:ImportantField>b:CountryRegion</b:ImportantField>
+        <b:ImportantField>b:ProductionCompany</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
-        <b:ImportantField>b:Comments</b:ImportantField>
+      </source>
+      <source type="InternetSite">
+        <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
+        <b:ImportantField>b:Year</b:ImportantField>
+        <b:ImportantField>b:Title</b:ImportantField>
+        <b:ImportantField>b:DayAccessed</b:ImportantField>
+        <b:ImportantField>b:MonthAccessed</b:ImportantField>
+        <b:ImportantField>b:YearAccessed</b:ImportantField>
+        <b:ImportantField>b:URL</b:ImportantField>
+        <b:ImportantField>b:Version</b:ImportantField>
       </source>
       <source type="JournalArticle">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
+        <b:ImportantField>b:Year</b:ImportantField>
         <b:ImportantField>b:Title</b:ImportantField>
         <b:ImportantField>b:JournalName</b:ImportantField>
         <b:ImportantField>b:Volume</b:ImportantField>
         <b:ImportantField>b:Issue</b:ImportantField>
-        <b:ImportantField>b:Year</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
       </source>
       <source type="Report">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
-        <b:ImportantField>b:Title</b:ImportantField>
-        <b:ImportantField>b:Department</b:ImportantField>
-        <b:ImportantField>b:Institution</b:ImportantField>
-        <b:ImportantField>b:StandardNumber</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
+        <b:ImportantField>b:Title</b:ImportantField>
+        <b:ImportantField>b:ThesisType</b:ImportantField>
         <b:ImportantField>b:City</b:ImportantField>
         <b:ImportantField>b:Publisher</b:ImportantField>
-        <b:ImportantField>b:ThesisType</b:ImportantField>
+        <b:ImportantField>b:Institution</b:ImportantField>
       </source>
     </importantfields>
     <citation>
       <openbracket>(</openbracket>
       <closebracket>)</closebracket>
       <separator>; </separator>
-      <noauthor>-Artist-Author-BookAuthor-Compiler-Composer-Conductor-Counsel-Director-Editor-Interviewee-Interviewer-Inventor-Performer-ProducerName-Translator-Writer-</noauthor>
+      <noauthor>-Artist-Author-BookAuthor-Compiler-Composer-Conductor-Counsel-Director-Editor-Interviewee-Interviewer-Inventor-Performer-ProducerName-Translator-Writer-"Anon."-</noauthor>
       <notitle>-Title-AlbumTitle-BookTitle-BroadcastTitle-InternetSiteTitle-PeriodicalTitle-PublicationTitle-ShortTitle-</notitle>
-      <noyear>-Day-DayAccessed-Month-MonthAccessed-Year-YearAccessed-"n.d."-</noyear>
+      <noyear>-Year-YearAccessed-"n.d."-</noyear>
       <source type="Placeholder">
-        <format>[%Tag%]</format>
+        <format>{%CitationPrefix%}[[%Tag%]]{%CitationSuffix%}</format>
       </source>
       <source type="ArticleInAPeriodical">
-        <format>{%CitationPrefix%}{%Author:1% {%Year%{%YearSuffix%}}}{{%PeriodicalTitle% }{{%Day% }%Month:s% }%Year%}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1|Editor:1|"Anon."%}{, %Year|"n.d."%}{%YearSuffix%}{, %CitationPages:p.:pp.:a2%}{%CitationSuffix%}</format>
       </source>
       <source type="Book">
-        <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1|Editor:1|"Anon."%}{, %Year|"n.d."%}{%YearSuffix%}{, %CitationPages:p.:pp.:a2%}{%CitationSuffix%}</format>
       </source>
       <source type="BookSection">
-        <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1|Editor:1|BookAuthor:1|"Anon."%}{, %Year|"n.d."%}{%YearSuffix%}{, %CitationPages:p.:pp.:a2%}{%CitationSuffix%}</format>
       </source>
       <source type="ConferenceProceedings">
-        <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1|Editor:1|"Anon."%}{, %Year|"n.d."%}{%YearSuffix%}{, %CitationPages:p.:pp.:a2%}{%CitationSuffix%}</format>
       </source>
       <source type="DocumentFromInternetSite">
-        <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1|InternetSiteTitle|"Anon."%}{, %Year|"n.d."%}{%YearSuffix%}{, %CitationPages:p.:pp.:a2%}{%CitationSuffix%}</format>
       </source>
       <source type="Film">
-        <format>{%CitationPrefix%}{%ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Title|ShortTitle|"Anon."%}{, %Year|"n.d."%}{%YearSuffix%}{, %CitationPages:p.:pp.:a2%}{%CitationSuffix%}</format>
+      </source>
+      <source type="InternetSite">
+        <format>{%CitationPrefix%}{%Author:1|"Anon."%}{, %Year|"n.d."%}{%YearSuffix%}{, %CitationPages:p.:pp.:a2%}{%CitationSuffix%}</format>
       </source>
       <source type="JournalArticle">
-        <format>{%CitationPrefix%}{%Author:1|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1|"Anon."%}{, %Year|"n.d."%}{%YearSuffix%}{, %CitationPages:p.:pp.:a2%}{%CitationSuffix%}</format>
       </source>
       <source type="Report">
-        <format>{%CitationPrefix%}{%Author:1|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
-      </source>
-      <source type="Standard">
-        <format>{%CitationPrefix%}{%Author:1|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1|"Anon."%}{, %Year|"n.d."%}{%YearSuffix%}{, %CitationPages:p.:pp.:a2%}{%CitationSuffix%}</format>
       </source>
     </citation>
     <bibliography>
@@ -166,85 +180,98 @@
         <column id="1">
           <halign>left</halign>
           <valign>top</valign>
-          <format>%RefOrder%</format>
+          <format>[%Tag%]</format>
         </column>
-        <column id="2">
-          <halign>left</halign>
-          <valign>top</valign>
-          <format>[[%Tag%]]</format>
-        </column>
+        <sortkey>%Tag%</sortkey>
       </source>
+      <!-- Based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=33#33 and -->
+      <!-- based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=58#58 (April 19, 2009) -->
       <source type="ArticleInAPeriodical">
         <column id="1">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3%{ %Year:r%{%YearSuffix%}}{, '%Title|ShortTitle%'}{, &lt;i&gt;%PeriodicalTitle%&lt;/i&gt;}}{&lt;i&gt;%PeriodicalTitle%&lt;/i&gt;{ %Year:r%{%YearSuffix%}}{, '%Title|ShortTitle%'}}{, {{%Day% }%Month:s% }%Year%}{, %Pages:p. :pp. %}{, viewed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%}{, &lt;%URL:l%&gt;}{, %Comments%}.</format>
+          <format>{%Author:2|"Anon."%,}{ %Year|"n.d."%{%YearSuffix%}.}{ %Title|ShortTitle%.}{ &lt;i&gt;%PeriodicalTitle%&lt;/i&gt;,}{ [%Medium%]}{ {%Day% }%Month:s%.}{ %Pages:p.:pp.:a2%}.{ Available at: &lt;u&gt;%URL:l%&lt;/u&gt;}{ [Accessed{{ %DayAccessed%} %MonthAccessed:s%} %YearAccessed%]}.{ %Comments%.}</format>
         </column>
-        <sortkey>{%Author:0|PeriodicalTitle|Title|ShortTitle|BookTitle%}{ %Year%}{ %Title|ShortTitle%}{ %PeriodicalArticle%}</sortkey>
+        <sortkey>{%Author:0|Editor:0|"Anon."%}{%Year|"n.d."%}{%Title:a|ShortTitle:a%}</sortkey>
       </source>
+      <!-- Based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=24#24 and -->
+      <!-- based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=26#26 and -->
+      <!-- based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=27#27 and -->
+      <!-- based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=28#28 and -->
+      <!-- based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=31#31 (April 19, 2009) -->
       <source type="Book">
         <column id="1">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}}, }{&lt;i&gt;%Title|ShortTitle%&lt;/i&gt;{ %Year%{%YearSuffix%}}}{, %Edition:o% edn}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}{, viewed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%}{, &lt;%URL:l%&gt;}{, %Comments%}.</format>          
+          <format>{%Author:2|Editor:3|"Anon."%,}{ %Year|"n.d."%{%YearSuffix%}.}{ &lt;i&gt;%Title|ShortTitle%&lt;/i&gt;.{ %Edition:o% ed.}}{ Translated by %Translator:5%.}{ [%Medium%]}{ %City|StateProvince|CountryRegion%{, %StateProvince|CountryRegion%{, %CountryRegion%}}{: %Publisher%}.}{ %Publisher%.}.{ Available at: &lt;u&gt;%URL:l%&lt;/u&gt;{ [accessed{{ %DayAccessed%} %MonthAccessed:s%} %YearAccessed%]}}.{ %Comments%.}</format>
         </column>
-        <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+        <sortkey>{%Author:0|Editor:0|"Anon."%}{%Year|"n.d."%}{%Title:a|ShortTitle:a%}</sortkey>
       </source>
+      <!-- Based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=29#29 (April 19, 2009) -->
       <source type="BookSection">
         <column id="1">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}}, }{'%Title|ShortTitle%'{ %Year%{%YearSuffix%}}}{, in {%Editor:5%, }&lt;i&gt;%BookTitle%&lt;/i&gt;}{, %Edition:o% edn}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}{, viewed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%}{, &lt;%URL:l%&gt;}.</format>
+          <format>{%Author:2|Editor:3|"Anon."%,}{ %Year|"n.d."%{%YearSuffix%}.}{ %Title|ShortTitle%.}{ In{ %Editor:6|BookAuthor:2%} &lt;i&gt;%BookTitle|ShortTitle%&lt;/i&gt;.{ %Edition:o% ed.}}{ Translated by %Translator:5%.}{ %City|StateProvince|CountryRegion%{, %StateProvince|CountryRegion%{, %CountryRegion%}}{: %Publisher%}.}{ %Publisher%.}{ Ch. %ChapterNumber%.}{ %Pages:p.:pp.:a2%.}{ %Comments%.}</format>
         </column>
-        <sortkey>{%Author:0|Editor:0|Title|ShortTitle|BookTitle%}{ %Year%}{ %Title|ShortTitle|BookTitle%}</sortkey>
+        <sortkey>{%Author:0|Editor:0|"Anon."%}{%Year|"n.d."%}{%Title:a|ShortTitle:a|BookTitle:a%}</sortkey>
       </source>
+      <!-- Based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=51#51 (April 19, 2009) -->
       <source type="ConferenceProceedings">
         <column id="1">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3%{ %Year%{%YearSuffix%}}, }{'%Title|ShortTitle%'{ %Year%{%YearSuffix%}}}{, &lt;i&gt;%ConferenceName%&lt;/i&gt;}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}{, viewed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%}{, &lt;%URL:l%&gt;}{, %Comments%}.</format>
+          <format>{%Author:2|"Anon."%,}{ %Year:r|"n.d."%{%YearSuffix%}.}{ %Title|ShortTitle%.}{ In{ %Editor:3%} &lt;i&gt;%ConferenceName%&lt;/i&gt;.}{ %City|CountryRegion%{, %CountryRegion%}}{, {{%Day%} %Month:s%} %Year%.}{ %Publisher%}.{ %Comments%.}</format>
         </column>
-        <sortkey>{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}{ %ConferenceName%}</sortkey>
+        <sortkey>{%Author:0|Editor:0|"Anon."%}{%Year|"n.d."%}{%Title:a|ShortTitle:a%}</sortkey>
       </source>
+      <!-- Based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=64#64 (April 19, 2009) -->
       <source type="DocumentFromInternetSite">
         <column id="1">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3%{ %Year%{%YearSuffix%}}, }{&lt;i&gt;%Title|ShortTitle%&lt;/i&gt;{ %Year%{%YearSuffix%}}}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}{, viewed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%}{, &lt;%URL:l%&gt;}{, %Comments%}.</format>
+          <format>{%Author:2|InternetSiteTitle|"Anon."%,}{ %Year|"n.d."%{%YearSuffix%}.}{ &lt;i&gt;%Title%&lt;/i&gt;.}{ [%Medium|"Online"%]}{ %City|CountryRegion|ProductionCompany|Publisher%{, %CountryRegion%}{: %ProductionCompany|Publisher%}}{ (%Version%)}{ Available at: &lt;u&gt;%URL:l%&lt;/u&gt;}{ [Accessed{{ %DayAccessed%} %MonthAccessed:s%} %YearAccessed%]}.{ %Comments%.}</format>
         </column>
-        <sortkey>{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}{ %JournalName%}</sortkey>
+        <sortkey>{%Author:0|InternetSiteTitle:a|"Anon."%}{%Year|"n.d."%}{%Title:a%}</sortkey>
       </source>
+      <!-- Based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=48#48 (April 19, 2009) -->
       <source type="Film">
         <column id="1">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{&lt;i&gt;%Title|ShortTitle%&lt;/i&gt;}{ %Year%{%YearSuffix%}}{, %Medium%}{, %ProductionCompany%}{, %City%}{, %StateProvince%}{, %CountryRegion%}{, {%Day% }%Month:s%}{. %Comments%}.</format>
+          <format>{&lt;i&gt;%Title|ShortTitle%&lt;/i&gt;.}{ %Year|"n.d."%{%YearSuffix%}.}{ [%Medium|"Film"%]}{ Directed by %Director:4%.}{ %City|CountryRegion%{, %CountryRegion%}}{: %Publisher|ProductionCompany%}}{ %Publisher|ProductionCompany%}.{ %Comments%.}</format>
         </column>
-        <sortkey>{%Title|ShortTitle%}{ %Year%}</sortkey>
+        <sortkey>{%Title:a|ShortTitle:a%}{%Year|"n.d."%}</sortkey>
       </source>
+      <!-- Based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=63#63 (April 19, 2009) -->
+      <source type="InternetSite">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2|"Anon."%,}{ %Year|"n.d."%{%YearSuffix%}.}{ &lt;i&gt;%Title|InternetSiteTitle%&lt;/i&gt;.}{ [%Medium|"Online"%]}{ (%Version%)}{ Available at: &lt;u&gt;%URL:l%&lt;/u&gt;}{ [Accessed{{ %DayAccessed%} %MonthAccessed:s%} %YearAccessed%]}.{ %Comments%.}</format>
+        </column>
+        <sortkey>{%Author:0|"Anon."%}{%Year|"n.d."%}{%Title:a|InternetSiteTitle:a%}</sortkey>
+      </source>
+      <!-- Based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=32#32 and -->
+      <!-- based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=34#34 and -->
+      <!-- based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=35#35 (April 19, 2009) -->
       <source type="JournalArticle">
         <column id="1">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3%{ %Year%{%YearSuffix%}}, }{'%Title|ShortTitle%'{ %Year%{%YearSuffix%}}}{, &lt;i&gt;%JournalName%&lt;/i&gt;}{, vol %Volume%}{, no. %Issue%}{, %Pages:p. :pp. %}{, viewed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%}{, &lt;%URL:l%&gt;}{, %Comments%}.</format>
+          <format>{%Author:2|"Anon."%,}{ %Year|"n.d."%{%YearSuffix%}.}{ %Title|ShortTitle%.}{ &lt;i&gt;%JournalName%&lt;/i&gt;,}{ [%Medium%].{{%Day%} %Month:s%,}}{ %Volume%{(%Issue%)},}{ (%Issue%),}{ %Pages:p.:pp.:a2%.}{. %Comments%.}{ Available at: &lt;u&gt;%URL:l%&lt;/u&gt;}{ [Accessed{{ %DayAccessed%} %MonthAccessed:s%} %YearAccessed%]}.{ %Comments%.}</format>
         </column>
-        <sortkey>{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}{ %JournalName%}</sortkey>
+        <sortkey>{%Author:0|"Anon."%}{%Year|"n.d."%}{%Title:a|ShortTitle:a%}</sortkey>
       </source>
+      <!-- Based on http://libweb.anglia.ac.uk/referencing/harvard.htm?harvard_id=49#49 (April 19, 2009) -->
+      <!-- Annual Report ('.' instead of ',' between title and city), Dissertation, Standard. -->
       <source type="Report">
         <column id="1">
           <halign>left</halign>
           <valign>top</valign>
-          <format>{%Author:3%{ %Year%{%YearSuffix%}}, }{'%Title|ShortTitle%'{ %Year%{%YearSuffix%}}}{, %ThesisType%}{, %Department%}{, %Institution%}{, %StandardNumber%}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}.</format>
+          <format>{%Author:2|"Anon."%,}{ %Year|"n.d."%{%YearSuffix%}.}{ %StandardNumber%}{ &lt;i&gt;%Title|ShortTitle%&lt;/i&gt;.}{ %ThesisType%.}{ %City|CountryRegion%{, %CountryRegion%}{: %Publisher|Institution%}}{ %Publisher|Institution%}.{ %Comments%.}</format>
         </column>
-        <sortkey>{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
-      </source>
-      <source type="Standard">
-        <column id="1">
-          <halign>left</halign>
-          <valign>top</valign>
-          <format>{%Author:3%{ %Year%{%YearSuffix%}}, }{&lt;i&gt;%Title|ShortTitle%&lt;/i&gt;{ %Year%{%YearSuffix%}}}{, %StandardNumber%}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}.</format>
-        </column>
-        <sortkey>{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+        <sortkey>{%Author:0|"Anon."%}{%Year|"n.d."%}{%Title:a|ShortTitle:a%}</sortkey>
       </source>
     </bibliography>
     <namelists>
@@ -263,80 +290,95 @@
         <single_suffix></single_suffix>
         <multi_suffix></multi_suffix>
       </list>
-      <list name="citation_author" id="1">
+      <list name="citation" id="1">
         <single_prefix></single_prefix>
         <multi_prefix></multi_prefix>
         <corporate>{%Corporate%}</corporate>
         <first_person>{%Last|First|Middle%}</first_person>
         <other_persons>{%Last|First|Middle%}</other_persons>
         <separator_between_if_two> &amp; </separator_between_if_two>
-        <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
-        <separator_before_last> &amp; </separator_before_last>
-        <max_number_of_persons_to_display>3</max_number_of_persons_to_display>
+        <separator_between_if_more_than_two></separator_between_if_more_than_two>
+        <separator_before_last></separator_before_last>
+        <max_number_of_persons_to_display>2</max_number_of_persons_to_display>
         <number_of_persons_to_display_if_more_than_max>1</number_of_persons_to_display_if_more_than_max>
         <overflow> et al.</overflow>
         <single_suffix></single_suffix>
         <multi_suffix></multi_suffix>
       </list>
-      <list name="citation_editor" id="2">
+      <list name="author" id="2">
         <single_prefix></single_prefix>
         <multi_prefix></multi_prefix>
         <corporate>{%Corporate%}</corporate>
-        <first_person>{%Last|First|Middle%}</first_person>
-        <other_persons>{%Last|First|Middle%}</other_persons>
+        <first_person>{%Last|First|Middle%{, %First:adp|Middle:adp%{%Middle:adp%}}}</first_person>
+        <other_persons>{%Last|First|Middle%{, %First:adp|Middle:adp%{%Middle:adp%}}}</other_persons>
         <separator_between_if_two> &amp; </separator_between_if_two>
         <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
         <separator_before_last> &amp; </separator_before_last>
-        <max_number_of_persons_to_display>3</max_number_of_persons_to_display>
+        <max_number_of_persons_to_display>4</max_number_of_persons_to_display>
         <number_of_persons_to_display_if_more_than_max>1</number_of_persons_to_display_if_more_than_max>
         <overflow> et al.</overflow>
-        <single_suffix> (ed.)</single_suffix>
-        <multi_suffix> (eds.)</multi_suffix>
-      </list>
-      <list name="author" id="3">
-        <single_prefix></single_prefix>
-        <multi_prefix></multi_prefix>
-        <corporate>{%Corporate%}</corporate>
-        <first_person>{%Last|First|Middle%{, %First:adu|Middle:adu%{%Middle:adu%}}}</first_person>
-        <other_persons>{%Last|First|Middle%{, %First:adu|Middle:adu%{%Middle:adu%}}}</other_persons>
-        <separator_between_if_two> &amp; </separator_between_if_two>
-        <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
-        <separator_before_last> &amp; </separator_before_last>
-        <max_number_of_persons_to_display>20</max_number_of_persons_to_display>
-        <number_of_persons_to_display_if_more_than_max>20</number_of_persons_to_display_if_more_than_max>
-        <overflow>, et al.</overflow>
         <single_suffix></single_suffix>
         <multi_suffix></multi_suffix>
       </list>
-      <list name="editor_as_author" id="4">
+      <list name="editor" id="3">
         <single_prefix></single_prefix>
         <multi_prefix></multi_prefix>
         <corporate>{%Corporate%}</corporate>
-        <first_person>{%Last|First|Middle%{, %First:adu|Middle:adu%{%Middle:adu%}}}</first_person>
-        <other_persons>{%Last|First|Middle%{, %First:adu|Middle:adu%{%Middle:adu%}}}</other_persons>
-        <separator_between_if_two>, </separator_between_if_two>
+        <first_person>{%Last|First|Middle%{, %First:adp|Middle:adp%{%Middle:adp%}}}</first_person>
+        <other_persons>{%Last|First|Middle%{, %First:adp|Middle:adp%{%Middle:adp%}}}</other_persons>
+        <separator_between_if_two> &amp; </separator_between_if_two>
         <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
-        <separator_before_last>, </separator_before_last>
-        <max_number_of_persons_to_display>20</max_number_of_persons_to_display>
-        <number_of_persons_to_display_if_more_than_max>20</number_of_persons_to_display_if_more_than_max>
-        <overflow>, et al.</overflow>
-        <single_suffix> (ed.)</single_suffix>
-        <multi_suffix> (eds.)</multi_suffix>
+        <separator_before_last> &amp; </separator_before_last>
+        <max_number_of_persons_to_display>4</max_number_of_persons_to_display>
+        <number_of_persons_to_display_if_more_than_max>1</number_of_persons_to_display_if_more_than_max>
+        <overflow> et al.</overflow>
+        <single_suffix>, ed.</single_suffix>
+        <multi_suffix>, eds.</multi_suffix>
       </list>
-      <list name="editor_not_as_author" id="5">
+      <list name="director" id="4">
         <single_prefix></single_prefix>
         <multi_prefix></multi_prefix>
         <corporate>{%Corporate%}</corporate>
-        <first_person>{{%First:adu|Middle:adu%{%Middle:adu%} }%Last|First|Middle%}</first_person>
-        <other_persons>{{%First:adu|Middle:adu%{%Middle:adu%} }%Last|First|Middle%}</other_persons>
-        <separator_between_if_two>, </separator_between_if_two>
+        <first_person>{{%First|Middle% {%Middle% }}%Last|First|Middle%}</first_person>
+        <other_persons>{{%First|Middle% {%Middle% }}%Last|First|Middle%}</other_persons>
+        <separator_between_if_two> &amp; </separator_between_if_two>
         <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
-        <separator_before_last>, </separator_before_last>
-        <max_number_of_persons_to_display>10</max_number_of_persons_to_display>
-        <number_of_persons_to_display_if_more_than_max>10</number_of_persons_to_display_if_more_than_max>
-        <overflow>, et al.</overflow>
-        <single_suffix> (ed.)</single_suffix>
-        <multi_suffix> (eds.)</multi_suffix>
+        <separator_before_last> &amp; </separator_before_last>
+        <max_number_of_persons_to_display>4</max_number_of_persons_to_display>
+        <number_of_persons_to_display_if_more_than_max>1</number_of_persons_to_display_if_more_than_max>
+        <overflow> et al.</overflow>
+        <single_suffix></single_suffix>
+        <multi_suffix></multi_suffix>
+      </list>
+      <list name="translator" id="5">
+        <single_prefix></single_prefix>
+        <multi_prefix></multi_prefix>
+        <corporate>{%Corporate%}</corporate>
+        <first_person>{{%First:adp|Middle:adp%{%Middle:adp%} }%Last|First|Middle%}</first_person>
+        <other_persons>{{%First:adp|Middle:adp%{%Middle:adp%} }%Last|First|Middle%}</other_persons>
+        <separator_between_if_two> &amp; </separator_between_if_two>
+        <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
+        <separator_before_last> &amp; </separator_before_last>
+        <max_number_of_persons_to_display>4</max_number_of_persons_to_display>
+        <number_of_persons_to_display_if_more_than_max>1</number_of_persons_to_display_if_more_than_max>
+        <overflow> et al.</overflow>
+        <single_suffix></single_suffix>
+        <multi_suffix></multi_suffix>
+      </list>
+      <list name="editorNotAuthor" id="6">
+        <single_prefix></single_prefix>
+        <multi_prefix></multi_prefix>
+        <corporate>{%Corporate%}</corporate>
+        <first_person>{{%First:adp|Middle:adp%{%Middle:adp%} }%Last|First|Middle%}</first_person>
+        <other_persons>{{%First:adp|Middle:adp%{%Middle:adp%} }%Last|First|Middle%}</other_persons>
+        <separator_between_if_two> &amp; </separator_between_if_two>
+        <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
+        <separator_before_last> &amp; </separator_before_last>
+        <max_number_of_persons_to_display>4</max_number_of_persons_to_display>
+        <number_of_persons_to_display_if_more_than_max>1</number_of_persons_to_display_if_more_than_max>
+        <overflow> et al.</overflow>
+        <single_suffix>, ed.</single_suffix>
+        <multi_suffix>, eds.</multi_suffix>
       </list>
     </namelists>
     <strings>
@@ -348,7 +390,7 @@
         <month number="5">May</month>
         <month number="6">June</month>
         <month number="7">July</month>
-        <month number="8">August</month>
+        <month number="8">Augustus</month>
         <month number="9">September</month>
         <month number="10">October</month>
         <month number="11">November</month>
@@ -356,32 +398,29 @@
       </months>
     </strings>
     <extensions>
-      <source type="ArticleInAPeriodical">
-        <yearsuffix>{%Author:1|PeriodicalTitle%}{%Year%}</yearsuffix>
-      </source>
       <source type="Book">
-        <yearsuffix>{%Author:1|Editor:2%}{%Year%}</yearsuffix>
+        <yearsuffix>{%Author:1|Editor:1|"Anon."%}{, %Year%}</yearsuffix>
       </source>
       <source type="BookSection">
-        <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
+        <yearsuffix>{%Author:1|Editor:1|BookAuthor:1|"Anon."%}{, %Year%}</yearsuffix>
       </source>
       <source type="ConferenceProceedings">
-        <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
+        <yearsuffix>{%Author:1|Editor:1|"Anon."%}{, %Year%}</yearsuffix>
       </source>
       <source type="DocumentFromInternetSite">
-        <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
+        <yearsuffix>{%Author:1|InternetSiteTitle|"Anon."%}{, %Year%}</yearsuffix>
       </source>
       <source type="Film">
-        <yearsuffix>{%Title|ShortTitle%}{%Year%}</yearsuffix>
+        <yearsuffix>{%ProductionCompany|"Anon."%}{, %Year%}</yearsuffix>
+      </source>
+      <source type="InternetSite">
+        <yearsuffix>{%Author:1|"Anon."%}{, %Year%}</yearsuffix>
       </source>
       <source type="JournalArticle">
-        <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
+        <yearsuffix>{%Author:1|"Anon."%}{, %Year%}</yearsuffix>
       </source>
       <source type="Report">
-        <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
-      </source>
-      <source type="Standard">
-        <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
+        <yearsuffix>{%Author:1|"Anon."%}{, %Year%}</yearsuffix>
       </source>
     </extensions>
   </xsl:variable>
