@@ -31,6 +31,9 @@
                 <b:ImportantField>b:URL</b:ImportantField>
                 <b:ImportantField>b:Comments</b:ImportantField>
                 <b:ImportantField>b:Pages</b:ImportantField>
+                <b:ImportantField>b:DayAccessed</b:ImportantField>
+                <b:ImportantField>b:MonthAccessed</b:ImportantField>
+                <b:ImportantField>b:YearAccessed</b:ImportantField>
             </source>
 
             <source type="JournalArticle">
