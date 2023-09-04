@@ -7,11 +7,11 @@
         <!-- General information about the style. -->
         <general>
             <stylename>TUNI 2.0</stylename>
-            <version>2023.04</version>
-            <version2013>2023.04</version2013>
+            <version>2023.09</version>
+            <version2013>2023.09</version2013>
             <author>Jenni Rantanen (jenrant@protonmail.com)</author>
             <description>An new implementation of the Tampere Universities reference style.</description>
-            <URL> https://www.tuni.fi/fi/opiskelijan-opas/kasikirja/tamk/opiskelu-0/kirjallisen-raportoinnin-opas </URL>
+            <URL> https://github.com/jenrant/tuni_lahdeluettelo </URL>
             <comments>Based on Tampere Universities reference style.</comments>
             <display_errors>yes</display_errors>
             <citation_as_link>yes</citation_as_link>
@@ -19,6 +19,51 @@
 
         <importantfields>
             <!-- Important fields for each supported source type. -->
+            <source type="Book">
+                <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Author/b:Editor/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:Volume</b:ImportantField>
+                <b:ImportantField>b:City</b:ImportantField>
+                <b:ImportantField>b:Publisher</b:ImportantField>
+                <b:ImportantField>b:SourceType</b:ImportantField>
+                <b:ImportantField>b:URL</b:ImportantField>
+                <b:ImportantField>b:Comments</b:ImportantField>
+                <b:ImportantField>b:Pages</b:ImportantField>
+            </source>
+
+            <source type="JournalArticle">
+                <b:ImportantField>b:Author</b:ImportantField>
+            </source>
+
+            <source type="Interview">
+                <b:ImportantField>b:Author</b:ImportantField>
+            </source>
+
+            <source type="ArticleInAPeriodical">
+                <b:ImportantField>b:Author</b:ImportantField>
+            </source>
+
+            <source type="Case">
+                <b:ImportantField>b:Author</b:ImportantField>
+            </source>
+
+            <source type="ConferenceProceedings">
+                <b:ImportantField>b:Author</b:ImportantField>
+            </source>
+
+            <source type="Report">
+                <b:ImportantField>b:Author</b:ImportantField>
+            </source>
+
+            <source type="Film">
+                <b:ImportantField>b:Author</b:ImportantField>
+            </source>
+
+            <source type="InternetSite">
+                <b:ImportantField>b:Author</b:ImportantField>
+            </source>
 
         </importantfields>
 
