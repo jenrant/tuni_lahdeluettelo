@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xsl:stylesheet version="1.0" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<xsl:stylesheet version="1.0" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:t="http://www.microsoft.com/temp">
 
     <!-- Variable containing all necessary data for a certain style of bibliography. -->
     <xsl:variable name="data">
         <general>
             <stylename>TUNI Lähdeluettelo</stylename>
-            <version>2022.03.15</version>
-            <version2013>2022.1</version2013>
+            <version>2023.03.23</version>
+            <version2013>2023.2</version2013>
             <description>An implementation of the Tampere Universities reference style.</description>
-            <URL>https://www.tuni.fi/fi/opiskelijan-opas/kasikirja/tamk/opiskelu-0/opinnaytetyot/opinnaytetyon-raportointiohjeet</URL>
+            <URL>https://www.tuni.fi/fi/opiskelijan-opas/kasikirja/tamk/opiskelu-0/kirjallisen-raportoinnin-opas</URL>
             <author>Jenni Rantanen (jenrant@protonmail.com)</author>
             <comments>
                 Based on Tampere Universities reference style.
@@ -26,6 +26,9 @@
                 <b:ImportantField>b:Volume</b:ImportantField>
                 <b:ImportantField>b:Issue</b:ImportantField>
                 <b:ImportantField>b:Pages</b:ImportantField>
+                <b:ImportantField>b:Medium</b:ImportantField>
+                <b:ImportantField>b:Comments</b:ImportantField>
+                <b:ImportantField>b:URL</b:ImportantField>
             </source>
             <source type="Book">
                 <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
@@ -39,6 +42,8 @@
                 <b:ImportantField>b:URL</b:ImportantField>
                 <b:ImportantField>b:City</b:ImportantField>
                 <b:ImportantField>b:Publisher</b:ImportantField>
+                <b:ImportantField>b:Medium</b:ImportantField>
+                <b:ImportantField>b:Comments</b:ImportantField>
             </source>
             <source type="BookSection">
                 <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
@@ -54,6 +59,17 @@
                 <b:ImportantField>b:City</b:ImportantField>
                 <b:ImportantField>b:Publisher</b:ImportantField>
             </source>
+            <source type="Case">
+                <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:Day</b:ImportantField>
+                <b:ImportantField>b:Month</b:ImportantField>
+                <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:CaseNumber</b:ImportantField>
+                <b:ImportantField>b:DayAccessed</b:ImportantField>
+                <b:ImportantField>b:MonthAccessed</b:ImportantField>
+                <b:ImportantField>b:YearAccessed</b:ImportantField>
+                <b:ImportantField>b:URL</b:ImportantField>
+            </source>
             <source type="InternetSite">
                 <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
@@ -63,6 +79,16 @@
                 <b:ImportantField>b:YearAccessed</b:ImportantField>
                 <b:ImportantField>b:URL</b:ImportantField>
                 <b:ImportantField>b:Version</b:ImportantField>
+            </source>
+            <source type="Interview">
+                <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:DayAccessed</b:ImportantField>
+                <b:ImportantField>b:MonthAccessed</b:ImportantField>
+                <b:ImportantField>b:YearAccessed</b:ImportantField>
+                <b:ImportantField>b:Version</b:ImportantField>
+                <b:ImportantField>b:Medium</b:ImportantField>
             </source>
             <source type="DocumentFromInternetSite">
                 <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
@@ -109,8 +135,14 @@
             <source type="BookSection">
                 <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
             </source>
+            <source type="Case">
+                <format>{%CitationPrefix%}{%ShortTitle|Title%{{{ %Day%}.%Month}.%Year}/%CaseNumber%}{, %CitationPages::pp. %}{%CitationSuffix%}</format>
+            </source>
             <source type="InternetSite">
                 <format>{%CitationPrefix%}{%Author:1|"Anon."%}{, %Year|"n.d."%}{%YearSuffix%}{, %CitationPages:p.:pp.:a2%}{%CitationSuffix%}</format>
+            </source>
+            <source type="Interview">
+                <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
             </source>
             <source type="DocumentFromInternetSite">
                 <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
@@ -140,7 +172,7 @@
                 <column id="1">
                     <halign>left</halign>
                     <valign>top</valign>
-                    <format>{%Author:3|Editor:4% { %Year%{%YearSuffix%}.} }{%Title|ShortTitle% }{. %PeriodicalTitle%}{ %Volume%}{ (%Issue%)}{, %Pages%}</format>
+                    <format>{%Author:3|Editor:4% { %Year%{%YearSuffix%}.} }{%Title|ShortTitle% }{. %PeriodicalTitle%}{. %Medium%}{ %Volume%}{ (%Issue%)}{, %Pages%}{. %Comments%}.{ &lt;u&gt;%URL:l%&lt;/u&gt;}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
             </source>
@@ -148,17 +180,25 @@
                 <column id="1">
                     <halign>left</halign>
                     <valign>top</valign>
-                    <format>{%Author:3|Editor:4% { %Year%{%YearSuffix%}.} }{%Title|ShortTitle% }{. %Edition%}{. %CountryRegion%}{. %StateProvince%}{. %City%}{: %Publisher%}{. Viitattu {{ %DayAccessed%}.%MonthAccessed%}.%YearAccessed%}{. %Comments%.}.{ &lt;u&gt;%URL:l%&lt;/u&gt;}</format>
+                    <format>{%Author:3|Editor:4% { %Year%{%YearSuffix%}.} }{%Title|ShortTitle% }{. %Medium%}{. %Edition%}{. %CountryRegion%}{. %StateProvince%}{. %City%}{: %Publisher%}{. Viitattu {{ %DayAccessed%}.%MonthAccessed%}.%YearAccessed%}{. %Comments%}.{ &lt;u&gt;%URL:l%&lt;/u&gt;}</format>
                 </column>
-                <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+                <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{ %Title|ShortTitle%}</sortkey>
             </source>
             <source type="BookSection">
                 <column id="1">
                     <halign>left</halign>
                     <valign>top</valign>
-                    <format>{%Author:3|Editor:4% { %Year%{%YearSuffix%}.} }{%Title|ShortTitle% }{. Teoksessa {%Editor:4% }%BookTitle%}{. %Edition%}{. %CountryRegion%}{. %StateProvince%}{. %City%}{: %Publisher%}{. Viitattu {{ %DayAccessed%}.%MonthAccessed%}.%YearAccessed%}{. %Comments%.}.{ &lt;u&gt;%URL:l%&lt;/u&gt;}</format>
+                    <format>{%Author:3|Editor:4% { %Year%{%YearSuffix%}.} }{%Title|ShortTitle% }{. Teoksessa {%Editor:4% }%BookTitle%}{. %Medium%}{. %Edition%}{. %CountryRegion%}{. %StateProvince%}{. %City%}{: %Publisher%}{. Viitattu {{ %DayAccessed%}.%MonthAccessed%}.%YearAccessed%}{. %Comments%}.{ &lt;u&gt;%URL:l%&lt;/u&gt;}</format>
                 </column>
-                <sortkey>{%Author:0|Editor:0|Title|ShortTitle|BookTitle%}{ %Year%}{ %Title|ShortTitle|BookTitle%}</sortkey>
+                <sortkey>{%Author:0|Editor:0|Title|ShortTitle|BookTitle%}{%Year%}{ %Title|ShortTitle|BookTitle%}</sortkey>
+            </source>
+            <source type="Case">
+                <column id="1">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>{%Title|ShortTitle% {{{ %Day%}.%Month}.%Year}/%CaseNumber%}{. Viitattu {{ %DayAccessed%}.%MonthAccessed%}.%YearAccessed%}.{ &lt;u&gt;%URL:l%&lt;/u&gt;}</format>
+                </column>
+                <sortkey>{%Title|ShortTitle%}{%Year%}</sortkey>
             </source>
             <source type="InternetSite">
                 <column id="1">
@@ -168,13 +208,21 @@
                 </column>
                 <sortkey>{%Author:0|"Anon."%}{%Year|"n.d."%}{%Title:a|InternetSiteTitle:a%}</sortkey>
             </source>
+            <source type="Interview">
+                <column id="1">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>{%Author:3|"Anon."% { %Year%{%YearSuffix%}.} }{ %Title|ShortTitle%.}{. %Medium%}{ %Version%.}{ {{ %DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}</format>
+                </column>
+                <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{ %Title|ShortTitle%}</sortkey>
+            </source>
             <source type="DocumentFromInternetSite">
                 <column id="1">
                     <halign>left</halign>
                     <valign>top</valign>
                     <format>{%Author:3|"Anon."% { %Year%{%YearSuffix%}.} }{ %Title|ShortTitle%.}{ %InternetSiteTitle%.}{ Julkaistu %Version%.}{ Luettu {{ %DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}{ %Comments%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}</format>
                 </column>
-                <sortkey>{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}{ %JournalName%}</sortkey>
+                <sortkey>{%Author:0|Title|ShortTitle%}{%Year%}{ %Title|ShortTitle%}{ %JournalName%}</sortkey>
             </source>
             <source type="Standard">
                 <column id="1">
@@ -182,7 +230,7 @@
                     <valign>top</valign>
                     <format>{%Author:3%{ %Year%{%YearSuffix%}}, }{&lt;i&gt;%Title|ShortTitle%&lt;/i&gt;{ %Year%{%YearSuffix%}}}{, %StandardNumber%}{, %Publisher%}{, %City%}{, %StateProvince%}{, %CountryRegion%}.</format>
                 </column>
-                <sortkey>{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+                <sortkey>{%Author:0|Title|ShortTitle%}{%Year%}{ %Title|ShortTitle%}</sortkey>
             </source>
             <source type="Patent">
                 <column id="1">
@@ -190,7 +238,7 @@
                     <valign>top</valign>
                     <format>{{%ShortTitle%{ %PatentNumber%}.} }{%Year%. }{%Title% }{. %CountryRegion%}{: %Type%}{. Luettu {{ %DayAccessed%}.%MonthAccessed%}.%YearAccessed%}{. %Comments%.}.{ &lt;u&gt;%URL:l%&lt;/u&gt;}</format>
                 </column>
-                <sortkey>{%ShortTitle|Title%}{ %Year%}{ %Title|Type%}</sortkey>
+                <sortkey>{%ShortTitle|Title%}{%Year%}{ %Title|Type%}</sortkey>
             </source>
         </bibliography>
         <namelists>
