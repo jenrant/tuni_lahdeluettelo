@@ -37,7 +37,17 @@
             </source>
 
             <source type="JournalArticle">
-                <b:ImportantField>b:Author</b:ImportantField>
+                <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:PublicationTitle</b:ImportantField>
+                <b:ImportantField>b:Edition</b:ImportantField>
+                <b:ImportantField>b:Pages</b:ImportantField>
+                <b:ImportantField>b:DayAccessed</b:ImportantField>
+                <b:ImportantField>b:MonthAccessed</b:ImportantField>
+                <b:ImportantField>b:YearAccessed</b:ImportantField>
+                <b:ImportantField>b:URL</b:ImportantField>
+                <b:ImportantField>b:DOI</b:ImportantField>
             </source>
 
             <source type="Interview">
