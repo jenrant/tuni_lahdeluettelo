@@ -520,4 +520,66 @@
 
     </xsl:template>
 
+    <!-- Formats the bibliography. -->
+    <xsl:template name="format-bibliography">
+
+        <!-- Extends the b:Source elements of the b:Bibliography element with a b:SortKey. -->
+        <xsl:variable name="extendedBib">
+            <!-- Create a b:Bibliography element. -->
+            <b:Bibliography>
+                <!-- Extend all the b:Source elements with a sortkey. -->
+                <xsl:for-each select="/b:Bibliography/b:Source">
+                    <b:Source>
+                        <!-- Copy the content of the b:Source. -->
+                        <xsl:copy-of select="./*"/>
+
+                        <!-- Add a sorting key. -->
+                        <xsl:call-template name="create-sortkey">
+                            <xsl:with-param name="source" select="."/>
+                        </xsl:call-template>
+                    </b:Source>
+                </xsl:for-each>
+
+                <!-- With the exception of the b:Source elements, copy all elements (not really used by the stylesheets). -->
+                <!--<xsl:for-each select="/b:Bibliography/*">
+                  <xsl:if test="local-name() != 'Source'">
+                    <xsl:element name="{name()}" namespace="{namespace-uri()}">
+                      <xsl:value-of select="."/>
+                    </xsl:element>
+                  </xsl:if>
+                </xsl:for-each>-->
+
+            </b:Bibliography>
+        </xsl:variable>
+
+        <html xmlns="http://www.w3.org/TR/html40" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.w3.org/TR/html40 ">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+                <style>
+                    p.MsoBibliography
+                </style>
+            </head>
+            <body>
+
+                <xsl:choose>
+                    <!-- If there is more than one column, use a table layout. -->
+                    <xsl:when test="msxsl:node-set($data)/bibliography/columns > 1">
+                        <xsl:call-template name="format-bibliography-as-table">
+                            <xsl:with-param name="bibNodeSet" select="msxsl:node-set($extendedBib)"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <!-- Otherwise use a paragraph layout. -->
+                    <xsl:otherwise>
+                        <xsl:call-template name="format-bibliography-as-paragraphs">
+                            <xsl:with-param name="bibNodeSet" select="msxsl:node-set($extendedBib)"/>
+                        </xsl:call-template>
+                    </xsl:otherwise>
+                </xsl:choose>
+
+            </body>
+        </html>
+
+    </xsl:template>
+
 </xsl:stylesheet>
