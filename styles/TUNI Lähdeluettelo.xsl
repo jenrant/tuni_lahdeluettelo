@@ -41,7 +41,7 @@
                 <b:ImportantField>b:Year</b:ImportantField>
                 <b:ImportantField>b:Title</b:ImportantField>
                 <b:ImportantField>b:PublicationTitle</b:ImportantField>
-                <b:ImportantField>b:Edition</b:ImportantField>
+                <b:ImportantField>b:Issue</b:ImportantField>
                 <b:ImportantField>b:Pages</b:ImportantField>
                 <b:ImportantField>b:DayAccessed</b:ImportantField>
                 <b:ImportantField>b:MonthAccessed</b:ImportantField>
@@ -62,7 +62,14 @@
             </source>
 
             <source type="ArticleInAPeriodical">
-                <b:ImportantField>b:Author</b:ImportantField>
+                <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:Editor</b:ImportantField>
+                <b:ImportantField>b:PeriodicalTitle</b:ImportantField>
+                <b:ImportantField>b:City</b:ImportantField>
+                <b:ImportantField>b:Publisher</b:ImportantField>
+                <b:ImportantField>b:Issue</b:ImportantField>
             </source>
 
             <source type="Case">
