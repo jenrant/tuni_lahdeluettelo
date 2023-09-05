@@ -267,8 +267,7 @@
         <!-- Generate an XML node-set from the formatting data. -->
         <xsl:variable name="params" select="msxsl:node-set($data)"/>
 
-        <html xmlns="https://www.w3.org/TR/html40" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="https://www.w3.org/TR/html40 ">
+        <html xmlns="http://www.w3.org/TR/html40">
             <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
             </head>
@@ -403,8 +402,7 @@
         <!-- Generate an XML node-set from the formatting data. -->
         <xsl:variable name="params" select="msxsl:node-set($data)"/>
 
-        <html xmlns="https://www.w3.org/TR/html40" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="https://www.w3.org/TR/html40 ">
+        <html xmlns="http://www.w3.org/TR/html40">
             <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
             </head>
@@ -556,8 +554,7 @@
             </b:Bibliography>
         </xsl:variable>
 
-        <html xmlns="http://www.w3.org/TR/html40" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://www.w3.org/TR/html40 ">
+        <html xmlns="http://www.w3.org/TR/html40">
             <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
                 <style>
