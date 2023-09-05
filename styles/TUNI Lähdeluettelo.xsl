@@ -874,4 +874,361 @@
         </xsl:if>
     </xsl:template>
 
+    <!-- Formats a b:Source element. -->
+    <xsl:template name="format-source">
+        <!-- The b:Source element to format. -->
+        <xsl:param name="source"/>
+        <!-- The format in which to display the b:Source element. -->
+        <xsl:param name="format"/>
+        <!-- b:Source child elements which can not be used (-name1-name2).-->
+        <xsl:param name="disallowed"/>
+
+        <xsl:call-template name="clean-punctuation">
+            <xsl:with-param name="string">
+                <xsl:call-template name="format-source-part-2">
+                    <xsl:with-param name="source" select="$source"/>
+                    <xsl:with-param name="format">
+                        <xsl:call-template name="preprocess-format-string">
+                            <xsl:with-param name="string" select="$format"/>
+                        </xsl:call-template>
+                    </xsl:with-param>
+                    <xsl:with-param name="used" select="$disallowed"/>
+                </xsl:call-template>
+            </xsl:with-param>
+        </xsl:call-template>
+    </xsl:template>
+
+    <!-- Helper function for format-source. This function recursively
+     resolves the highest level of the first conditional branch of
+     the format string. It will return the entire string with at
+     least one less conditional branch.
+  -->
+    <xsl:template name="format-source-part-2">
+        <!-- The b:Source element to format. -->
+        <xsl:param name="source"/>
+        <!-- The preprocessed format in which to display the b:Source element. -->
+        <xsl:param name="format"/>
+        <!-- b:Source child elements which can not be used (-name1-name2-).-->
+        <xsl:param name="used"/>
+
+        <xsl:choose>
+            <!-- Check if there is still conditional processing to do. -->
+            <xsl:when test="contains($format, '{')">
+                <!-- Get the first level to process. -->
+                <xsl:variable name="level" select="substring-before(substring-after($format, '{'), '}')"/>
+
+                <!-- Retrieve the delimeters of the level to process. -->
+                <xsl:variable name="delim" select="concat('{', $level,'}')"/>
+
+                <xsl:variable name="current">
+                    <xsl:call-template name="format-source-part-3">
+                        <!-- The current source. -->
+                        <xsl:with-param name="source" select="$source"/>
+                        <!-- Retrieve the part that has to be processed during this run. -->
+                        <xsl:with-param name="format" select="substring-before(substring-after($format, $delim), $delim)"/>
+                        <!-- List of variables which can no longer be used. -->
+                        <xsl:with-param name="used" select="$used"/>
+                        <!-- Level of variables to process during this run. -->
+                        <xsl:with-param name="level" select="$level"/>
+                    </xsl:call-template>
+                </xsl:variable>
+
+                <!-- Part before the part that was processed in this run. -->
+                <xsl:value-of select="substring-before($format, $delim)"/>
+
+                <!-- Recursively process the entire string. -->
+                <xsl:call-template name="format-source-part-2">
+                    <!-- The same old source. -->
+                    <xsl:with-param name="source" select="$source"/>
+                    <!-- The format string of which one condition is removed. -->
+                    <xsl:with-param name="format">
+                        <!-- Result of the part processed in this run. As it can still contain
+                             lower level conditional formatting, it has to be reprocessed. -->
+                        <xsl:value-of select="msxsl:node-set($current)/output"/>
+                        <!-- Part after the part that was processed in this run. -->
+                        <xsl:value-of select="substring-after(substring-after($format, $delim), $delim)"/>
+                    </xsl:with-param>
+                    <!-- Updated used containing now also the variables used in this run. -->
+                    <xsl:with-param name="used" select="concat($used, msxsl:node-set($current)/used)"/>
+                </xsl:call-template>
+
+            </xsl:when>
+            <!-- Otherwise, print the entire leftover string. -->
+            <xsl:otherwise>
+                <xsl:value-of select="$format"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <!-- Helper function for format-source-part-2. This function recursively
+         resolves the variables at the current level.
+      -->
+    <xsl:template name="format-source-part-3">
+        <!-- The b:Source element to format. -->
+        <xsl:param name="source"/>
+        <!-- The preprocessed format in which to display the b:Source element. -->
+        <xsl:param name="format"/>
+        <!-- b:Source child elements which can not be used (-name1-name2-). -->
+        <xsl:param name="used"/>
+        <!-- Level of variables to process. -->
+        <xsl:param name="level"/>
+        <!-- Output so far for this part. -->
+        <xsl:param name="outputAtCurrentLevel" select="''"/>
+        <!-- b:Source child elements which can not be used because they are
+             already used at this level. They are an extension to 'used'. -->
+        <xsl:param name="usedAtCurrentLevel" select="''"/>
+
+        <xsl:choose>
+            <!-- Check if further processing has to be done. -->
+            <xsl:when test="string-length($format) > 0">
+                <!-- Get the delimeter for the current level of parameters to process. -->
+                <xsl:variable name="delim" select="concat('%', $level, '%')"/>
+
+                <xsl:choose>
+                    <!-- Check if there are variables left at the current level to process. -->
+                    <xsl:when test="contains($format, $delim)">
+
+                        <!-- Get the name of the first available element in the first parameter part. -->
+                        <xsl:variable name="name">
+                            <xsl:call-template name="get-source-parameter">
+                                <xsl:with-param name="parameters" select="substring-before(substring-after($format, $delim), $delim)"/>
+                                <xsl:with-param name="source" select="$source"/>
+                                <xsl:with-param name="used" select="concat($used, $usedAtCurrentLevel)"/>
+                            </xsl:call-template>
+                        </xsl:variable>
+
+                        <xsl:variable name="result">
+                            <xsl:if test="string-length($name) > 0">
+                                <!-- Get the formatting options for the element. -->
+                                <xsl:variable name="options">
+                                    <xsl:call-template name="substring-before-ex">
+                                        <xsl:with-param name="string" select="substring-after(substring-before(substring-after($format, $delim), $delim), concat($name, ':'))"/>
+                                        <xsl:with-param name="delimeter" select="'|'"/>
+                                    </xsl:call-template>
+                                </xsl:variable>
+
+                                <xsl:choose>
+                                    <!-- Handle "or" strings in format; e.g.: {%Year|"n.d."%} -->
+                                    <xsl:when test="starts-with($name, '&#x22;') and substring($name, string-length($name), 1) = '&#x22;'">
+                                        <xsl:value-of select="substring-before(substring-after($name, '&#x22;'), '&#x22;')"/>
+                                    </xsl:when>
+                                    <!-- Handle non-empty author parameters. -->
+                                    <xsl:when test="string($source/b:Author/*[local-name() = $name])">
+                                        <!-- Remove non-numeric characters from the options section (mostly for the r option). -->
+                                        <xsl:variable name="options2" select="translate($options, translate($options, '0123456789', ''), '')"/>
+
+                                        <xsl:choose>
+                                            <!-- Handle contributors of which the format is specified. -->
+                                            <xsl:when test="string-length($options2) > 0">
+                                                <xsl:call-template name="format-contributors-by-params">
+                                                    <xsl:with-param name="contributors" select="$source/b:Author/*[local-name() = $name]"/>
+                                                    <xsl:with-param name="params" select="msxsl:node-set($data)/namelists/list[@id = $options2]"/>
+                                                </xsl:call-template>
+                                            </xsl:when>
+                                            <!-- Handle contributor counting. -->
+                                            <xsl:when test="translate($options, translate($options, 'c', ''), '') = 'c'">
+                                                <xsl:call-template name="count-contributors">
+                                                    <xsl:with-param name="contributors" select="$source/b:Author/*[local-name() = $name]"/>
+                                                </xsl:call-template>
+                                            </xsl:when>
+                                            <!-- Handle contributors of which the format is not specified. -->
+                                            <xsl:otherwise>
+                                                <xsl:call-template name="format-contributors-by-params">
+                                                    <xsl:with-param name="contributors" select="$source/b:Author/*[local-name() = $name]"/>
+                                                    <xsl:with-param name="params" select="msxsl:node-set($data)/namelists/list[@id = 0]"/>
+                                                </xsl:call-template>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                    </xsl:when>
+                                    <!-- Handle pages. -->
+                                    <xsl:when test="$name = 'Pages' and string($source/b:Pages)">
+                                        <xsl:call-template name="format-pages">
+                                            <xsl:with-param name="pages" select="$source/b:Pages"/>
+                                            <xsl:with-param name="options" select="$options"/>
+                                        </xsl:call-template>
+                                    </xsl:when>
+                                    <!-- Handle cited pages. -->
+                                    <xsl:when test="$name = 'CitationPages' and string($source/b:CitationPages)">
+                                        <xsl:call-template name="format-pages">
+                                            <xsl:with-param name="pages" select="$source/b:CitationPages"/>
+                                            <xsl:with-param name="options" select="$options"/>
+                                        </xsl:call-template>
+                                    </xsl:when>
+                                    <!-- Handle URLs. -->
+                                    <xsl:when test="$name = 'URL' and string($source/b:URL)">
+                                        <xsl:call-template name="format-url">
+                                            <xsl:with-param name="url" select="$source/b:URL"/>
+                                            <xsl:with-param name="options" select="$options"/>
+                                        </xsl:call-template>
+                                    </xsl:when>
+                                    <!-- Handle years and years accessed. -->
+                                    <xsl:when test="starts-with($name, 'Year') and string($source/*[local-name() = $name])">
+                                        <xsl:call-template name="format-year">
+                                            <xsl:with-param name="year" select="$source/*[local-name() = $name]"/>
+                                            <xsl:with-param name="options" select="$options"/>
+                                        </xsl:call-template>
+                                    </xsl:when>
+                                    <!-- Handle days and days accessed. -->
+                                    <xsl:when test="starts-with($name, 'Day') and string($source/*[local-name() = $name])">
+                                        <xsl:call-template name="format-day">
+                                            <xsl:with-param name="day" select="$source/*[local-name() = $name]"/>
+                                            <xsl:with-param name="options" select="$options"/>
+                                        </xsl:call-template>
+                                    </xsl:when>
+                                    <!-- Handle titles. -->
+                                    <xsl:when test="contains($name, 'Title') and string($source/*[local-name() = $name])">
+                                        <!-- Format the title. -->
+                                        <xsl:variable name="title">
+                                            <xsl:call-template name="format-title">
+                                                <xsl:with-param name="title" select="$source/*[local-name() = $name]"/>
+                                                <xsl:with-param name="options" select="$options"/>
+                                                <xsl:with-param name="delimeter">
+                                                    <xsl:choose>
+                                                        <xsl:when test="string-length(msxsl:node-set($data)/overrides/titles/delimeter) > 0">
+                                                            <xsl:value-of select="msxsl:node-set($data)/overrides/titles/delimeter"/>
+                                                        </xsl:when>
+                                                        <xsl:otherwise>
+                                                            <xsl:text>:</xsl:text>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose>
+                                                </xsl:with-param>
+                                                <xsl:with-param name="articles">
+                                                    <xsl:choose>
+                                                        <xsl:when test="string-length(msxsl:node-set($data)/overrides/titles/articles) > 0">
+                                                            <xsl:value-of select="msxsl:node-set($data)/overrides/titles/articles"/>
+                                                        </xsl:when>
+                                                        <xsl:otherwise>
+                                                            <xsl:text>-A-AN-THE-</xsl:text>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose>
+                                                </xsl:with-param>
+                                            </xsl:call-template>
+                                        </xsl:variable>
+                                        <!-- Display the title or %empty% if the title is empty. -->
+                                        <xsl:choose>
+                                            <xsl:when test="string-length($title) = 0">
+                                                <xsl:text>%empty%</xsl:text>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <xsl:value-of select="$title"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                    </xsl:when>
+                                    <!-- Handle volume and citation volume. -->
+                                    <xsl:when test="($name = 'Volume' or $name = 'CitationVolume') and string($source/*[local-name() = $name]) and number($source/*[local-name() = $name]) > 0">
+                                        <xsl:call-template name="format-number">
+                                            <xsl:with-param name="number" select="$source/*[local-name() = $name]"/>
+                                            <xsl:with-param name="options" select="translate($options, translate($options, 'R', ''), '')"/>
+                                        </xsl:call-template>
+                                    </xsl:when>
+                                    <!-- Handle months and months accessed. -->
+                                    <xsl:when test="starts-with($name, 'Month') and string($source/*[local-name() = $name])">
+                                        <xsl:call-template name="format-month">
+                                            <xsl:with-param name="month" select="$source/*[local-name() = $name]"/>
+                                            <xsl:with-param name="options" select="$options"/>
+                                        </xsl:call-template>
+                                    </xsl:when>
+                                    <!-- Handle source types. -->
+                                    <xsl:when test="$name = 'SourceType' and string($source/b:SourceType)">
+                                        <xsl:call-template name="format-sourcetype">
+                                            <xsl:with-param name="type" select="$source/b:SourceType"/>
+                                            <xsl:with-param name="options" select="$options"/>
+                                        </xsl:call-template>
+                                    </xsl:when>
+                                    <!-- Handle all other non-empty, non-author parameters. -->
+                                    <xsl:when test="string($source/*[local-name() = $name])">
+                                        <xsl:choose>
+                                            <xsl:when test="contains($options, 'u')">
+                                                <xsl:call-template name="upper-case">
+                                                    <xsl:with-param name ="string" select="$source/*[local-name() = $name]"/>
+                                                </xsl:call-template>
+                                            </xsl:when>
+                                            <xsl:when test="contains($options, 'l')">
+                                                <xsl:call-template name="lower-case">
+                                                    <xsl:with-param name ="string" select="$source/*[local-name() = $name]"/>
+                                                </xsl:call-template>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <xsl:value-of select="$source/*[local-name() = $name]"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                    </xsl:when>
+                                </xsl:choose>
+                            </xsl:if>
+                            <!-- Mark the element as being empty. -->
+                            <xsl:if test="string-length($name) = 0">
+                                <xsl:text>%empty%</xsl:text>
+                            </xsl:if>
+                        </xsl:variable>
+
+                        <xsl:if test="$result != '%empty%'">
+                            <xsl:call-template name="format-source-part-3">
+                                <xsl:with-param name="source" select="$source"/>
+                                <!-- Process the part remaining after the current part. -->
+                                <xsl:with-param name="format" select="substring-after(substring-after($format, $delim), $delim)"/>
+                                <xsl:with-param name="level" select="$level"/>
+                                <xsl:with-param name="used" select="$used"/>
+                                <xsl:with-param name="outputAtCurrentLevel">
+                                    <xsl:value-of select="$outputAtCurrentLevel"/>
+                                    <!-- Output before the result of this round. -->
+                                    <xsl:value-of select="substring-before($format, $delim)"/>
+                                    <!-- Result from this round-->
+                                    <xsl:value-of select="$result"/>
+                                </xsl:with-param>
+                                <xsl:with-param name="usedAtCurrentLevel">
+                                    <xsl:value-of select="$usedAtCurrentLevel"/>
+                                    <!-- Used this round. -->
+                                    <xsl:if test="string-length($name) > 0">
+                                        <!-- Get the formatting options for the element. -->
+                                        <xsl:variable name="options">
+                                            <xsl:call-template name="substring-before-ex">
+                                                <xsl:with-param name="string" select="substring-after(substring-before(substring-after($format, $delim), $delim), concat($name, ':'))"/>
+                                                <xsl:with-param name="delimeter" select="'|'"/>
+                                            </xsl:call-template>
+                                        </xsl:variable>
+                                        <!-- Only add the variable to the used list if the 'r' option is not used. -->
+                                        <xsl:if test="not(contains($options, 'r'))">
+                                            <xsl:text>-</xsl:text>
+                                            <xsl:value-of select="$name"/>
+                                            <xsl:text>-</xsl:text>
+                                        </xsl:if>
+                                    </xsl:if>
+                                </xsl:with-param>
+                            </xsl:call-template>
+                        </xsl:if>
+                    </xsl:when>
+                    <!-- Otherwise there are no variables left to process. -->
+                    <xsl:otherwise>
+                        <xsl:call-template name="format-source-part-3">
+                            <xsl:with-param name="format" select="''"/>
+                            <xsl:with-param name="outputAtCurrentLevel" select="concat($outputAtCurrentLevel, $format)"/>
+                            <xsl:with-param name="usedAtCurrentLevel" select="$usedAtCurrentLevel"/>
+                        </xsl:call-template>
+                    </xsl:otherwise>
+                </xsl:choose>
+
+            </xsl:when>
+            <!-- Otherwise, finish the output of the function. -->
+            <xsl:otherwise>
+                <xsl:choose>
+                    <!-- Check if anything has to be send to the output and if the used variables section has to be updated. -->
+                    <xsl:when test="not(contains($outputAtCurrentLevel, '%empty%')) and string-length($outputAtCurrentLevel) > 0">
+                        <output>
+                            <xsl:value-of select="$outputAtCurrentLevel"/>
+                        </output>
+                        <used>
+                            <xsl:value-of select="$usedAtCurrentLevel"/>
+                        </used>
+                    </xsl:when>
+                    <!-- Otherwise, nothing has to be send to the output. The used variables stay used. -->
+                    <xsl:otherwise>
+                        <output></output>
+                        <used></used>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:otherwise>
+        </xsl:choose>
+
+    </xsl:template>
+
 </xsl:stylesheet>
