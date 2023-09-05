@@ -99,7 +99,16 @@
             </source>
 
             <source type="Report">
-                <b:ImportantField>b:Author</b:ImportantField>
+                <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:Tag</b:ImportantField>
+                <b:ImportantField>b:Institution</b:ImportantField>
+                <b:ImportantField>b:ThesisType</b:ImportantField>
+                <b:ImportantField>b:DayAccessed</b:ImportantField>
+                <b:ImportantField>b:MonthAccessed</b:ImportantField>
+                <b:ImportantField>b:YearAccessed</b:ImportantField>
+                <b:ImportantField>b:URL</b:ImportantField>
             </source>
 
             <source type="Film">

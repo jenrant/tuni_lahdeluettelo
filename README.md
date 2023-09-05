@@ -29,6 +29,7 @@ Conference Proceedings - Konfenssi-, seminaari- ja muut asiantuntijasitelmät ja
 - sisältää myös esim. YouTube videot, jolloin lisättävä url ja katselupäivä DayAccessed yms.
 
 Report - Opinnäytteet
+- vaihtoehdon Tag alle voi kirjata tutkinto-ohjelman tai yksikön, esim: "Palveluliiketoiminnan tutkinto-ohjelma"
 
 Film - Televisio- ja radio-ohjelmat, podcastit ja elokuvat
 
