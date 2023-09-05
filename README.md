@@ -35,3 +35,4 @@ Film - Televisio- ja radio-ohjelmat, podcastit ja elokuvat
 - vaihtoehdolla Editor tarkoitetaan poikkeavasti toimittajaa
 
 Internet Site - Verkkosivut
+- vuosiluvun voi jättää pois jos se ei ole tiedossa niin lähdeluettelo korjaa tämän olemaan n.d.
