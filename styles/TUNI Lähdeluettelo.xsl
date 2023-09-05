@@ -263,7 +263,7 @@
         <!-- Generate an XML node-set from the formatting data. -->
         <xsl:variable name="params" select="msxsl:node-set($data)"/>
 
-        <html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        <html xmlns="https://www.w3.org/TR/html40" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="https://www.w3.org/TR/html40 ">
             <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -384,6 +384,133 @@
 
                     <!-- Display the close bracket if this is the last citation. -->
                     <xsl:if test="/b:Citation/b:LastAuthor">
+                        <xsl:value-of select="$params/citation/closebracket" disable-output-escaping="yes"/>
+                    </xsl:if>
+
+                </p>
+            </body>
+        </html>
+
+    </xsl:template>
+
+    <!-- Formats the footnote citation. -->
+    <xsl:template name="format-footnote-citation">
+
+        <!-- Generate an XML node-set from the formatting data. -->
+        <xsl:variable name="params" select="msxsl:node-set($data)"/>
+
+        <html xmlns="https://www.w3.org/TR/html40" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://www.w3.org/TR/html40 ">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+            </head>
+            <body>
+                <p class="MsoBibliography">
+
+                    <!-- Display the open bracket if this is the first citation. -->
+                    <xsl:if test="/b:FootnoteCitation/b:FirstAuthor">
+                        <xsl:value-of select="$params/footnotecitation/openbracket" disable-output-escaping="yes"/>
+                    </xsl:if>
+
+                    <!-- Not handled: MinAuthors, SameAuthors, RepeatedAuthor. -->
+                    <xsl:variable name="citation">
+                        <!-- Get the format string. -->
+                        <xsl:variable name="format">
+                            <xsl:variable name="type" select="/b:FootnoteCitation/b:Source/b:Type"/>
+                            <xsl:variable name="sourcetype" select="/b:FootnoteCitation/b:Source/b:SourceType"/>
+
+                            <xsl:choose>
+                                <!-- If there is no source type, its a placeholder. -->
+                                <xsl:when
+                                        test="string-length($sourcetype) = 0 and string-length(msxsl:node-set($data)/footnotecitation/source[@type = 'Placeholder']/format) > 0">
+                                    <xsl:value-of
+                                            select="msxsl:node-set($data)/footnotecitation/source[@type = 'Placeholder']/format"/>
+                                </xsl:when>
+                                <!-- Go for the type element if available. -->
+                                <xsl:when
+                                        test="string-length($type) > 0 and string-length(msxsl:node-set($data)/footnotecitation/source[@type = $type]/format) > 0 ">
+                                    <xsl:value-of
+                                            select="msxsl:node-set($data)/footnotecitation/source[@type = $type]/format"/>
+                                </xsl:when>
+                                <!-- Else go for the source type element if available. -->
+                                <xsl:when
+                                        test="string-length(msxsl:node-set($data)/footnotecitation/source[@type = $sourcetype]/format) > 0 ">
+                                    <xsl:value-of
+                                            select="msxsl:node-set($data)/footnotecitation/source[@type = $sourcetype]/format"/>
+                                </xsl:when>
+                                <!-- Else display error message. -->
+                                <xsl:otherwise>
+                                    <xsl:if test="msxsl:node-set($data)/general/display_errors = 'yes'">
+                                        <xsl:text>&lt;b&gt;Unsupported </xsl:text>
+                                        <xsl:if test="string-length($type) > 0">
+                                            <xsl:text>type (</xsl:text>
+                                            <xsl:value-of select="$type"/>
+                                            <xsl:text>) and </xsl:text>
+                                        </xsl:if>
+                                        <xsl:text>source type (</xsl:text>
+                                        <xsl:value-of select="$sourcetype"/>
+                                        <xsl:text>) for source </xsl:text>
+                                        <xsl:value-of select="/b:FootnoteCitation/b:Source/b:Tag"/>
+                                        <xsl:text>.&lt;/b&gt;</xsl:text>
+                                    </xsl:if>
+                                </xsl:otherwise>
+                            </xsl:choose>
+
+                        </xsl:variable>
+
+                        <!-- Extend the source. -->
+                        <xsl:variable name="extendedSource">
+                            <b:Source>
+                                <xsl:copy-of select="/b:FootnoteCitation/b:Source/*"/>
+                                <!-- For processing the \f parameter. -->
+                                <b:FootnoteCitationPrefix>
+                                    <xsl:value-of select="/b:FootnoteCitation/b:PagePrefix"/>
+                                </b:FootnoteCitationPrefix>
+                                <!-- For processing the \s parameter. -->
+                                <b:FootnoteCitationSuffix>
+                                    <xsl:value-of select="/b:FootnoteCitation/b:PageSuffix"/>
+                                </b:FootnoteCitationSuffix>
+                                <!-- For processing the \p parameter. -->
+                                <b:FootnoteCitationPages>
+                                    <xsl:value-of select="/b:FootnoteCitation/b:Pages"/>
+                                </b:FootnoteCitationPages>
+                                <!-- For processing the \v parameter. -->
+                                <b:FootnoteCitationVolume>
+                                    <xsl:value-of select="/b:FootnoteCitation/b:Volume"/>
+                                </b:FootnoteCitationVolume>
+                            </b:Source>
+                        </xsl:variable>
+
+                        <xsl:call-template name="format-source">
+                            <xsl:with-param name="format" select="$format"/>
+                            <xsl:with-param name="source" select="msxsl:node-set($extendedSource)/b:Source"/>
+                            <xsl:with-param name="disallowed">
+                                <!-- Do not display the authors of the work. -->
+                                <xsl:if test="/b:FootnoteCitation/b:NoAuthor">
+                                    <xsl:value-of select="msxsl:node-set($data)/citation/noauthor"/>
+                                </xsl:if>
+                                <!-- Do not display the title of the work. -->
+                                <xsl:if test="/b:FootnoteCitation/b:NoTitle">
+                                    <xsl:value-of select="msxsl:node-set($data)/citation/notitle"/>
+                                </xsl:if>
+                                <!-- Do not display the year the work was written or accessed in. -->
+                                <xsl:if test="/b:FootnoteCitation/b:NoYear">
+                                    <xsl:value-of select="msxsl:node-set($data)/citation/noyear"/>
+                                </xsl:if>
+                            </xsl:with-param>
+                        </xsl:call-template>
+                    </xsl:variable>
+
+                    <xsl:value-of select="$citation" disable-output-escaping="yes"/>
+                    <!-- end citation -->
+
+                    <!-- Display the group separator if this is not the last citation. -->
+                    <xsl:if test="not(/b:FootnoteCitation/b:LastAuthor)">
+                        <xsl:value-of select="$params/citation/separator" disable-output-escaping="yes"/>
+                    </xsl:if>
+
+                    <!-- Display the close bracket if this is the last citation. -->
+                    <xsl:if test="/b:FootnoteCitation/b:LastAuthor">
                         <xsl:value-of select="$params/citation/closebracket" disable-output-escaping="yes"/>
                     </xsl:if>
 
