@@ -51,7 +51,14 @@
             </source>
 
             <source type="Interview">
-                <b:ImportantField>b:Author</b:ImportantField>
+                <b:ImportantField>b:Broadcaster/b:Broadcaster/b:NameList</b:ImportantField>
+                <b:ImportantField>b:BroadcasterTitle</b:ImportantField>
+                <b:ImportantField>SourceType</b:ImportantField>
+                <b:ImportantField>b:Day</b:ImportantField>
+                <b:ImportantField>b:Month</b:ImportantField>
+                <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:City</b:ImportantField>
+                <b:ImportantField>b:Comments</b:ImportantField>
             </source>
 
             <source type="ArticleInAPeriodical">

@@ -9,6 +9,12 @@ Book - Kirjat
 Journal Article - Tutkimusartikkelit, kokoomateoksen artikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit
 
 Interview - Asiantuntijahaastattelut ja sähköpostiviestit
+- käytetty haastateltavalle tyyppiä Broadcaster, sillä täten haastateltavalle on olemassa BroadcasterTitle johon saadaan haastateltavan arvo tai ammatti
+- vaihtoehto SourceType sisältää onko kyseessä normaali haastattelu, vai sähköposti, sekä mahdolliset välikommentit, kuten kirjallisen raportoinnin oppaassa "Koulusivistyskielenä ruotsi."
+- - Esimerkkejä käytöstä:
+- - - Haastattelu
+- - - Koulusivistyskielenä ruotsi. Sähköpostiviesti
+- vaihtoehto City toimii haastattelupaikkana
 
 Article in a Periodical - Julkaisusarjoissa julkaistut
 
