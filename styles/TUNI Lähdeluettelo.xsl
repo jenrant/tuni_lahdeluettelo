@@ -779,4 +779,99 @@
 
     </xsl:template>
 
+    <!-- Preprocesses a format string by adding level information to every marker.
+     '{' and '}' change into '{level}' and '%' changes into '%level%' where
+     level is the depth in the format string.
+     This will allow for faster processing by the formatting templates. -->
+    <xsl:template name="preprocess-format-string">
+        <!-- String to process. -->
+        <xsl:param name="string"/>
+
+        <!-- Adds balanced brackets around the entire string to help others. -->
+        <xsl:text>{0}</xsl:text>
+
+        <xsl:call-template name="preprocess-format-string-part-2">
+            <xsl:with-param name="string" select="$string"/>
+        </xsl:call-template>
+
+        <!-- Adds balanced brackets around the entire string to help others. -->
+        <xsl:text>{0}</xsl:text>
+    </xsl:template>
+
+    <!-- Recursively called helper function for the preprocess-format-string template. -->
+    <xsl:template name="preprocess-format-string-part-2">
+        <!-- Remaining string. -->
+        <xsl:param name="string"/>
+        <!-- Current level. -->
+        <xsl:param name="level" select="0"/>
+
+        <xsl:if test="string-length($string) > 0">
+            <!-- Get the first character of the remaining string. -->
+            <xsl:variable name="firstChar" select="substring($string, 1, 1)"/>
+
+            <xsl:choose>
+                <!-- A new level is reached. -->
+                <xsl:when test="$firstChar = '{'">
+                    <!-- Calculate the next level. -->
+                    <xsl:variable name="nextLevel" select="$level + 1"/>
+
+                    <!-- Display a conditional processing marker. -->
+                    <xsl:text>{</xsl:text>
+                    <xsl:value-of select="$nextLevel"/>
+                    <xsl:text>}</xsl:text>
+
+                    <!-- Recursively process the rest of the string. -->
+                    <xsl:call-template name="preprocess-format-string-part-2">
+                        <xsl:with-param name="string" select="substring($string, 2)"/>
+                        <xsl:with-param name="level" select="$nextLevel"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <!-- The current level is finished. -->
+                <xsl:when test="$firstChar = '}'">
+                    <!-- Display a conditional processing marker. -->
+                    <xsl:text>{</xsl:text>
+                    <xsl:value-of select="$level"/>
+                    <xsl:text>}</xsl:text>
+
+                    <!-- Recursively process the rest of the string. -->
+                    <xsl:call-template name="preprocess-format-string-part-2">
+                        <xsl:with-param name="string" select="substring($string, 2)"/>
+                        <xsl:with-param name="level" select="$level - 1"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <!-- A variable at the current level starts. -->
+                <xsl:when test="$firstChar = '%'">
+                    <!-- Display a variable processing marker (start of variable). -->
+                    <xsl:text>%</xsl:text>
+                    <xsl:value-of select="$level"/>
+                    <xsl:text>%</xsl:text>
+
+                    <!-- Display the variable (no use in parsing character by character).-->
+                    <xsl:value-of select="substring-before(substring($string, 2), '%')"/>
+
+                    <!-- Display a variable processing marker (end of variable). -->
+                    <xsl:text>%</xsl:text>
+                    <xsl:value-of select="$level"/>
+                    <xsl:text>%</xsl:text>
+
+                    <!-- Recursively process the rest of the string. -->
+                    <xsl:call-template name="preprocess-format-string-part-2">
+                        <xsl:with-param name="string" select="substring-after(substring($string, 2), '%')"/>
+                        <xsl:with-param name="level" select="$level"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:otherwise>
+                    <!-- Display the first character -->
+                    <xsl:value-of select="$firstChar"/>
+
+                    <!-- Recursively process the rest of the string. -->
+                    <xsl:call-template name="preprocess-format-string-part-2">
+                        <xsl:with-param name="string" select="substring($string, 2)"/>
+                        <xsl:with-param name="level" select="$level"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+    </xsl:template>
+
 </xsl:stylesheet>
