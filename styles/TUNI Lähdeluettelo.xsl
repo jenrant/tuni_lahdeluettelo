@@ -582,4 +582,75 @@
 
     </xsl:template>
 
+    <!-- Formats a bibliography as a series of paragraphs. -->
+    <xsl:template name="format-bibliography-as-paragraphs">
+        <xsl:param name="bibNodeSet"/>
+
+        <xsl:for-each select="$bibNodeSet/b:Bibliography/b:Source">
+            <xsl:sort select="b:SortKey" data-type="text"/>
+
+            <p class="MsoBibliography">
+                <!-- Get the format string. -->
+                <xsl:variable name="format">
+                    <xsl:variable name="type" select="./b:Type"/>
+                    <xsl:variable name="sourcetype" select="./b:SourceType"/>
+
+                    <xsl:choose>
+                        <!-- If there is no source type, its a placeholder. -->
+                        <xsl:when test="string-length($sourcetype) = 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/column[@id = '1']/format) > 0">
+                            <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/column[@id = '1']/format"/>
+                        </xsl:when>
+                        <!-- Go for the type element if available. -->
+                        <xsl:when test="string-length($type) > 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $type]/column[@id = '1']/format) > 0 ">
+                            <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = $type]/column[@id = '1']/format"/>
+                        </xsl:when>
+                        <!-- Else go for the source type element if available. -->
+                        <xsl:when test="string-length(msxsl:node-set($data)/bibliography/source[@type = $sourcetype]/column[@id = '1']/format) > 0 ">
+                            <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = $sourcetype]/column[@id = '1']/format"/>
+                        </xsl:when>
+                        <!-- Else display error message. -->
+                        <xsl:otherwise>
+                            <xsl:if test="msxsl:node-set($data)/general/display_errors = 'yes'">
+                                <xsl:text>&lt;b&gt;Unsupported </xsl:text>
+                                <xsl:if test="string-length($type) > 0">
+                                    <xsl:text>type (</xsl:text>
+                                    <xsl:value-of select="$type"/>
+                                    <xsl:text>) and </xsl:text>
+                                </xsl:if>
+                                <xsl:text>source type (</xsl:text>
+                                <xsl:value-of select="$sourcetype"/>
+                                <xsl:text>) for source </xsl:text>
+                                <xsl:value-of select="./b:Tag"/>
+                                <xsl:text>.&lt;/b&gt;</xsl:text>
+                            </xsl:if>
+                        </xsl:otherwise>
+                    </xsl:choose>
+
+                </xsl:variable>
+
+                <!-- Format the source. -->
+                <xsl:variable name="paragraphX">
+                    <xsl:call-template name="format-source">
+                        <xsl:with-param name="format" select="$format"/>
+                        <xsl:with-param name="source" select="."/>
+                    </xsl:call-template>
+                </xsl:variable>
+
+                <!-- Convert the formatted source to html. -->
+                <xsl:choose>
+                    <xsl:when test="msxsl:node-set($data)/general/citation_as_link = 'yes'">
+                        <a name="{./b:Tag}">
+                            <xsl:value-of select="$paragraphX" disable-output-escaping="yes"/>
+                        </a>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="$paragraphX" disable-output-escaping="yes"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </p>
+
+        </xsl:for-each>
+
+    </xsl:template>
+
 </xsl:stylesheet>
