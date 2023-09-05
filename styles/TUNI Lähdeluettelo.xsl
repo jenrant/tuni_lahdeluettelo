@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xsl:stylesheet version="1.0" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:t="http://www.microsoft.com/temp">
+<xsl:stylesheet version="1.0"
+                xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:msxsl="urn:schemas-microsoft-com:xslt"
+                xmlns:t="http://www.microsoft.com/temp">
 
     <xsl:variable name="data">
 
@@ -11,7 +15,7 @@
             <version2013>2023.09.0</version2013>
             <author>Jenni Rantanen (jenrant@protonmail.com)</author>
             <description>An new implementation of the Tampere Universities reference style.</description>
-            <URL> https://github.com/jenrant/tuni_lahdeluettelo </URL>
+            <URL>https://github.com/jenrant/tuni_lahdeluettelo</URL>
             <comments>Based on Tampere Universities reference style.</comments>
             <display_errors>yes</display_errors>
             <citation_as_link>yes</citation_as_link>
@@ -281,12 +285,12 @@
                         <!-- Get the format string. -->
                         <xsl:variable name="format">
                             <xsl:variable name="type" select="/b:Citation/b:Source/b:Type"/>
-                            <xsl:variable name="sourcetype" select="/b:Citation/b:Source/b:SourceType"/>
+                            <xsl:variable name="source-type" select="/b:Citation/b:Source/b:SourceType"/>
 
                             <xsl:choose>
                                 <!-- If there is no source type, it's a placeholder. -->
                                 <xsl:when
-                                        test="string-length($sourcetype) = 0 and string-length(msxsl:node-set($data)/citation/source[@type = 'Placeholder']/format) > 0">
+                                        test="string-length($source-type) = 0 and string-length(msxsl:node-set($data)/citation/source[@type = 'Placeholder']/format) > 0">
                                     <xsl:value-of
                                             select="msxsl:node-set($data)/citation/source[@type = 'Placeholder']/format"/>
                                 </xsl:when>
@@ -297,9 +301,9 @@
                                 </xsl:when>
                                 <!-- Else go for the source type element if available. -->
                                 <xsl:when
-                                        test="string-length(msxsl:node-set($data)/citation/source[@type = $sourcetype]/format) > 0 ">
+                                        test="string-length(msxsl:node-set($data)/citation/source[@type = $source-type]/format) > 0 ">
                                     <xsl:value-of
-                                            select="msxsl:node-set($data)/citation/source[@type = $sourcetype]/format"/>
+                                            select="msxsl:node-set($data)/citation/source[@type = $source-type]/format"/>
                                 </xsl:when>
                                 <!-- Else display error message. -->
                                 <xsl:otherwise>
@@ -311,7 +315,7 @@
                                             <xsl:text>) and </xsl:text>
                                         </xsl:if>
                                         <xsl:text>source type (</xsl:text>
-                                        <xsl:value-of select="$sourcetype"/>
+                                        <xsl:value-of select="$source-type"/>
                                         <xsl:text>) for source </xsl:text>
                                         <xsl:value-of select="/b:Citation/b:Source/b:Tag"/>
                                         <xsl:text>.&lt;/b&gt;</xsl:text>
@@ -417,12 +421,12 @@
                         <!-- Get the format string. -->
                         <xsl:variable name="format">
                             <xsl:variable name="type" select="/b:FootnoteCitation/b:Source/b:Type"/>
-                            <xsl:variable name="sourcetype" select="/b:FootnoteCitation/b:Source/b:SourceType"/>
+                            <xsl:variable name="source-type" select="/b:FootnoteCitation/b:Source/b:SourceType"/>
 
                             <xsl:choose>
-                                <!-- If there is no source type, its a placeholder. -->
+                                <!-- If there is no source type, it's a placeholder. -->
                                 <xsl:when
-                                        test="string-length($sourcetype) = 0 and string-length(msxsl:node-set($data)/footnotecitation/source[@type = 'Placeholder']/format) > 0">
+                                        test="string-length($source-type) = 0 and string-length(msxsl:node-set($data)/footnotecitation/source[@type = 'Placeholder']/format) > 0">
                                     <xsl:value-of
                                             select="msxsl:node-set($data)/footnotecitation/source[@type = 'Placeholder']/format"/>
                                 </xsl:when>
@@ -434,9 +438,9 @@
                                 </xsl:when>
                                 <!-- Else go for the source type element if available. -->
                                 <xsl:when
-                                        test="string-length(msxsl:node-set($data)/footnotecitation/source[@type = $sourcetype]/format) > 0 ">
+                                        test="string-length(msxsl:node-set($data)/footnotecitation/source[@type = $source-type]/format) > 0 ">
                                     <xsl:value-of
-                                            select="msxsl:node-set($data)/footnotecitation/source[@type = $sourcetype]/format"/>
+                                            select="msxsl:node-set($data)/footnotecitation/source[@type = $source-type]/format"/>
                                 </xsl:when>
                                 <!-- Else display error message. -->
                                 <xsl:otherwise>
@@ -448,7 +452,7 @@
                                             <xsl:text>) and </xsl:text>
                                         </xsl:if>
                                         <xsl:text>source type (</xsl:text>
-                                        <xsl:value-of select="$sourcetype"/>
+                                        <xsl:value-of select="$source-type"/>
                                         <xsl:text>) for source </xsl:text>
                                         <xsl:value-of select="/b:FootnoteCitation/b:Source/b:Tag"/>
                                         <xsl:text>.&lt;/b&gt;</xsl:text>
@@ -527,14 +531,14 @@
         <xsl:variable name="extendedBib">
             <!-- Create a b:Bibliography element. -->
             <b:Bibliography>
-                <!-- Extend all the b:Source elements with a sortkey. -->
+                <!-- Extend all the b:Source elements with a sort-key. -->
                 <xsl:for-each select="/b:Bibliography/b:Source">
                     <b:Source>
                         <!-- Copy the content of the b:Source. -->
                         <xsl:copy-of select="./*"/>
 
                         <!-- Add a sorting key. -->
-                        <xsl:call-template name="create-sortkey">
+                        <xsl:call-template name="create-sort-key">
                             <xsl:with-param name="source" select="."/>
                         </xsl:call-template>
                     </b:Source>
@@ -587,7 +591,7 @@
         <xsl:param name="bibNodeSet"/>
 
         <xsl:for-each select="$bibNodeSet/b:Bibliography/b:Source">
-            <xsl:sort select="b:SortKey" data-type="text"/>
+            <xsl:sort select="b:SortKey"/>
 
             <p class="MsoBibliography">
                 <!-- Get the format string. -->
@@ -596,17 +600,23 @@
                     <xsl:variable name="sourcetype" select="./b:SourceType"/>
 
                     <xsl:choose>
-                        <!-- If there is no source type, its a placeholder. -->
-                        <xsl:when test="string-length($sourcetype) = 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/column[@id = '1']/format) > 0">
-                            <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/column[@id = '1']/format"/>
+                        <!-- If there is no source type, it's a placeholder. -->
+                        <xsl:when
+                                test="string-length($sourcetype) = 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/column[@id = '1']/format) > 0">
+                            <xsl:value-of
+                                    select="msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/column[@id = '1']/format"/>
                         </xsl:when>
                         <!-- Go for the type element if available. -->
-                        <xsl:when test="string-length($type) > 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $type]/column[@id = '1']/format) > 0 ">
-                            <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = $type]/column[@id = '1']/format"/>
+                        <xsl:when
+                                test="string-length($type) > 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $type]/column[@id = '1']/format) > 0 ">
+                            <xsl:value-of
+                                    select="msxsl:node-set($data)/bibliography/source[@type = $type]/column[@id = '1']/format"/>
                         </xsl:when>
                         <!-- Else go for the source type element if available. -->
-                        <xsl:when test="string-length(msxsl:node-set($data)/bibliography/source[@type = $sourcetype]/column[@id = '1']/format) > 0 ">
-                            <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = $sourcetype]/column[@id = '1']/format"/>
+                        <xsl:when
+                                test="string-length(msxsl:node-set($data)/bibliography/source[@type = $sourcetype]/column[@id = '1']/format) > 0 ">
+                            <xsl:value-of
+                                    select="msxsl:node-set($data)/bibliography/source[@type = $sourcetype]/column[@id = '1']/format"/>
                         </xsl:when>
                         <!-- Else display error message. -->
                         <xsl:otherwise>
@@ -633,6 +643,7 @@
                     <xsl:call-template name="format-source">
                         <xsl:with-param name="format" select="$format"/>
                         <xsl:with-param name="source" select="."/>
+                        <xsl:with-param name="disallowed" select="."/>
                     </xsl:call-template>
                 </xsl:variable>
 
@@ -662,7 +673,7 @@
 
         <table width="100%">
             <xsl:for-each select="$bibNodeSet/b:Bibliography/b:Source">
-                <xsl:sort select="b:SortKey" data-type="text"/>
+                <xsl:sort select="b:SortKey"/>
 
                 <tr>
                     <xsl:call-template name="format-bibliography-table-column">
@@ -692,20 +703,26 @@
         <!-- Get the format string. -->
         <xsl:variable name="format">
             <xsl:variable name="type" select="./b:Type"/>
-            <xsl:variable name="sourcetype" select="./b:SourceType"/>
+            <xsl:variable name="source-type" select="./b:SourceType"/>
 
             <xsl:choose>
                 <!-- If there is no source type, it's a placeholder. -->
-                <xsl:when test="string-length($sourcetype) = 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/column[@id = $columnId]/format) > 0">
-                    <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/column[@id = $columnId]/format"/>
+                <xsl:when
+                        test="string-length($source-type) = 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/column[@id = $columnId]/format) > 0">
+                    <xsl:value-of
+                            select="msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/column[@id = $columnId]/format"/>
                 </xsl:when>
                 <!-- Go for the type element if available. -->
-                <xsl:when test="string-length($type) > 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $type]/column[@id = $columnId]/format) > 0 ">
-                    <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = $type]/column[@id = $columnId]/format"/>
+                <xsl:when
+                        test="string-length($type) > 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $type]/column[@id = $columnId]/format) > 0 ">
+                    <xsl:value-of
+                            select="msxsl:node-set($data)/bibliography/source[@type = $type]/column[@id = $columnId]/format"/>
                 </xsl:when>
                 <!-- Else go for the source type element if available. -->
-                <xsl:when test="string-length(msxsl:node-set($data)/bibliography/source[@type = $sourcetype]/column[@id = $columnId]/format) > 0 ">
-                    <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = $sourcetype]/column[@id = $columnId]/format"/>
+                <xsl:when
+                        test="string-length(msxsl:node-set($data)/bibliography/source[@type = $source-type]/column[@id = $columnId]/format) > 0 ">
+                    <xsl:value-of
+                            select="msxsl:node-set($data)/bibliography/source[@type = $source-type]/column[@id = $columnId]/format"/>
                 </xsl:when>
                 <!-- Else display error message. -->
                 <xsl:otherwise>
@@ -717,7 +734,7 @@
                             <xsl:text>) and </xsl:text>
                         </xsl:if>
                         <xsl:text>source type (</xsl:text>
-                        <xsl:value-of select="$sourcetype"/>
+                        <xsl:value-of select="$source-type"/>
                         <xsl:text>) for source </xsl:text>
                         <xsl:value-of select="./b:Tag"/>
                         <xsl:text>.&lt;/b&gt;</xsl:text>
@@ -733,10 +750,12 @@
             <xsl:variable name="temp2" select="$source/b:SourceType"/>
 
             <xsl:choose>
-                <xsl:when test="string-length($temp2) = 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $temp2]/column[@id = $columnId]/format) > 0 ">
+                <xsl:when
+                        test="string-length($temp2) = 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $temp2]/column[@id = $columnId]/format) > 0 ">
                     <xsl:value-of select="'Placeholder'"/>
                 </xsl:when>
-                <xsl:when test="string-length($temp) > 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $temp]/column[@id = $columnId]/format) > 0 ">
+                <xsl:when
+                        test="string-length($temp) > 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $temp]/column[@id = $columnId]/format) > 0 ">
                     <xsl:value-of select="$temp"/>
                 </xsl:when>
                 <xsl:otherwise>
@@ -745,13 +764,15 @@
             </xsl:choose>
         </xsl:variable>
 
-        <td align="{$params/bibliography/source[@type = $type]/column[@id = $columnId]/halign}" valign="{$params/bibliography/source[@type = $type]/column[@id = $columnId]/valign}">
+        <td align="{$params/bibliography/source[@type = $type]/column[@id = $columnId]/halign}"
+            valign="{$params/bibliography/source[@type = $type]/column[@id = $columnId]/valign}">
             <p class="MsoBibliography">
 
                 <xsl:variable name="columnX">
                     <xsl:call-template name="format-source">
                         <xsl:with-param name="format" select="$format"/>
                         <xsl:with-param name="source" select="$source"/>
+                        <xsl:with-param name="disallowed" select="."/>
                     </xsl:call-template>
                 </xsl:variable>
 
@@ -925,7 +946,8 @@
                         <!-- The current source. -->
                         <xsl:with-param name="source" select="$source"/>
                         <!-- Retrieve the part that has to be processed during this run. -->
-                        <xsl:with-param name="format" select="substring-before(substring-after($format, $delim), $delim)"/>
+                        <xsl:with-param name="format"
+                                        select="substring-before(substring-after($format, $delim), $delim)"/>
                         <!-- List of variables which can no longer be used. -->
                         <xsl:with-param name="used" select="$used"/>
                         <!-- Level of variables to process during this run. -->
@@ -981,7 +1003,7 @@
         <xsl:choose>
             <!-- Check if further processing has to be done. -->
             <xsl:when test="string-length($format) > 0">
-                <!-- Get the delimeter for the current level of parameters to process. -->
+                <!-- Get the delimiter for the current level of parameters to process. -->
                 <xsl:variable name="delim" select="concat('%', $level, '%')"/>
 
                 <xsl:choose>
@@ -991,7 +1013,8 @@
                         <!-- Get the name of the first available element in the first parameter part. -->
                         <xsl:variable name="name">
                             <xsl:call-template name="get-source-parameter">
-                                <xsl:with-param name="parameters" select="substring-before(substring-after($format, $delim), $delim)"/>
+                                <xsl:with-param name="parameters"
+                                                select="substring-before(substring-after($format, $delim), $delim)"/>
                                 <xsl:with-param name="source" select="$source"/>
                                 <xsl:with-param name="used" select="concat($used, $usedAtCurrentLevel)"/>
                             </xsl:call-template>
@@ -1002,40 +1025,50 @@
                                 <!-- Get the formatting options for the element. -->
                                 <xsl:variable name="options">
                                     <xsl:call-template name="substring-before-ex">
-                                        <xsl:with-param name="string" select="substring-after(substring-before(substring-after($format, $delim), $delim), concat($name, ':'))"/>
-                                        <xsl:with-param name="delimeter" select="'|'"/>
+                                        <xsl:with-param name="string"
+                                                        select="substring-after(substring-before(substring-after($format, $delim), $delim), concat($name, ':'))"/>
+                                        <xsl:with-param name="delimiter" select="'|'"/>
                                     </xsl:call-template>
                                 </xsl:variable>
 
                                 <xsl:choose>
                                     <!-- Handle "or" strings in format; e.g.: {%Year|"n.d."%} -->
-                                    <xsl:when test="starts-with($name, '&#x22;') and substring($name, string-length($name), 1) = '&#x22;'">
-                                        <xsl:value-of select="substring-before(substring-after($name, '&#x22;'), '&#x22;')"/>
+                                    <xsl:when
+                                            test="starts-with($name, '&#x22;') and substring($name, string-length($name), 1) = '&#x22;'">
+                                        <xsl:value-of
+                                                select="substring-before(substring-after($name, '&#x22;'), '&#x22;')"/>
                                     </xsl:when>
                                     <!-- Handle non-empty author parameters. -->
                                     <xsl:when test="string($source/b:Author/*[local-name() = $name])">
                                         <!-- Remove non-numeric characters from the options section (mostly for the r option). -->
-                                        <xsl:variable name="options2" select="translate($options, translate($options, '0123456789', ''), '')"/>
+                                        <xsl:variable name="options2"
+                                                      select="translate($options, translate($options, '0123456789', ''), '')"/>
 
                                         <xsl:choose>
                                             <!-- Handle contributors of which the format is specified. -->
                                             <xsl:when test="string-length($options2) > 0">
                                                 <xsl:call-template name="format-contributors-by-params">
-                                                    <xsl:with-param name="contributors" select="$source/b:Author/*[local-name() = $name]"/>
-                                                    <xsl:with-param name="params" select="msxsl:node-set($data)/namelists/list[@id = $options2]"/>
+                                                    <xsl:with-param name="contributors"
+                                                                    select="$source/b:Author/*[local-name() = $name]"/>
+                                                    <xsl:with-param name="params"
+                                                                    select="msxsl:node-set($data)/namelists/list[@id = $options2]"/>
                                                 </xsl:call-template>
                                             </xsl:when>
                                             <!-- Handle contributor counting. -->
-                                            <xsl:when test="translate($options, translate($options, 'c', ''), '') = 'c'">
+                                            <xsl:when
+                                                    test="translate($options, translate($options, 'c', ''), '') = 'c'">
                                                 <xsl:call-template name="count-contributors">
-                                                    <xsl:with-param name="contributors" select="$source/b:Author/*[local-name() = $name]"/>
+                                                    <xsl:with-param name="contributors"
+                                                                    select="$source/b:Author/*[local-name() = $name]"/>
                                                 </xsl:call-template>
                                             </xsl:when>
                                             <!-- Handle contributors of which the format is not specified. -->
                                             <xsl:otherwise>
                                                 <xsl:call-template name="format-contributors-by-params">
-                                                    <xsl:with-param name="contributors" select="$source/b:Author/*[local-name() = $name]"/>
-                                                    <xsl:with-param name="params" select="msxsl:node-set($data)/namelists/list[@id = 0]"/>
+                                                    <xsl:with-param name="contributors"
+                                                                    select="$source/b:Author/*[local-name() = $name]"/>
+                                                    <xsl:with-param name="params"
+                                                                    select="msxsl:node-set($data)/namelists/list[@id = 0]"/>
                                                 </xsl:call-template>
                                             </xsl:otherwise>
                                         </xsl:choose>
@@ -1062,30 +1095,35 @@
                                         </xsl:call-template>
                                     </xsl:when>
                                     <!-- Handle years and years accessed. -->
-                                    <xsl:when test="starts-with($name, 'Year') and string($source/*[local-name() = $name])">
+                                    <xsl:when
+                                            test="starts-with($name, 'Year') and string($source/*[local-name() = $name])">
                                         <xsl:call-template name="format-year">
                                             <xsl:with-param name="year" select="$source/*[local-name() = $name]"/>
                                             <xsl:with-param name="options" select="$options"/>
                                         </xsl:call-template>
                                     </xsl:when>
                                     <!-- Handle days and days accessed. -->
-                                    <xsl:when test="starts-with($name, 'Day') and string($source/*[local-name() = $name])">
+                                    <xsl:when
+                                            test="starts-with($name, 'Day') and string($source/*[local-name() = $name])">
                                         <xsl:call-template name="format-day">
                                             <xsl:with-param name="day" select="$source/*[local-name() = $name]"/>
                                             <xsl:with-param name="options" select="$options"/>
                                         </xsl:call-template>
                                     </xsl:when>
                                     <!-- Handle titles. -->
-                                    <xsl:when test="contains($name, 'Title') and string($source/*[local-name() = $name])">
+                                    <xsl:when
+                                            test="contains($name, 'Title') and string($source/*[local-name() = $name])">
                                         <!-- Format the title. -->
                                         <xsl:variable name="title">
                                             <xsl:call-template name="format-title">
                                                 <xsl:with-param name="title" select="$source/*[local-name() = $name]"/>
                                                 <xsl:with-param name="options" select="$options"/>
-                                                <xsl:with-param name="delimeter">
+                                                <xsl:with-param name="delimiter">
                                                     <xsl:choose>
-                                                        <xsl:when test="string-length(msxsl:node-set($data)/overrides/titles/delimeter) > 0">
-                                                            <xsl:value-of select="msxsl:node-set($data)/overrides/titles/delimeter"/>
+                                                        <xsl:when
+                                                                test="string-length(msxsl:node-set($data)/overrides/titles/delimeter) > 0">
+                                                            <xsl:value-of
+                                                                    select="msxsl:node-set($data)/overrides/titles/delimeter"/>
                                                         </xsl:when>
                                                         <xsl:otherwise>
                                                             <xsl:text>:</xsl:text>
@@ -1094,8 +1132,10 @@
                                                 </xsl:with-param>
                                                 <xsl:with-param name="articles">
                                                     <xsl:choose>
-                                                        <xsl:when test="string-length(msxsl:node-set($data)/overrides/titles/articles) > 0">
-                                                            <xsl:value-of select="msxsl:node-set($data)/overrides/titles/articles"/>
+                                                        <xsl:when
+                                                                test="string-length(msxsl:node-set($data)/overrides/titles/articles) > 0">
+                                                            <xsl:value-of
+                                                                    select="msxsl:node-set($data)/overrides/titles/articles"/>
                                                         </xsl:when>
                                                         <xsl:otherwise>
                                                             <xsl:text>-A-AN-THE-</xsl:text>
@@ -1115,14 +1155,17 @@
                                         </xsl:choose>
                                     </xsl:when>
                                     <!-- Handle volume and citation volume. -->
-                                    <xsl:when test="($name = 'Volume' or $name = 'CitationVolume') and string($source/*[local-name() = $name]) and number($source/*[local-name() = $name]) > 0">
+                                    <xsl:when
+                                            test="($name = 'Volume' or $name = 'CitationVolume') and string($source/*[local-name() = $name]) and number($source/*[local-name() = $name]) > 0">
                                         <xsl:call-template name="format-number">
                                             <xsl:with-param name="number" select="$source/*[local-name() = $name]"/>
-                                            <xsl:with-param name="options" select="translate($options, translate($options, 'R', ''), '')"/>
+                                            <xsl:with-param name="options"
+                                                            select="translate($options, translate($options, 'R', ''), '')"/>
                                         </xsl:call-template>
                                     </xsl:when>
                                     <!-- Handle months and months accessed. -->
-                                    <xsl:when test="starts-with($name, 'Month') and string($source/*[local-name() = $name])">
+                                    <xsl:when
+                                            test="starts-with($name, 'Month') and string($source/*[local-name() = $name])">
                                         <xsl:call-template name="format-month">
                                             <xsl:with-param name="month" select="$source/*[local-name() = $name]"/>
                                             <xsl:with-param name="options" select="$options"/>
@@ -1140,12 +1183,14 @@
                                         <xsl:choose>
                                             <xsl:when test="contains($options, 'u')">
                                                 <xsl:call-template name="upper-case">
-                                                    <xsl:with-param name ="string" select="$source/*[local-name() = $name]"/>
+                                                    <xsl:with-param name="string"
+                                                                    select="$source/*[local-name() = $name]"/>
                                                 </xsl:call-template>
                                             </xsl:when>
                                             <xsl:when test="contains($options, 'l')">
                                                 <xsl:call-template name="lower-case">
-                                                    <xsl:with-param name ="string" select="$source/*[local-name() = $name]"/>
+                                                    <xsl:with-param name="string"
+                                                                    select="$source/*[local-name() = $name]"/>
                                                 </xsl:call-template>
                                             </xsl:when>
                                             <xsl:otherwise>
@@ -1165,7 +1210,8 @@
                             <xsl:call-template name="format-source-part-3">
                                 <xsl:with-param name="source" select="$source"/>
                                 <!-- Process the part remaining after the current part. -->
-                                <xsl:with-param name="format" select="substring-after(substring-after($format, $delim), $delim)"/>
+                                <xsl:with-param name="format"
+                                                select="substring-after(substring-after($format, $delim), $delim)"/>
                                 <xsl:with-param name="level" select="$level"/>
                                 <xsl:with-param name="used" select="$used"/>
                                 <xsl:with-param name="outputAtCurrentLevel">
@@ -1182,8 +1228,9 @@
                                         <!-- Get the formatting options for the element. -->
                                         <xsl:variable name="options">
                                             <xsl:call-template name="substring-before-ex">
-                                                <xsl:with-param name="string" select="substring-after(substring-before(substring-after($format, $delim), $delim), concat($name, ':'))"/>
-                                                <xsl:with-param name="delimeter" select="'|'"/>
+                                                <xsl:with-param name="string"
+                                                                select="substring-after(substring-before(substring-after($format, $delim), $delim), concat($name, ':'))"/>
+                                                <xsl:with-param name="delimiter" select="'|'"/>
                                             </xsl:call-template>
                                         </xsl:variable>
                                         <!-- Only add the variable to the used list if the 'r' option is not used. -->
@@ -1201,7 +1248,8 @@
                     <xsl:otherwise>
                         <xsl:call-template name="format-source-part-3">
                             <xsl:with-param name="format" select="''"/>
-                            <xsl:with-param name="outputAtCurrentLevel" select="concat($outputAtCurrentLevel, $format)"/>
+                            <xsl:with-param name="outputAtCurrentLevel"
+                                            select="concat($outputAtCurrentLevel, $format)"/>
                             <xsl:with-param name="usedAtCurrentLevel" select="$usedAtCurrentLevel"/>
                         </xsl:call-template>
                     </xsl:otherwise>
@@ -1211,8 +1259,9 @@
             <!-- Otherwise, finish the output of the function. -->
             <xsl:otherwise>
                 <xsl:choose>
-                    <!-- Check if anything has to be send to the output and if the used variables section has to be updated. -->
-                    <xsl:when test="not(contains($outputAtCurrentLevel, '%empty%')) and string-length($outputAtCurrentLevel) > 0">
+                    <!-- Check if anything has to be sent to the output and if the used variables section has to be updated. -->
+                    <xsl:when
+                            test="not(contains($outputAtCurrentLevel, '%empty%')) and string-length($outputAtCurrentLevel) > 0">
                         <output>
                             <xsl:value-of select="$outputAtCurrentLevel"/>
                         </output>
@@ -1220,7 +1269,7 @@
                             <xsl:value-of select="$usedAtCurrentLevel"/>
                         </used>
                     </xsl:when>
-                    <!-- Otherwise, nothing has to be send to the output. The used variables stay used. -->
+                    <!-- Otherwise, nothing has to be sent to the output. The used variables stay used. -->
                     <xsl:otherwise>
                         <output></output>
                         <used></used>
@@ -1231,7 +1280,7 @@
 
     </xsl:template>
 
-    <!-- Retrieves the first non empty source parameter name. -->
+    <!-- Retrieves the first non-empty source parameter name. -->
     <xsl:template name="get-source-parameter">
         <!-- A string with one or more parameters separated by '|'. -->
         <xsl:param name="parameters"/>
@@ -1247,10 +1296,10 @@
                     <xsl:with-param name="string">
                         <xsl:call-template name="substring-before-ex">
                             <xsl:with-param name="string" select="$parameters"/>
-                            <xsl:with-param name="delimeter" select="'|'"/>
+                            <xsl:with-param name="delimiter" select="'|'"/>
                         </xsl:call-template>
                     </xsl:with-param>
-                    <xsl:with-param name="delimeter" select="':'"/>
+                    <xsl:with-param name="delimiter" select="':'"/>
                 </xsl:call-template>
             </xsl:variable>
 
@@ -1258,11 +1307,13 @@
             <xsl:choose>
                 <!-- If it is a valid parameter, stop the processing. -->
                 <!--   Remark: a quoted string is a valid parameter; e.g.: {%Year|"n.d."%} -->
-                <xsl:when test="starts-with($name, '&#x22;') and substring($name, string-length($name), 1) = '&#x22;' and not(contains($used, concat('-', $name)))">
+                <xsl:when
+                        test="starts-with($name, '&#x22;') and substring($name, string-length($name), 1) = '&#x22;' and not(contains($used, concat('-', $name)))">
                     <xsl:value-of select="$name"/>
                 </xsl:when>
                 <!--   Remark: the b:Author hack is necessary to get around the b:Source/b:Author/b:Author problem. -->
-                <xsl:when test="(($name != 'Author' and string($source/*[local-name() = $name])) or string($source/b:Author/*[local-name() = $name])) and not(contains($used, concat('-', $name)))">
+                <xsl:when
+                        test="(($name != 'Author' and string($source/*[local-name() = $name])) or string($source/b:Author/*[local-name() = $name])) and not(contains($used, concat('-', $name)))">
                     <xsl:value-of select="$name"/>
                 </xsl:when>
                 <!-- Otherwise, process the remainder of the parameters. -->
@@ -1324,7 +1375,8 @@
                         <!-- The current source. -->
                         <xsl:with-param name="person" select="$person"/>
                         <!-- Retrieve the part that has to be processed during this run. -->
-                        <xsl:with-param name="format" select="substring-before(substring-after($format, $delim), $delim)"/>
+                        <xsl:with-param name="format"
+                                        select="substring-before(substring-after($format, $delim), $delim)"/>
                         <!-- List of variables which can no longer be used. -->
                         <xsl:with-param name="used" select="$used"/>
                         <!-- Level of variables to process during this run. -->
@@ -1381,7 +1433,7 @@
         <xsl:choose>
             <!-- Check if further processing has to be done. -->
             <xsl:when test="string-length($format) > 0">
-                <!-- Get the delimeter for the current level of parameters to process. -->
+                <!-- Get the delimiter for the current level of parameters to process. -->
                 <xsl:variable name="delim" select="concat('%', $level, '%')"/>
 
                 <xsl:choose>
@@ -1391,7 +1443,8 @@
                         <!-- Get the name of the first available element in the first parameter part. -->
                         <xsl:variable name="name">
                             <xsl:call-template name="get-person-parameter">
-                                <xsl:with-param name="parameters" select="substring-before(substring-after($format, $delim), $delim)"/>
+                                <xsl:with-param name="parameters"
+                                                select="substring-before(substring-after($format, $delim), $delim)"/>
                                 <xsl:with-param name="person" select="$person"/>
                                 <xsl:with-param name="used" select="concat($used, $usedAtCurrentLevel)"/>
                             </xsl:call-template>
@@ -1402,8 +1455,9 @@
                                 <!-- Get the formatting options for the element. -->
                                 <xsl:variable name="options">
                                     <xsl:call-template name="substring-before-ex">
-                                        <xsl:with-param name="string" select="substring-after(substring-before(substring-after($format, $delim), $delim), concat($name, ':'))"/>
-                                        <xsl:with-param name="delimeter" select="'|'"/>
+                                        <xsl:with-param name="string"
+                                                        select="substring-after(substring-before(substring-after($format, $delim), $delim), concat($name, ':'))"/>
+                                        <xsl:with-param name="delimiter" select="'|'"/>
                                     </xsl:call-template>
                                 </xsl:variable>
 
@@ -1479,7 +1533,8 @@
                             <xsl:call-template name="format-person-part-3">
                                 <xsl:with-param name="person" select="$person"/>
                                 <!-- Process the part remaining after the current part. -->
-                                <xsl:with-param name="format" select="substring-after(substring-after($format, $delim), $delim)"/>
+                                <xsl:with-param name="format"
+                                                select="substring-after(substring-after($format, $delim), $delim)"/>
                                 <xsl:with-param name="level" select="$level"/>
                                 <xsl:with-param name="used" select="$used"/>
                                 <xsl:with-param name="outputAtCurrentLevel">
@@ -1496,8 +1551,9 @@
                                         <!-- Get the formatting options for the element. -->
                                         <xsl:variable name="options">
                                             <xsl:call-template name="substring-before-ex">
-                                                <xsl:with-param name="string" select="substring-after(substring-before(substring-after($format, $delim), $delim), concat($name, ':'))"/>
-                                                <xsl:with-param name="delimeter" select="'|'"/>
+                                                <xsl:with-param name="string"
+                                                                select="substring-after(substring-before(substring-after($format, $delim), $delim), concat($name, ':'))"/>
+                                                <xsl:with-param name="delimiter" select="'|'"/>
                                             </xsl:call-template>
                                         </xsl:variable>
                                         <!-- Only add the variable to the used list if the 'r' option is not used. -->
@@ -1515,7 +1571,8 @@
                     <xsl:otherwise>
                         <xsl:call-template name="format-person-part-3">
                             <xsl:with-param name="format" select="''"/>
-                            <xsl:with-param name="outputAtCurrentLevel" select="concat($outputAtCurrentLevel, $format)"/>
+                            <xsl:with-param name="outputAtCurrentLevel"
+                                            select="concat($outputAtCurrentLevel, $format)"/>
                             <xsl:with-param name="usedAtCurrentLevel" select="$usedAtCurrentLevel"/>
                         </xsl:call-template>
                     </xsl:otherwise>
@@ -1525,8 +1582,9 @@
             <!-- Otherwise, finish the output of the function. -->
             <xsl:otherwise>
                 <xsl:choose>
-                    <!-- Check if anything has to be send to the output and if the used variables section has to be updated. -->
-                    <xsl:when test="not(contains($outputAtCurrentLevel, '%empty%')) and string-length($outputAtCurrentLevel) > 0">
+                    <!-- Check if anything has to be sent to the output and if the used variables section has to be updated. -->
+                    <xsl:when
+                            test="not(contains($outputAtCurrentLevel, '%empty%')) and string-length($outputAtCurrentLevel) > 0">
                         <output>
                             <xsl:value-of select="$outputAtCurrentLevel"/>
                         </output>
@@ -1534,7 +1592,7 @@
                             <xsl:value-of select="$usedAtCurrentLevel"/>
                         </used>
                     </xsl:when>
-                    <!-- Otherwise, nothing has to be send to the output. The used variables stay used. -->
+                    <!-- Otherwise, nothing has to be sent to the output. The used variables stay used. -->
                     <xsl:otherwise>
                         <output></output>
                         <used></used>
@@ -1562,10 +1620,10 @@
                     <xsl:with-param name="string">
                         <xsl:call-template name="substring-before-ex">
                             <xsl:with-param name="string" select="$parameters"/>
-                            <xsl:with-param name="delimeter" select="'|'"/>
+                            <xsl:with-param name="delimiter" select="'|'"/>
                         </xsl:call-template>
                     </xsl:with-param>
-                    <xsl:with-param name="delimeter" select="':'"/>
+                    <xsl:with-param name="delimiter" select="':'"/>
                 </xsl:call-template>
             </xsl:variable>
 
@@ -1686,7 +1744,7 @@
     <!-- Formats a set of contributors by means of parameters. -->
     <xsl:template name="format-contributors-by-params">
         <!-- A set containing either a b:Corporate or a b:NameList element. -->
-        <xsl:param name="contributors" />
+        <xsl:param name="contributors"/>
         <!-- An XML tree containing formatting information, the following
              elements should be provided:
               <format type="...">
@@ -1705,7 +1763,7 @@
                 <multi_suffix></multi_suffix>
               </format>
           -->
-        <xsl:param name="params" />
+        <xsl:param name="params"/>
 
         <xsl:choose>
             <!-- b:Corporate contributor. -->
@@ -1725,13 +1783,13 @@
             <!-- b:NameList contributor(s). -->
             <xsl:otherwise>
                 <!-- Count the number of b:Person elements in the node-set. -->
-                <xsl:variable name="numPersons" select="count($contributors/b:NameList/b:Person)" />
+                <xsl:variable name="numPersons" select="count($contributors/b:NameList/b:Person)"/>
 
                 <xsl:if test="$numPersons > 0">
                     <!-- Calculate the number of b:Person elements to display. -->
                     <xsl:variable name="numDisplay">
                         <xsl:choose>
-                            <xsl:when test="$numPersons > $params/max_number_of_persons_to_display">
+                            <xsl:when test="$numPersons > number($params/max_number_of_persons_to_display)">
                                 <xsl:value-of select="$params/number_of_persons_to_display_if_more_than_max"/>
                             </xsl:when>
                             <xsl:otherwise>
@@ -1754,36 +1812,33 @@
 
                     <!-- Handle all the b:Person elements. -->
                     <xsl:for-each select="$contributors/b:NameList/b:Person">
-                        <!-- The position of the current b:Person element. -->
-                        <xsl:variable name="pos" select="position()" />
-
                         <xsl:choose>
                             <xsl:when test="position() > $numDisplay"/>
                             <xsl:when test="position() = 1">
                                 <xsl:call-template name="format-person">
-                                    <xsl:with-param name="person" select="." />
-                                    <xsl:with-param name="format" select="$params/first_person" />
+                                    <xsl:with-param name="person" select="."/>
+                                    <xsl:with-param name="format" select="$params/first_person"/>
                                 </xsl:call-template>
                             </xsl:when>
                             <xsl:when test="position() = 2 and $numPersons = 2">
                                 <xsl:value-of select="$params/separator_between_if_two"/>
                                 <xsl:call-template name="format-person">
-                                    <xsl:with-param name="person" select="." />
-                                    <xsl:with-param name="format" select="$params/other_persons" />
+                                    <xsl:with-param name="person" select="."/>
+                                    <xsl:with-param name="format" select="$params/other_persons"/>
                                 </xsl:call-template>
                             </xsl:when>
                             <xsl:when test="(position() = $numDisplay) and not($numPersons > $numDisplay)">
                                 <xsl:value-of select="$params/separator_before_last"/>
                                 <xsl:call-template name="format-person">
-                                    <xsl:with-param name="person" select="." />
-                                    <xsl:with-param name="format" select="$params/other_persons" />
+                                    <xsl:with-param name="person" select="."/>
+                                    <xsl:with-param name="format" select="$params/other_persons"/>
                                 </xsl:call-template>
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:value-of select="$params/separator_between_if_more_than_two"/>
                                 <xsl:call-template name="format-person">
-                                    <xsl:with-param name="person" select="." />
-                                    <xsl:with-param name="format" select="$params/other_persons" />
+                                    <xsl:with-param name="person" select="."/>
+                                    <xsl:with-param name="format" select="$params/other_persons"/>
                                 </xsl:call-template>
                             </xsl:otherwise>
                         </xsl:choose>
@@ -1901,7 +1956,7 @@
     <!-- Counts the number of contributors in a contributors element. -->
     <xsl:template name="count-contributors">
         <!-- A set containing either a b:Corporate or a b:NameList element. -->
-        <xsl:param name="contributors" />
+        <xsl:param name="contributors"/>
 
         <xsl:choose>
             <!-- b:Corporate contributor. -->
@@ -1910,7 +1965,7 @@
             </xsl:when>
             <!-- b:NameList contributor(s). -->
             <xsl:when test="string-length($contributors/b:NameList) > 0">
-                <xsl:value-of select="count($contributors/b:NameList/b:Person)" />
+                <xsl:value-of select="count($contributors/b:NameList/b:Person)"/>
             </xsl:when>
             <!-- Empty element. -->
             <xsl:otherwise>
@@ -2022,7 +2077,8 @@
         <!-- Check if the string needs replacement. -->
         <xsl:variable name="stype">
             <xsl:choose>
-                <xsl:when test="contains($options, 's') and string-length(msxsl:node-set($data)/strings/sourcetypes/sourcetype[@type = $type]) > 0">
+                <xsl:when
+                        test="contains($options, 's') and string-length(msxsl:node-set($data)/strings/sourcetypes/sourcetype[@type = $type]) > 0">
                     <xsl:value-of select="msxsl:node-set($data)/strings/sourcetypes/sourcetype[@type = $type]"/>
                 </xsl:when>
                 <xsl:otherwise>
@@ -2061,7 +2117,7 @@
         <xsl:variable name="singlePagePrefix">
             <xsl:call-template name="substring-before-ex">
                 <xsl:with-param name="string" select="$options"/>
-                <xsl:with-param name="delimeter" select="':'"/>
+                <xsl:with-param name="delimiter" select="':'"/>
             </xsl:call-template>
         </xsl:variable>
 
@@ -2069,20 +2125,20 @@
         <xsl:variable name="multiPagePrefix">
             <xsl:call-template name="substring-before-ex">
                 <xsl:with-param name="string" select="substring-after($options, ':')"/>
-                <xsl:with-param name="delimeter" select="':'"/>
+                <xsl:with-param name="delimiter" select="':'"/>
             </xsl:call-template>
         </xsl:variable>
 
         <!-- Retrieve the remaining options. -->
         <xsl:variable name="extraOptions" select="substring-after(substring-after($options, ':'), ':')"/>
 
-        <!-- A list with all possible multi page separators. (e.g. dash, en-dash, colon, ...) -->
+        <!-- A list with all possible multi-page separators. (e.g. dash, en-dash, colon, ...) -->
         <!-- This should be retrieved from a setting element in the data variable. -->
         <xsl:variable name="multiPageSeparators">
             <xsl:value-of select="'&#x002d;&#x003a;&#x2010;&#x2011;&#x2012;&#x2013;&#x8210;&#x8211;'"/>
         </xsl:variable>
 
-        <!-- Find the multi page separator in use. -->
+        <!-- Find the multi-page separator in use. -->
         <xsl:variable name="multiPageSeparator">
             <xsl:value-of select="substring(translate($pages, translate($pages, $multiPageSeparators, ''), ''), 1, 1)"/>
         </xsl:variable>
@@ -2105,7 +2161,8 @@
                     <xsl:value-of select="$multiPagePrefix"/>
                     <xsl:call-template name="abbreviate-pages">
                         <xsl:with-param name="pages" select="$pages"/>
-                        <xsl:with-param name="size" select="concat('0', translate($extraOptions, translate($extraOptions, '0123456789', ''), ''))"/>
+                        <xsl:with-param name="size"
+                                        select="concat('0', translate($extraOptions, translate($extraOptions, '0123456789', ''), ''))"/>
                         <xsl:with-param name="separator" select="$multiPageSeparator"/>
                     </xsl:call-template>
                 </xsl:when>
@@ -2181,7 +2238,8 @@
                 <xsl:value-of select="$separator"/>
                 <xsl:value-of select="$lastPage"/>
             </xsl:when>
-            <xsl:when test="substring($firstPage, $position, 1) = substring($lastPage, $position, 1) and string-length(substring($lastPage, $position)) > $size">
+            <xsl:when
+                    test="substring($firstPage, $position, 1) = substring($lastPage, $position, 1) and string-length(substring($lastPage, $position)) > $size">
                 <!-- Recursive repeat until the first non-matching number is found or the remainder gets too short. -->
                 <xsl:call-template name="abbreviate-pages-part-2">
                     <xsl:with-param name="firstPage" select="$firstPage"/>
@@ -2221,7 +2279,8 @@
 
                 <!-- Display leading extension of the last page if available. -->
                 <xsl:if test="string-length($firstPage) > string-length($lastPage)">
-                    <xsl:value-of select="substring($firstPage, 1, string-length($firstPage) - string-length($lastPage))"/>
+                    <xsl:value-of
+                            select="substring($firstPage, 1, string-length($firstPage) - string-length($lastPage))"/>
                 </xsl:if>
 
                 <!-- Display the last page. -->
@@ -2432,7 +2491,8 @@
         <xsl:variable name="month3">
             <xsl:choose>
                 <!-- Check for month to string conversion. -->
-                <xsl:when test="contains($options, 's') and string(number($month2)) != 'NaN' and string-length(msxsl:node-set($data)/strings/months/month[@number = number($month2)]) > 0">
+                <xsl:when
+                        test="contains($options, 's') and string(number($month2)) != 'NaN' and string-length(msxsl:node-set($data)/strings/months/month[@number = number($month2)]) > 0">
                     <xsl:value-of select="msxsl:node-set($data)/strings/months/month[@number = number($month2)]"/>
                 </xsl:when>
                 <!-- Check for month to roman numeral conversion. -->
@@ -2547,8 +2607,8 @@
     <xsl:template name="format-title">
         <!-- Title string. -->
         <xsl:param name="title"/>
-        <!-- Delimeter between a title and its subtitle. By default, this is ':'. -->
-        <xsl:param name="delimeter" select="':'"/>
+        <!-- Delimiter between a title and its subtitle. By default, this is ':'. -->
+        <xsl:param name="delimiter" select="':'"/>
         <!-- Leading articles which can be ignored when the titles get sorted. -->
         <xsl:param name="articles" select="'-A-AN-THE-'"/>
         <!-- Options string. (u = uppercase, l = lowercase, a = put xxxwords at the end, m = main title, s = subtitle, f = first word uppercase) -->
@@ -2563,7 +2623,7 @@
                     <xsl:variable name="temp">
                         <xsl:call-template name="substring-before-ex">
                             <xsl:with-param name="string" select="$title"/>
-                            <xsl:with-param name="delimeter" select="$delimeter"/>
+                            <xsl:with-param name="delimiter" select="$delimiter"/>
                         </xsl:call-template>
                     </xsl:variable>
 
@@ -2571,7 +2631,7 @@
                 </xsl:when>
                 <!-- Subtitle. Can be empty if there is none. -->
                 <xsl:when test="contains($options, 's')">
-                    <xsl:value-of select="normalize-space(substring-after($title, $delimeter))"/>
+                    <xsl:value-of select="normalize-space(substring-after($title, $delimiter))"/>
                 </xsl:when>
                 <!-- Full title. -->
                 <xsl:otherwise>
@@ -2588,7 +2648,7 @@
                     <xsl:variable name="temp1">
                         <xsl:call-template name="substring-before-ex">
                             <xsl:with-param name="string" select="$title"/>
-                            <xsl:with-param name="delimeter" select="$delimeter"/>
+                            <xsl:with-param name="delimiter" select="$delimiter"/>
                         </xsl:call-template>
                     </xsl:variable>
 
@@ -2650,7 +2710,7 @@
                             <!-- Get the first word (even if there is only one word.) -->
                             <xsl:call-template name="substring-before-ex">
                                 <xsl:with-param name="string" select="$sort"/>
-                                <xsl:with-param name="delimeter" select="' '"/>
+                                <xsl:with-param name="delimiter" select="' '"/>
                             </xsl:call-template>
                         </xsl:with-param>
                     </xsl:call-template>
@@ -2742,7 +2802,8 @@
                                         </xsl:call-template>
                                     </xsl:when>
                                     <!-- Handle punctuations with question marks and exclamation marks. -->
-                                    <xsl:when test="contains('!?', $punctuation) and contains('!?.', substring($string, 1, 1))">
+                                    <xsl:when
+                                            test="contains('!?', $punctuation) and contains('!?.', substring($string, 1, 1))">
                                         <xsl:value-of select="$punctuation"/>
                                         <xsl:value-of select="$tagbuffer"/>
                                         <xsl:call-template name="clean-punctuation-2">
@@ -2775,7 +2836,8 @@
                         <xsl:call-template name="clean-punctuation-2">
                             <xsl:with-param name="string" select="substring-after($string, '&gt;')"/>
                             <xsl:with-param name="punctuation" select="$punctuation"/>
-                            <xsl:with-param name="tagbuffer" select="concat($tagbuffer, substring-before($string, '&gt;'), '&gt;')"/>
+                            <xsl:with-param name="tagbuffer"
+                                            select="concat($tagbuffer, substring-before($string, '&gt;'), '&gt;')"/>
                         </xsl:call-template>
                     </xsl:when>
                     <!-- Handle quotes. -->
@@ -2807,13 +2869,16 @@
     </xsl:template>
 
     <!-- The set of lower case characters used to do case conversions. -->
-    <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz&#224;&#225;&#226;&#227;&#228;&#229;&#230;&#231;&#232;&#233;&#234;&#235;&#236;&#237;&#238;&#239;&#241;&#242;&#243;&#244;&#245;&#246;&#249;&#250;&#251;&#252;'"/>
+    <xsl:variable name="lowercase"
+                  select="'abcdefghijklmnopqrstuvwxyz&#224;&#225;&#226;&#227;&#228;&#229;&#230;&#231;&#232;&#233;&#234;&#235;&#236;&#237;&#238;&#239;&#241;&#242;&#243;&#244;&#245;&#246;&#249;&#250;&#251;&#252;'"/>
 
     <!-- The set of upper case characters used to do case conversions. -->
-    <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ&#192;&#193;&#194;&#195;&#196;&#197;&#198;&#199;&#200;&#201;&#202;&#203;&#204;&#205;&#206;&#207;&#209;&#210;&#211;&#212;&#213;&#214;&#217;&#218;&#219;&#220;'"/>
+    <xsl:variable name="uppercase"
+                  select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ&#192;&#193;&#194;&#195;&#196;&#197;&#198;&#199;&#200;&#201;&#202;&#203;&#204;&#205;&#206;&#207;&#209;&#210;&#211;&#212;&#213;&#214;&#217;&#218;&#219;&#220;'"/>
 
     <!-- The set of punctuation characters used as word delimiters in a string. -->
-    <xsl:variable name="punctuation" select="'&#9;&#13;&#160;&#32;.,:;!?&#34;&#8216;&#8217;&#8218;&#8220;&#8221;&#8222;&#171;&#187;()[]&lt;&gt;{}'"/>
+    <xsl:variable name="punctuation"
+                  select="'&#9;&#13;&#160;&#32;.,:;!?&#34;&#8216;&#8217;&#8218;&#8220;&#8221;&#8222;&#171;&#187;()[]&lt;&gt;{}'"/>
 
     <!-- Converts a string to upper case characters only. -->
     <xsl:template name="upper-case">
@@ -2844,12 +2909,12 @@
     <xsl:template name="substring-before-ex">
         <!-- String to get the substring from. -->
         <xsl:param name="string"/>
-        <!-- Delimeter to check for. -->
-        <xsl:param name="delimeter"/>
+        <!-- Delimiter to check for. -->
+        <xsl:param name="delimiter"/>
 
         <xsl:choose>
-            <xsl:when test="contains($string, $delimeter)">
-                <xsl:value-of select="substring-before($string, $delimeter)"/>
+            <xsl:when test="contains($string, $delimiter)">
+                <xsl:value-of select="substring-before($string, $delimiter)"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="$string"/>
@@ -2919,7 +2984,8 @@
         <xsl:param name="bibWord"/>
 
         <xsl:choose>
-            <xsl:when test="$index - $suffixIndex > 0 and msxsl:node-set($bibWord)/b:BibWord/b:Source[$index]/b:YSReq = msxsl:node-set($bibWord)/b:BibWord/b:Source[$index - $suffixIndex]/b:YSReq">
+            <xsl:when
+                    test="$index - $suffixIndex > 0 and msxsl:node-set($bibWord)/b:BibWord/b:Source[$index]/b:YSReq = msxsl:node-set($bibWord)/b:BibWord/b:Source[$index - $suffixIndex]/b:YSReq">
                 <xsl:call-template name="get-year-suffix">
                     <xsl:with-param name="suffixIndex" select="$suffixIndex + 1"/>
                     <xsl:with-param name="index" select="$index"/>
@@ -2934,7 +3000,7 @@
     </xsl:template>
 
     <!-- Creates a b:SortKey element for a given source. -->
-    <xsl:template name="create-sortkey">
+    <xsl:template name="create-sort-key">
         <!-- The source element to create a b:SortKey element for. -->
         <xsl:param name="source"/>
 
@@ -2942,25 +3008,29 @@
         <xsl:variable name="formatstring">
             <xsl:choose>
                 <!-- Placeholders. -->
-                <xsl:when test="string-length($source/b:SourceType) = 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/format) > 0">
+                <xsl:when
+                        test="string-length($source/b:SourceType) = 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/format) > 0">
                     <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/sortkey"/>
                 </xsl:when>
                 <!-- Type. (BibWord type overriding mechanism) -->
-                <xsl:when test="string-length($source/b:Type) > 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $source/b:Type]/format) > 0 ">
+                <xsl:when
+                        test="string-length($source/b:Type) > 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $source/b:Type]/format) > 0 ">
                     <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = $source/b:Type]/sortkey"/>
                 </xsl:when>
                 <!-- SourceType. (Normal type) -->
                 <xsl:otherwise>
-                    <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = $source/b:SourceType]/sortkey"/>
+                    <xsl:value-of
+                            select="msxsl:node-set($data)/bibliography/source[@type = $source/b:SourceType]/sortkey"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
 
         <!-- Process the actual format string. -->
-        <xsl:variable name="sortkey">
+        <xsl:variable name="sort-key">
             <xsl:call-template name="format-source">
                 <xsl:with-param name="format" select="$formatstring"/>
                 <xsl:with-param name="source" select="$source"/>
+                <xsl:with-param name="disallowed" select="."/>
             </xsl:call-template>
         </xsl:variable>
 
@@ -2968,16 +3038,17 @@
         <b:SortKey>
             <xsl:choose>
                 <!-- If the sortkey is not empty, convert it to uppercase and use that. -->
-                <xsl:when test="string-length($sortkey) > 0">
+                <xsl:when test="string-length($sort-key) > 0">
                     <xsl:call-template name="upper-case">
-                        <xsl:with-param name ="string">
-                            <xsl:value-of select="$sortkey" disable-output-escaping="yes"/>
+                        <xsl:with-param name="string">
+                            <xsl:value-of select="$sort-key" disable-output-escaping="yes"/>
                         </xsl:with-param>
                     </xsl:call-template>
                 </xsl:when>
                 <!-- Otherwise, use a 5 digit version of the RefOrder value. -->
                 <xsl:otherwise>
-                    <xsl:value-of select="substring(concat('00000', $source/b:RefOrder), string-length($source/b:RefOrder) + 1, 5)"/>
+                    <xsl:value-of
+                            select="substring(concat('00000', $source/b:RefOrder), string-length($source/b:RefOrder) + 1, 5)"/>
                 </xsl:otherwise>
             </xsl:choose>
         </b:SortKey>
