@@ -7,8 +7,8 @@
         <!-- General information about the style. -->
         <general>
             <stylename>TUNI 2.0</stylename>
-            <version>2023.09</version>
-            <version2013>2023.09</version2013>
+            <version>2023.09.0</version>
+            <version2013>2023.09.0</version2013>
             <author>Jenni Rantanen (jenrant@protonmail.com)</author>
             <description>An new implementation of the Tampere Universities reference style.</description>
             <URL> https://github.com/jenrant/tuni_lahdeluettelo </URL>
