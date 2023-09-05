@@ -253,10 +253,6 @@
                 <xsl:call-template name="format-bibliography"/>
             </xsl:when>
 
-            <!-- Add a b:BibOrder element to b:Source elements (not used by Word, BibWord specific!). -->
-            <xsl:when test="b:BibWord">
-                <xsl:call-template name="bibword-extensions"/>
-            </xsl:when>
         </xsl:choose>
 
     </xsl:template>
