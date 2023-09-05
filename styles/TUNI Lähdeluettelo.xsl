@@ -47,7 +47,7 @@
                 <b:ImportantField>b:MonthAccessed</b:ImportantField>
                 <b:ImportantField>b:YearAccessed</b:ImportantField>
                 <b:ImportantField>b:URL</b:ImportantField>
-                <b:ImportantField>b:DOI</b:ImportantField>
+                <b:ImportantField>b:StandardNumber</b:ImportantField>
             </source>
 
             <source type="Interview">
@@ -73,7 +73,13 @@
             </source>
 
             <source type="Case">
-                <b:ImportantField>b:Author</b:ImportantField>
+                <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:CaseNumber</b:ImportantField>
+                <b:ImportantField>b:DayAccessed</b:ImportantField>
+                <b:ImportantField>b:MonthAccessed</b:ImportantField>
+                <b:ImportantField>b:YearAccessed</b:ImportantField>
+                <b:ImportantField>b:URL</b:ImportantField>
             </source>
 
             <source type="ConferenceProceedings">
