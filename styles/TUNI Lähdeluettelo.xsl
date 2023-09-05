@@ -653,4 +653,130 @@
 
     </xsl:template>
 
+    <!-- Formats a bibliography as a table. -->
+    <xsl:template name="format-bibliography-as-table">
+        <xsl:param name="bibNodeSet"/>
+
+        <!-- Empty paragraph hack for table. -->
+        <p class="MsoBibliography" style="display:none;">x</p>
+
+        <table width="100%">
+            <xsl:for-each select="$bibNodeSet/b:Bibliography/b:Source">
+                <xsl:sort select="b:SortKey" data-type="text"/>
+
+                <tr>
+                    <xsl:call-template name="format-bibliography-table-column">
+                        <xsl:with-param name="columnId" select="1"/>
+                        <xsl:with-param name="source" select="."/>
+                    </xsl:call-template>
+                </tr>
+
+            </xsl:for-each>
+        </table>
+
+        <!-- Empty paragraph hack for table. -->
+        <p class="MsoBibliography" style="display:none;">x</p>
+
+    </xsl:template>
+
+    <!-- Formats a single column in a bibliography. -->
+    <xsl:template name="format-bibliography-table-column">
+        <!-- Source to format. -->
+        <xsl:param name="source"/>
+        <!-- id of the column to format. -->
+        <xsl:param name="columnId"/>
+
+        <!-- Generate an XML node-set from the formatting data. -->
+        <xsl:variable name="params" select="msxsl:node-set($data)"/>
+
+        <!-- Get the format string. -->
+        <xsl:variable name="format">
+            <xsl:variable name="type" select="./b:Type"/>
+            <xsl:variable name="sourcetype" select="./b:SourceType"/>
+
+            <xsl:choose>
+                <!-- If there is no source type, it's a placeholder. -->
+                <xsl:when test="string-length($sourcetype) = 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/column[@id = $columnId]/format) > 0">
+                    <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = 'Placeholder']/column[@id = $columnId]/format"/>
+                </xsl:when>
+                <!-- Go for the type element if available. -->
+                <xsl:when test="string-length($type) > 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $type]/column[@id = $columnId]/format) > 0 ">
+                    <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = $type]/column[@id = $columnId]/format"/>
+                </xsl:when>
+                <!-- Else go for the source type element if available. -->
+                <xsl:when test="string-length(msxsl:node-set($data)/bibliography/source[@type = $sourcetype]/column[@id = $columnId]/format) > 0 ">
+                    <xsl:value-of select="msxsl:node-set($data)/bibliography/source[@type = $sourcetype]/column[@id = $columnId]/format"/>
+                </xsl:when>
+                <!-- Else display error message. -->
+                <xsl:otherwise>
+                    <xsl:if test="msxsl:node-set($data)/general/display_errors = 'yes'">
+                        <xsl:text>&lt;b&gt;Unsupported </xsl:text>
+                        <xsl:if test="string-length($type) > 0">
+                            <xsl:text>type (</xsl:text>
+                            <xsl:value-of select="$type"/>
+                            <xsl:text>) and </xsl:text>
+                        </xsl:if>
+                        <xsl:text>source type (</xsl:text>
+                        <xsl:value-of select="$sourcetype"/>
+                        <xsl:text>) for source </xsl:text>
+                        <xsl:value-of select="./b:Tag"/>
+                        <xsl:text>.&lt;/b&gt;</xsl:text>
+                    </xsl:if>
+                </xsl:otherwise>
+            </xsl:choose>
+
+        </xsl:variable>
+
+        <!-- Not really efficient at the moment, but it does the trick so errors can be displayed. -->
+        <xsl:variable name="type">
+            <xsl:variable name="temp" select="$source/b:Type"/>
+            <xsl:variable name="temp2" select="$source/b:SourceType"/>
+
+            <xsl:choose>
+                <xsl:when test="string-length($temp2) = 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $temp2]/column[@id = $columnId]/format) > 0 ">
+                    <xsl:value-of select="'Placeholder'"/>
+                </xsl:when>
+                <xsl:when test="string-length($temp) > 0 and string-length(msxsl:node-set($data)/bibliography/source[@type = $temp]/column[@id = $columnId]/format) > 0 ">
+                    <xsl:value-of select="$temp"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$source/b:SourceType"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
+        <td align="{$params/bibliography/source[@type = $type]/column[@id = $columnId]/halign}" valign="{$params/bibliography/source[@type = $type]/column[@id = $columnId]/valign}">
+            <p class="MsoBibliography">
+
+                <xsl:variable name="columnX">
+                    <xsl:call-template name="format-source">
+                        <xsl:with-param name="format" select="$format"/>
+                        <xsl:with-param name="source" select="$source"/>
+                    </xsl:call-template>
+                </xsl:variable>
+
+                <!-- Convert the formatted source to html. -->
+                <xsl:choose>
+                    <xsl:when test="msxsl:node-set($data)/general/citation_as_link = 'yes' and $columnId = 1">
+                        <a name="{$source/b:Tag}">
+                            <xsl:value-of select="$columnX" disable-output-escaping="yes"/>
+                        </a>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="$columnX" disable-output-escaping="yes"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </p>
+        </td>
+
+        <!-- Process remaining columns recursively. -->
+        <xsl:if test="$params/bibliography/columns > $columnId">
+            <xsl:call-template name="format-bibliography-table-column">
+                <xsl:with-param name="source" select="$source"/>
+                <xsl:with-param name="columnId" select="$columnId + 1"/>
+            </xsl:call-template>
+        </xsl:if>
+
+    </xsl:template>
+
 </xsl:stylesheet>
