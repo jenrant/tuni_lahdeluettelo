@@ -1,4 +1,4 @@
-![Microsoft Word Citation and Bibliography Styles](https://github.com/codingo/BibWord/blob/master/BibWord.png "BibWord")
+![Microsoft Word Citation and Bibliography Styles](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/BibWord.png "BibWord")
 
 ## TUNI Kirjallisen raportoinnin opas:
 https://www.tuni.fi/fi/opiskelijan-opas/kasikirja/tamk/opiskelu-0/kirjallisen-raportoinnin-opas
