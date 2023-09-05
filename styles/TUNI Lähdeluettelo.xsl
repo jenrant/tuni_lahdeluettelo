@@ -83,7 +83,19 @@
             </source>
 
             <source type="ConferenceProceedings">
-                <b:ImportantField>b:Author</b:ImportantField>
+                <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Tag</b:ImportantField>
+                <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:ConferenceName</b:ImportantField>
+                <b:ImportantField>b:SourceType</b:ImportantField>
+                <b:ImportantField>b:Day</b:ImportantField>
+                <b:ImportantField>b:Month</b:ImportantField>
+                <b:ImportantField>b:Version</b:ImportantField>
+                <b:ImportantField>b:City</b:ImportantField>
+                <b:ImportantField>b:DayAccessed</b:ImportantField>
+                <b:ImportantField>b:MonthAccessed</b:ImportantField>
+                <b:ImportantField>b:YearAccessed</b:ImportantField>
+                <b:ImportantField>b:URL</b:ImportantField>
             </source>
 
             <source type="Report">
