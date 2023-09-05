@@ -112,7 +112,17 @@
             </source>
 
             <source type="Film">
-                <b:ImportantField>b:Author</b:ImportantField>
+                <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:Editor</b:ImportantField>
+                <b:ImportantField>b:Director</b:ImportantField>
+                <b:ImportantField>b:ProductionCompany</b:ImportantField>
+                <b:ImportantField>b:SourceType</b:ImportantField>
+                <b:ImportantField>b:Distributor</b:ImportantField>
+                <b:ImportantField>b:DayAccessed</b:ImportantField>
+                <b:ImportantField>b:MonthAccessed</b:ImportantField>
+                <b:ImportantField>b:YearAccessed</b:ImportantField>
+                <b:ImportantField>b:URL</b:ImportantField>
             </source>
 
             <source type="InternetSite">

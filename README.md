@@ -32,5 +32,6 @@ Report - Opinnäytteet
 - vaihtoehdon Tag alle voi kirjata tutkinto-ohjelman tai yksikön, esim: "Palveluliiketoiminnan tutkinto-ohjelma"
 
 Film - Televisio- ja radio-ohjelmat, podcastit ja elokuvat
+- vaihtoehdolla Editor tarkoitetaan poikkeavasti toimittajaa
 
 Internet Site - Verkkosivut
