@@ -272,6 +272,21 @@
 
         </strings>
 
+        <extensions>
+            <source type="Book">
+                <yearsuffix>{%Author:1|Editor:2%}{%Year%}</yearsuffix>
+            </source>
+            <source type="BookSection">
+                <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
+            </source>
+            <source type="DocumentFromInternetSite">
+                <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
+            </source>
+            <source type="Standard">
+                <yearsuffix>{%Author:1%}{%Year%}</yearsuffix>
+            </source>
+        </extensions>
+
         <overrides>
             <!-- Parameters overriding some default settings. -->
 
