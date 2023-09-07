@@ -255,6 +255,21 @@
         <strings>
             <!-- Format information for specific strings. -->
 
+            <months>
+                <month number="1">Tammikuu</month>
+                <month number="2">Helmikuu</month>
+                <month number="3">Maaliskuu</month>
+                <month number="4">Huhtikuu</month>
+                <month number="5">Toukokuu</month>
+                <month number="6">Kesäkuu</month>
+                <month number="7">Heinäkuu</month>
+                <month number="8">Elokuu</month>
+                <month number="9">Syyskuu</month>
+                <month number="10">Lokakuu</month>
+                <month number="11">Marraskuu</month>
+                <month number="12">Joulukuu</month>
+            </months>
+
         </strings>
 
         <overrides>
