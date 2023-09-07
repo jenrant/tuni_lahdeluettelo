@@ -1443,8 +1443,8 @@
                     </xsl:when>
                     <!-- Otherwise, nothing has to be sent to the output. The used variables stay used. -->
                     <xsl:otherwise>
-                        <output></output>
-                        <used></used>
+                        <output/>
+                        <used/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:otherwise>
@@ -1766,8 +1766,8 @@
                     </xsl:when>
                     <!-- Otherwise, nothing has to be sent to the output. The used variables stay used. -->
                     <xsl:otherwise>
-                        <output></output>
-                        <used></used>
+                        <output/>
+                        <used/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:otherwise>
