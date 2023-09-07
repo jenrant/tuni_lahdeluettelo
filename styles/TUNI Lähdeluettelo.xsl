@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <xsl:stylesheet version="1.0"
-                xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:b="https://schemas.openxmlformats.org/officeDocument/2006/bibliography"
+                xmlns:xsl="https://www.w3.org/1999/XSL/Transform"
                 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
                 xmlns:t="http://www.microsoft.com/temp">
 
