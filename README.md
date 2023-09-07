@@ -9,6 +9,11 @@ Book - Kirjat
 - - Esimerkiksi: "Autio P.(suom.) Tampere"
 
 Journal Article - Tutkimusartikkelit, kokoomateoksen artikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit
+- Toimittaja merkitään vaihtoehdon Editor alle
+- Huom, verkkolähteissä tulee käyttää vaihtoehtoa Distributor vaihtoehdon Publisher sijaan
+- - Esimerkiksi tilanteessa jossa on otettu yle uutisten artikkeli yhdeksi lähteeksi, tällöin tulee myös täyttää kohdat Day, Month ja Year
+- Tärkeä huomio myös vaihtoehto Edition viitaa kirjan painokseen ja Issue kohdan alle tulee lehtien julkaisusarja esim. "10 (1)"
+- Tukee myös DOI numeroiden ilmoittamisen vaihtoehdon StandardNumber alle
 
 Interview - Asiantuntijahaastattelut ja sähköpostiviestit
 - käytetty haastateltavalle tyyppiä Broadcaster, sillä täten haastateltavalle on olemassa BroadcasterTitle johon saadaan haastateltavan arvo tai ammatti

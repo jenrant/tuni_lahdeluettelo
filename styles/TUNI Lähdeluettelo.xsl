@@ -42,22 +42,32 @@
 
             <source type="JournalArticle">
                 <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Editor</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
                 <b:ImportantField>b:Title</b:ImportantField>
                 <b:ImportantField>b:PublicationTitle</b:ImportantField>
-                <b:ImportantField>b:Issue</b:ImportantField>
+                <b:ImportantField>b:Edition</b:ImportantField>
+                <b:ImportantField>b:SourceType</b:ImportantField>
+                <b:ImportantField>b:City</b:ImportantField>
+                <b:ImportantField>b:Publisher</b:ImportantField>
                 <b:ImportantField>b:Pages</b:ImportantField>
+                <b:ImportantField>b:Distributor</b:ImportantField>
+                <b:ImportantField>b:Day</b:ImportantField>
+                <b:ImportantField>b:Month</b:ImportantField>
+                <b:ImportantField>b:Year</b:ImportantField>
                 <b:ImportantField>b:DayAccessed</b:ImportantField>
                 <b:ImportantField>b:MonthAccessed</b:ImportantField>
                 <b:ImportantField>b:YearAccessed</b:ImportantField>
-                <b:ImportantField>b:URL</b:ImportantField>
+                <b:ImportantField>b:Issue</b:ImportantField>
                 <b:ImportantField>b:StandardNumber</b:ImportantField>
+                <b:ImportantField>b:Comments</b:ImportantField>
+                <b:ImportantField>b:URL</b:ImportantField>
             </source>
 
             <source type="Interview">
                 <b:ImportantField>b:Broadcaster/b:Broadcaster/b:NameList</b:ImportantField>
                 <b:ImportantField>b:BroadcasterTitle</b:ImportantField>
-                <b:ImportantField>SourceType</b:ImportantField>
+                <b:ImportantField>b:SourceType</b:ImportantField>
                 <b:ImportantField>b:Day</b:ImportantField>
                 <b:ImportantField>b:Month</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
@@ -176,6 +186,18 @@
                     <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title|ShortTitle%.}{ %SourceType%.}{ %Edition%.}
                         { %City%}{: %Publisher%.}{ Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}
                         { %Comments%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
+                </column>
+                <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
+            </source>
+
+            <source type="JournalArticle">
+                <column id="1">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title|ShortTitle%.}{ Teoksessa %Editor% (toim.)
+                        { %PublicationTitle%.{ %Edition%.}}}{ %SourceType%.}{ %City%}{: %Publisher%.}{ %Distributor%
+                         {{{%Day%}.%Month%}.%Year%.}}{ Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}
+                        { %Issue%.}{, %Pages%.}{ DOI: %StandardNumber%.}{ %Comments%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
             </source>
