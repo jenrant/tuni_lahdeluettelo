@@ -159,6 +159,97 @@
         <namelists>
             <!-- Format information for corporations and lists of persons. -->
 
+            <list name="sort" id="0">
+                <single_prefix></single_prefix>
+                <multi_prefix></multi_prefix>
+                <corporate>{%Corporate%}</corporate>
+                <first_person>{%Last|First|Middle%}</first_person>
+                <other_persons>{%Last|First|Middle%}</other_persons>
+                <separator_between_if_two> </separator_between_if_two>
+                <separator_between_if_more_than_two> </separator_between_if_more_than_two>
+                <separator_before_last></separator_before_last>
+                <max_number_of_persons_to_display>500</max_number_of_persons_to_display>
+                <number_of_persons_to_display_if_more_than_max>500</number_of_persons_to_display_if_more_than_max>
+                <overflow></overflow>
+                <single_suffix></single_suffix>
+                <multi_suffix></multi_suffix>
+            </list>
+            <list name="citation_author" id="1">
+                <single_prefix></single_prefix>
+                <multi_prefix></multi_prefix>
+                <corporate>{%Corporate%}</corporate>
+                <first_person>{%Last|First|Middle%}</first_person>
+                <other_persons>{%Last|First|Middle%}</other_persons>
+                <separator_between_if_two> &amp; </separator_between_if_two>
+                <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
+                <separator_before_last> &amp; </separator_before_last>
+                <max_number_of_persons_to_display>4</max_number_of_persons_to_display>
+                <number_of_persons_to_display_if_more_than_max>1</number_of_persons_to_display_if_more_than_max>
+                <overflow>, ym.</overflow>
+                <single_suffix></single_suffix>
+                <multi_suffix></multi_suffix>
+            </list>
+            <list name="citation_editor" id="2">
+                <single_prefix></single_prefix>
+                <multi_prefix></multi_prefix>
+                <corporate>{%Corporate%}</corporate>
+                <first_person>{%Last|First|Middle%}</first_person>
+                <other_persons>{%Last|First|Middle%}</other_persons>
+                <separator_between_if_two> &amp; </separator_between_if_two>
+                <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
+                <separator_before_last> &amp; </separator_before_last>
+                <max_number_of_persons_to_display>4</max_number_of_persons_to_display>
+                <number_of_persons_to_display_if_more_than_max>1</number_of_persons_to_display_if_more_than_max>
+                <overflow>, ym.</overflow>
+                <single_suffix></single_suffix>
+                <multi_suffix></multi_suffix>
+            </list>
+            <list name="author" id="3">
+                <single_prefix></single_prefix>
+                <multi_prefix></multi_prefix>
+                <corporate>{%Corporate%}</corporate>
+                <first_person>{%Last|First|Middle%{, %First:adu|Middle:adu%{. %Middle:adu%}}.}</first_person>
+                <other_persons>{%Last|First|Middle%{, %First:adu|Middle:adu%{. %Middle:adu%}}.}</other_persons>
+                <separator_between_if_two> &amp; </separator_between_if_two>
+                <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
+                <separator_before_last> &amp; </separator_before_last>
+                <max_number_of_persons_to_display>20</max_number_of_persons_to_display>
+                <number_of_persons_to_display_if_more_than_max>20</number_of_persons_to_display_if_more_than_max>
+                <overflow>, ym.</overflow>
+                <single_suffix></single_suffix>
+                <multi_suffix></multi_suffix>
+            </list>
+            <list name="editor_as_author" id="4">
+                <single_prefix></single_prefix>
+                <multi_prefix></multi_prefix>
+                <corporate>{%Corporate%}</corporate>
+                <first_person>{%Last|First|Middle%{, %First:adu|Middle:adu%{%Middle:adu%}}.}</first_person>
+                <other_persons>{%Last|First|Middle%{, %First:adu|Middle:adu%{%Middle:adu%}}.}</other_persons>
+                <separator_between_if_two> &amp; </separator_between_if_two>
+                <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
+                <separator_before_last> &amp; </separator_before_last>
+                <max_number_of_persons_to_display>20</max_number_of_persons_to_display>
+                <number_of_persons_to_display_if_more_than_max>20</number_of_persons_to_display_if_more_than_max>
+                <overflow>, ym.</overflow>
+                <single_suffix> (toim.)</single_suffix>
+                <multi_suffix> (toim.)</multi_suffix>
+            </list>
+            <list name="editor_not_as_author" id="5">
+                <single_prefix></single_prefix>
+                <multi_prefix></multi_prefix>
+                <corporate>{%Corporate%}</corporate>
+                <first_person>{{%First:adu|Middle:adu%{%Middle:adu%} }%Last|First|Middle%.}</first_person>
+                <other_persons>{{%First:adu|Middle:adu%{%Middle:adu%} }%Last|First|Middle%.}</other_persons>
+                <separator_between_if_two> &amp; </separator_between_if_two>
+                <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
+                <separator_before_last> &amp; </separator_before_last>
+                <max_number_of_persons_to_display>10</max_number_of_persons_to_display>
+                <number_of_persons_to_display_if_more_than_max>10</number_of_persons_to_display_if_more_than_max>
+                <overflow>, ym.</overflow>
+                <single_suffix> (toim.)</single_suffix>
+                <multi_suffix> (toim.)</multi_suffix>
+            </list>
+
         </namelists>
 
         <strings>
