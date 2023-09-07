@@ -28,7 +28,7 @@
                 <b:ImportantField>b:Author/b:Editor/b:NameList</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
                 <b:ImportantField>b:Title</b:ImportantField>
-                <b:ImportantField>b:Volume</b:ImportantField>
+                <b:ImportantField>b:Edition</b:ImportantField>
                 <b:ImportantField>b:City</b:ImportantField>
                 <b:ImportantField>b:Publisher</b:ImportantField>
                 <b:ImportantField>b:SourceType</b:ImportantField>
@@ -153,6 +153,32 @@
 
         <bibliography>
             <!-- Bibliography format information for each supported source type. -->
+            <columns>1</columns>
+
+            <source type="Placeholder">
+                <column id="1">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>%RefOrder%</format>
+                </column>
+
+                <column id="2">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>[[%Tag%]]</format>
+                </column>
+            </source>
+
+            <source type="Book">
+                <column id="1">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title|ShortTitle%.}{ %SourceType%.}{ %Edition%.}
+                        { %City%}{: %Publisher%.}{ Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}
+                        { %Comments%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
+                </column>
+                <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
+            </source>
 
         </bibliography>
 

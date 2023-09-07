@@ -5,6 +5,8 @@ https://www.tuni.fi/fi/opiskelijan-opas/kasikirja/tamk/opiskelu-0/kirjallisen-ra
 
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 Book - Kirjat
+- Jos teokseen tarvitsee merkitä suomentaja tulee tämä poikkeuksellisesti vaihtoehdon City alle, sillä silloin sen muotoilu on oikein
+- - Esimerkiksi: "Autio P.(suom.) Tampere"
 
 Journal Article - Tutkimusartikkelit, kokoomateoksen artikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit
 
