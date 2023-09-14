@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <xsl:stylesheet version="1.0"
-                xmlns:b="https://schemas.openxmlformats.org/officeDocument/2006/bibliography"
-                xmlns:xsl="https://www.w3.org/1999/XSL/Transform"
+                xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
                 xmlns:t="http://www.microsoft.com/temp">
 
     <xsl:variable name="data">
-
         <!-- General information about the style. -->
         <general>
-            <stylename>TUNI 2.0</stylename>
+            <stylename>TUNI (new)</stylename>
             <version>2023.09.0</version>
-            <version2013>2023.09.0</version2013>
+            <version2013>2023.090</version2013>
             <author>Jenni Rantanen (jenrant@protonmail.com)</author>
             <description>An new implementation of the Tampere Universities reference style.</description>
             <URL>https://github.com/jenrant/tuni_lahdeluettelo</URL>
