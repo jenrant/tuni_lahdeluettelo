@@ -44,6 +44,8 @@ Conference Proceedings - Konfenssi-, seminaari- ja muut asiantuntijasitelmät ja
 
 Report - Opinnäytteet
 - vaihtoehdon Tag alle voi kirjata tutkinto-ohjelman tai yksikön, esim: "Palveluliiketoiminnan tutkinto-ohjelma"
+- vaihtoehdon ThesisTag eteen myös julkaisun tiedot, jos oleellinen; esimerkki kirjallisen raportoinnin oppaasta:
+- - "Sosiaalitieteiden laitoksen julkaisuja 2012:18. Väitöskirja"
 
 Film - Televisio- ja radio-ohjelmat, podcastit ja elokuvat
 - vaihtoehdolla Editor tarkoitetaan poikkeavasti toimittajaa
