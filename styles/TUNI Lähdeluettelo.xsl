@@ -162,11 +162,6 @@
 
         </citation>
 
-        <footnotecitation>
-            <!-- Footnote citation format information for each supported source type. Note supported in Word 2007. -->
-
-        </footnotecitation>
-
         <bibliography>
             <!-- Bibliography format information for each supported source type. -->
             <columns>1</columns>
