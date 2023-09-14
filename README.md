@@ -23,6 +23,9 @@ Interview - Asiantuntijahaastattelut ja sähköpostiviestit
 - vaihtoehto City toimii haastattelupaikkana
 
 Article in a Periodical - Julkaisusarjoissa julkaistut
+- Vaihtoehdon Issue julkaisusarja ja numero, käytön esimerkit viitaten kirjallisen raportoinnin oppaaseen:
+- - "Tampereen ammattikorkeakoulun julkaisuja Sarja B. Raportteja 113"
+- - "Raportti 2"
 
 Case - Lait ja asetukset
 

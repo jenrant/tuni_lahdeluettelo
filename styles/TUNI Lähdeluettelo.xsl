@@ -81,9 +81,10 @@
                 <b:ImportantField>b:Title</b:ImportantField>
                 <b:ImportantField>b:Editor</b:ImportantField>
                 <b:ImportantField>b:PeriodicalTitle</b:ImportantField>
+                <b:ImportantField>b:Issue</b:ImportantField>
                 <b:ImportantField>b:City</b:ImportantField>
                 <b:ImportantField>b:Publisher</b:ImportantField>
-                <b:ImportantField>b:Issue</b:ImportantField>
+                <b:ImportantField>b:Pages</b:ImportantField>
             </source>
 
             <source type="Case">
@@ -208,6 +209,16 @@
                     <valign>top</valign>
                     <format>{%Broadcaster:3|Author:4%{ %BroadcasterTitle%.}{ %Year%{%YearSuffix%}.}{ %Comments%.}
                         { %SourceType% {{{%Day%}.%Month%}.%Year%.}}{ %City%.}}</format>
+                </column>
+                <sortkey>{%Broadcaster:0|Author:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
+            </source>
+
+            <source type="ArticleInAPeriodical">
+                <column id="1">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title%} { Teoksessa %Editor:3% (toim.)}
+                        { %PeriodicalTitle%.}{ %Issue%.}{ %City%{{: %Publisher%}, %Pages%}.}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
             </source>
