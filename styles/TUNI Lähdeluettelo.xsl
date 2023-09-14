@@ -202,6 +202,16 @@
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
             </source>
 
+            <source type="Interview">
+                <column id="1">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>{%Broadcaster:3|Author:4%{ %BroadcasterTitle%.}{ %Year%{%YearSuffix%}.}{ %Comments%.}
+                        { %SourceType% {{{%Day%}.%Month%}.%Year%.}}{ %City%.}}</format>
+                </column>
+                <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
+            </source>
+
         </bibliography>
 
         <namelists>

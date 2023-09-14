@@ -17,10 +17,9 @@ Journal Article - Tutkimusartikkelit, kokoomateoksen artikkelit, ammattilehtien 
 
 Interview - Asiantuntijahaastattelut ja sähköpostiviestit
 - käytetty haastateltavalle tyyppiä Broadcaster, sillä täten haastateltavalle on olemassa BroadcasterTitle johon saadaan haastateltavan arvo tai ammatti
-- vaihtoehto SourceType sisältää onko kyseessä normaali haastattelu, vai sähköposti, sekä mahdolliset välikommentit, kuten kirjallisen raportoinnin oppaassa "Koulusivistyskielenä ruotsi."
-- - Esimerkkejä käytöstä:
-- - - Haastattelu
-- - - Koulusivistyskielenä ruotsi. Sähköpostiviesti
+- vaihtoehdon Comments alle välikommentit (ennen haastattelun tyyppiä)
+- - Esimerkiksi "Koulusivistyskielenä ruotsi"
+- vaihtoehto SourceType sisältää onko kyseessä normaali haastattelu, vai sähköposti
 - vaihtoehto City toimii haastattelupaikkana
 
 Article in a Periodical - Julkaisusarjoissa julkaistut
