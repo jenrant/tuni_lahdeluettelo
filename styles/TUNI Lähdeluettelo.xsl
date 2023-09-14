@@ -89,6 +89,8 @@
 
             <source type="Case">
                 <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:Day</b:ImportantField>
+                <b:ImportantField>b:Month</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
                 <b:ImportantField>b:CaseNumber</b:ImportantField>
                 <b:ImportantField>b:DayAccessed</b:ImportantField>
@@ -219,6 +221,16 @@
                     <valign>top</valign>
                     <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title%} { Teoksessa %Editor:3% (toim.)}
                         { %PeriodicalTitle%.}{ %Issue%.}{ %City%{{: %Publisher%}, %Pages%}.}}</format>
+                </column>
+                <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
+            </source>
+
+            <source type="Case">
+                <column id="1">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>{%Title%{{{{ %Day%}.%Month%}.%Year%}/%CaseNumber%.}
+                        { Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
             </source>

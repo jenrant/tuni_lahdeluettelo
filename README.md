@@ -28,6 +28,9 @@ Article in a Periodical - Julkaisusarjoissa julkaistut
 - - "Raportti 2"
 
 Case - Lait ja asetukset
+- Esimerkki päivästä, jona laki tai asetus on annettu, ja numero säädöskokoelmassa
+- - 9.4.2021/297
+- - Tuotetaan vaihtoehdoilla Day: 9, Month: 4, Year: 2021, CaseNumber: 297
 
 Conference Proceedings - Konfenssi-, seminaari- ja muut asiantuntijasitelmät ja -luennot
 - Jos esittäjän ammatti tai arvo merkitsevä, sen voi lisätä Tag kohtaan
