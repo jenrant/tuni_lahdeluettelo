@@ -239,7 +239,7 @@
                 <column id="1">
                     <halign>left</halign>
                     <valign>top</valign>
-                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %ConferenceName%.}{ %SourceType% {{{%Day%}.%Month%}.%Year%}.}
+                    <format>{%Author:3|Editor:4%{ %Tag%.}{ %Year%{%YearSuffix%}.}{ %ConferenceName%.}{ %SourceType% {{{%Day%}.%Month%}.%Year%}.}
                         { %Version%.}{ Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}{ %City%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
