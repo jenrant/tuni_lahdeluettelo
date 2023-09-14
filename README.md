@@ -35,7 +35,9 @@ Case - Lait ja asetukset
 Conference Proceedings - Konfenssi-, seminaari- ja muut asiantuntijasitelmät ja -luennot
 - Jos esittäjän ammatti tai arvo merkitsevä, sen voi lisätä Tag kohtaan
 - vaihtoehto SourceType kertoo onko kyseessä esimerkiksi luento
-- - Toinen mahdollinen käyttö "Luento. YouTube-video. Julkaisija Aalto University"
+- - SourceType jälkeen myös lisätiedot esim:
+- - "Luento. YouTube-video. Julkaisija Aalto University"
+- - "Luento. TAMK konferenssi"
 - vaihtoehtoon Version voi vielä täydentää lisätietoja esim. onko konferenssi pidetty webinaarina, jolloin kohtaan riittää "Webinaari"
 - vaihtoehdon City alle voi myös laittaa ensin tarkemman sijainnin esim: "Tampereen ammattikorkeakoulu. Tampere"
 - sisältää myös esim. YouTube videot, jolloin lisättävä url ja katselupäivä DayAccessed yms.

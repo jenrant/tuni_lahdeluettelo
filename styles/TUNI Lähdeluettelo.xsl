@@ -108,10 +108,10 @@
                 <b:ImportantField>b:Day</b:ImportantField>
                 <b:ImportantField>b:Month</b:ImportantField>
                 <b:ImportantField>b:Version</b:ImportantField>
-                <b:ImportantField>b:City</b:ImportantField>
                 <b:ImportantField>b:DayAccessed</b:ImportantField>
                 <b:ImportantField>b:MonthAccessed</b:ImportantField>
                 <b:ImportantField>b:YearAccessed</b:ImportantField>
+                <b:ImportantField>b:City</b:ImportantField>
                 <b:ImportantField>b:URL</b:ImportantField>
             </source>
 
@@ -231,6 +231,16 @@
                     <valign>top</valign>
                     <format>{%Title%{{{{ %Day%}.%Month%}.%Year%}/%CaseNumber%.}
                         { Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
+                </column>
+                <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
+            </source>
+
+            <source type="ConferenceProceedings">
+                <column id="1">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %ConferenceName%.}{ %SourceType% {{{%Day%}.%Month%}.%Year%}.}
+                        { %Version%.}{ Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}{ %City%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
             </source>
