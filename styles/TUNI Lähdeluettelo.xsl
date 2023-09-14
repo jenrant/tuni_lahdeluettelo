@@ -148,6 +148,7 @@
                 <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
                 <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:SourceType</b:ImportantField>
                 <b:ImportantField>b:DayAccessed</b:ImportantField>
                 <b:ImportantField>b:MonthAccessed</b:ImportantField>
                 <b:ImportantField>b:YearAccessed</b:ImportantField>
@@ -264,6 +265,16 @@
                     <format>{{{%Author:3%{ %Year%{%YearSuffix%}.}{ %Title%.}}|{%Title%.{ %Year%{%YearSuffix%}.}}}
                         { %Publisher%.}{ Toimittaja %Editor%.}{ Ohjaus: %Director%.}{ %SourceType%.}
                         { Tuotantoyhtiö: %ProductionCompany%.} { %Distributor%.}{ Julkaistu {{{%Day%}.%Month%}.%Year%.}}
+                        { Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
+                </column>
+                <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
+            </source>
+
+            <source type="InternetSite">
+                <column id="1">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title%.}{ %SourceType%.}
                         { Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
