@@ -159,6 +159,56 @@
 
         <citation>
             <!-- Citation format information for each supported source type. -->
+            <openbracket>(</openbracket>
+            <closebracket>)</closebracket>
+            <separator>; </separator>
+            <noauthor>-Artist-Author-BookAuthor-Compiler-Composer-Conductor-Counsel-Director-Editor-Interviewee-Interviewer-Inventor-Performer-ProducerName-Translator-Writer-</noauthor>
+            <notitle>-Title-AlbumTitle-BookTitle-BroadcastTitle-InternetSiteTitle-PeriodicalTitle-PublicationTitle-ShortTitle-</notitle>
+            <noyear>-Day-DayAccessed-Month-MonthAccessed-Year-YearAccessed-"n.d."-</noyear>
+
+            <source type="Placeholder">
+                <format>[%Tag%]</format>
+            </source>
+
+            <source type="Book">
+                <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
+            </source>
+
+            <source type="JournalArticle">
+                <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
+            </source>
+
+            <source type="Interview">
+                <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
+            </source>
+
+            <source type="ArticleInAPeriodical">
+                <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
+            </source>
+
+            <source type="Case">
+                <format>{%CitationPrefix%}{%ShortTitle|Title%{{{ %Day%}.%Month}.%Year}/%CaseNumber%}{, %CitationPages::pp. %}{%CitationSuffix%}</format>
+            </source>
+
+            <source type="ConferenceProceedings">
+                <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
+            </source>
+
+            <source type="Report">
+                <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
+            </source>
+
+            <source type="Film">
+                <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
+            </source>
+
+            <source type="InternetSite">
+                <format>{%CitationPrefix%}{%Author:1|"Anon."%}{, %Year|"n.d."%}{%YearSuffix%}{, %CitationPages:p.:pp.:a2%}{%CitationSuffix%}</format>
+            </source>
+
+            <source type="Standard">
+                <format>{%CitationPrefix%}{%Author:1|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages:p. :pp. %}{%CitationSuffix%}</format>
+            </source>
 
         </citation>
 
