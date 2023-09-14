@@ -129,8 +129,10 @@
             </source>
 
             <source type="Film">
+                <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
                 <b:ImportantField>b:Title</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:Publisher</b:ImportantField>
                 <b:ImportantField>b:Editor</b:ImportantField>
                 <b:ImportantField>b:Director</b:ImportantField>
                 <b:ImportantField>b:ProductionCompany</b:ImportantField>
@@ -250,6 +252,18 @@
                     <halign>left</halign>
                     <valign>top</valign>
                     <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title%.}{ %Tag%.}{ %Institution%.}{ %ThesisType%.}
+                        { Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
+                </column>
+                <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
+            </source>
+
+            <source type="Film">
+                <column id="1">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>{{{%Author:3%{ %Year%{%YearSuffix%}.}{ %Title%.}}|{%Title%.{ %Year%{%YearSuffix%}.}}}
+                        { %Publisher%.}{ Toimittaja %Editor%.}{ Ohjaus: %Director%.}{ %SourceType%.}
+                        { Tuotantoyhtiö: %ProductionCompany%.} { %Distributor%.}{ Julkaistu {{{%Day%}.%Month%}.%Year%.}}
                         { Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>

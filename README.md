@@ -48,7 +48,11 @@ Report - Opinnäytteet
 - - "Sosiaalitieteiden laitoksen julkaisuja 2012:18. Väitöskirja"
 
 Film - Televisio- ja radio-ohjelmat, podcastit ja elokuvat
-- vaihtoehdolla Editor tarkoitetaan poikkeavasti toimittajaa
+- vaihtoehdolla Publisher poikkeuksellisesti ohjelman nimi, kirjallisen raportoinnin oppaan esimerkki:
+- - "Kulttuuriykkönen"
+- vaihtoehto Distributor lopullinen julkaisija esim: "Yle Areena", "Sitra"
+- vaihtoehtoon SourceType voi laittaa myös elokuviin liittyvät lisätiedot, esimerkki kirjallisen raportoinnin oppaasta:
+- - "DVD:n lisämateriaali elokuvassa Coppola, S. 2006. Marie Antoinette"
 
 Internet Site - Verkkosivut
 - vuosiluvun voi jättää pois jos se ei ole tiedossa niin lähdeluettelo korjaa tämän olemaan n.d.
