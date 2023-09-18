@@ -30,7 +30,7 @@
                 <b:ImportantField>b:Edition</b:ImportantField>
                 <b:ImportantField>b:City</b:ImportantField>
                 <b:ImportantField>b:Publisher</b:ImportantField>
-                <b:ImportantField>b:SourceType</b:ImportantField>
+                <b:ImportantField>b:Medium</b:ImportantField>
                 <b:ImportantField>b:URL</b:ImportantField>
                 <b:ImportantField>b:Comments</b:ImportantField>
                 <b:ImportantField>b:Pages</b:ImportantField>
@@ -233,8 +233,8 @@
                 <column id="1">
                     <halign>left</halign>
                     <valign>top</valign>
-                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title|ShortTitle%.}{ %SourceType%.}{ %Edition%.}
-                        { %City%}{: %Publisher%.}{ Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}
+                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title|ShortTitle%.}{ %Medium%.}{ %Edition%.}
+                        { %City%}{: %Publisher%.}{ Viitattu {{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}
                         { %Comments%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
