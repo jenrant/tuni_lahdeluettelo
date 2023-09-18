@@ -14,7 +14,24 @@ Vaihtoehtoiset asennustavat:
 
 Tämän jälkeen avaa word uudestaan ja jos asennus on onnistunut, pitäisi vaihtoehto nyt näkyä kohdassa "References -> Citation & Bibliography -> Style"
 
-![Onnistunut asennus](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Asennus.png "Asennus")
+![Onnistunut asennus](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Asennus.png "Onnistunut asennus")
+
+## Käyttö:
+
+### Ensimmäisen lähteen lisääminen
+- Lähteiden lisääminen tapahtuu yllänäkyvässä kuvassa olevan kohdan "Manage Sources" kautta, josta aukeaa seuraavanlainen valikko:
+
+![Source manager](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Source_manager.png "Source manager")
+
+- Tästä valikosta jatketaan kohtaan "New...", josta valitaan ensin lähteen tyyppi (näistä kirjallisen raportoinnin oppaan vastaavuuden tämän sivun lopussa)
+- Lähteen tyypin valinnan jälkeen täytetään lähteen kirjoittajat Author->Edit kautta, johon syötetään kirjoittajien sukunimet ja etunimet, syöttämällä ne tähän listaan järjestyksessä, pysyvät ne myös tässä järjestyksessä (etunimestä riittää myös pelkkä ensimmäinen kirjain)
+- - Jos kirjoittaja on jokin yritys tai organisaatio, käytetään tällöin Corporate Author valintaa
+- Kun kaikki tarvittavat tiedot on lisätty, tallentuu kyseinen lähde listaan painamalla "OK"
+
+Esimerkki kirjallisen raportoinnin oppaasta:
+
+![Kirja 1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kirja1.png "Kirja 1")
+
 
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 Book - Kirjat
