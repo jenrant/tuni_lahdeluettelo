@@ -46,7 +46,33 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 <details> 
   <summary> Haapakoski, K., Niemelä, A. & Yrjölä, E. 2020. Läsnä etänä. Seitsemän oppituntia tulevaisuuden työelämästä. Helsinki: Alma Talent. </summary>
 
-![Kirja 1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kirja1.png)
+  ![Kirja 1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kirja1.png)
+</details>
+
+<details> 
+  <summary> Rautava-Nurmi, H., Westergård, A., Ojala, M., Vuorinen, S.& Henttonen, T. 2020. Hoitotyön taidot ja toiminnot. 7. uud. painos. Helsinki: Sanoma Pro oy. </summary>
+
+![Kirja 2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kirja2.png)
+</details>
+
+<details> 
+  <summary> Anonen, L. & Luoto, S. 2015. Markkinointi boksin ulkopuolelta. Äänikirja. Helsinki: Alma Talent. Viitattu 23.4.2021. Vaatii käyttöoikeuden. https://kirja.elisa.fi/ekirja/markkinointi-boksin-ulkopuolelta </summary>
+
+![Kirja 3-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kirja3-1.png)
+![Kirja 3-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kirja3-2.png)
+</details>
+
+<details> 
+  <summary> Peltola, V., Renko, M. & Saxén, H. (toim.) 2020. Lasten infektiosairaudet. E-kirja. Uud. painos. Helsinki: Duodecim. Viitattu 14.4.2021. Vaatii käyttöoikeuden. https://www.oppiportti.fi/op/opk04640 </summary>
+
+![Kirja 4-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kirja4-1.png)
+![Kirja 4-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kirja4-2.png)
+</details>
+
+<details> 
+  <summary> Schön, L. 2017. Maailman taloushistoria. 2. painos. Autio, P. (suom.) Tampere: Vastapaino. </summary>
+
+![Kirja 5](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kirja5.png)
 </details>
 
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
