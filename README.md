@@ -1,7 +1,20 @@
-![Microsoft Word Citation and Bibliography Styles](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/BibWord.png "BibWord")
+![Microsoft Word Citation and Bibliography Styles](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/BibWord.png "BibWord")
 
 ## TUNI Kirjallisen raportoinnin opas:
 https://www.tuni.fi/fi/opiskelijan-opas/kasikirja/tamk/opiskelu-0/kirjallisen-raportoinnin-opas
+
+## Asennus:
+1. Lataa lähdeluettelotiedoston uusin versio sivun oikealta laidalta kohdasta "Releases" (.zip tiedostona)
+2. Pura lataamasi .zip tiedoston sisältö samaan kansioon, jotta "Lähdeluettelon asennus.bat" ja "TUNI Lähdeluettelo.xsl" ovat saman kansion sisällä
+
+Vaihtoehtoiset asennustavat:
+1. Windows-tietokoneella avaa .bat tiedosto, joka kopioi tyylitiedoston oikeaan paikkaan
+2. Vaihtoehtoisesti voit itse kopioida .xsl tiedoston kohteeseen "%appdata%\Roaming\Microsoft\Bibliography\Style\" (saatat joutua luomaan osan kansioista itse)
+3. Mac-tietokoneella tyylitiedosto tulisi kopioida kohteeseen "/Applications/Microsoft Word 2016/Contents/Resources/Style/"
+
+Tämän jälkeen avaa word uudestaan ja jos asennus on onnistunut, pitäisi vaihtoehto nyt näkyä kohdassa "References -> Citation & Bibliography -> Style"
+
+![Onnistunut asennus](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Asennus.png "Asennus")
 
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 Book - Kirjat
