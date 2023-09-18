@@ -32,6 +32,15 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 
 ![Kirja 1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kirja1.png "Kirja 1")
 
+#### Lähdeluettelon tekeminen
+- Kun lähteet on lisätty luetteloon, lähdeluettelon saa tehtyä kohdasta References -> Citations & Bibliography -> Bibliography:
+
+![Lähdeluettelon luonti](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Lähdeluettelon_luonti.png "Lähdeluettelon luonti")
+
+- Jos lisäät lähteitä tämän jälkeen, ilmestyy ne näkyville kun ensin valitset lähdeluettelon otsikon jolloin yläpuolelle ilmestyy valinta "Update Citations and Bibliography", jota painamalla uudet lähteet päivittyvät itse lähdeluetteloonkin
+
+![Lähdeluettelon päivitys](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Lähdeluettelon_päivitys.png "Lähdeluettelon päivitys")
+
 
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 Book - Kirjat
