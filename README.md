@@ -41,6 +41,12 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 
 ![Lähdeluettelon päivitys](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/LähdeluettelonPäivitys.png "Lähdeluettelon päivitys")
 
+## Esimerkkejä käytöstä
+### Kirjat
+<details> 
+  <summary> Haapakoski, K., Niemelä, A. & Yrjölä, E. 2020. Läsnä etänä. Seitsemän oppituntia tulevaisuuden työelämästä. Helsinki: Alma Talent. </summary>
+  ![Kirja 1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kirja1.png)
+</details>
 
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 Book - Kirjat
