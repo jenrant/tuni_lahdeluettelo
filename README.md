@@ -21,7 +21,7 @@ Tämän jälkeen avaa word uudestaan ja jos asennus on onnistunut, pitäisi vaih
 ### Ensimmäisen lähteen lisääminen
 - Lähteiden lisääminen tapahtuu yllänäkyvässä kuvassa olevan kohdan "Manage Sources" kautta, josta aukeaa seuraavanlainen valikko:
 
-![Source manager](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Source_manager.png "Source manager")
+![Source manager](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/SourceManager.png "Source manager")
 
 - Tästä valikosta jatketaan kohtaan "New...", josta valitaan ensin lähteen tyyppi (näistä kirjallisen raportoinnin oppaan vastaavuuden tämän sivun lopussa)
 - Lähteen tyypin valinnan jälkeen täytetään lähteen kirjoittajat Author->Edit kautta, johon syötetään kirjoittajien sukunimet ja etunimet, syöttämällä ne tähän listaan järjestyksessä, pysyvät ne myös tässä järjestyksessä (etunimestä riittää myös pelkkä ensimmäinen kirjain)
@@ -35,11 +35,11 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 #### Lähdeluettelon tekeminen
 - Kun lähteet on lisätty luetteloon, lähdeluettelon saa tehtyä kohdasta References -> Citations & Bibliography -> Bibliography:
 
-![Lähdeluettelon luonti](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Lähdeluettelon_luonti.png "Lähdeluettelon luonti")
+![Lähdeluettelon luonti](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/LähdeluettelonLuonti.png "Lähdeluettelon luonti")
 
 - Jos lisäät lähteitä tämän jälkeen, ilmestyy ne näkyville kun ensin valitset lähdeluettelon otsikon jolloin yläpuolelle ilmestyy valinta "Update Citations and Bibliography", jota painamalla uudet lähteet päivittyvät itse lähdeluetteloonkin
 
-![Lähdeluettelon päivitys](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Lähdeluettelon_päivitys.png "Lähdeluettelon päivitys")
+![Lähdeluettelon päivitys](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/LähdeluettelonPäivitys.png "Lähdeluettelon päivitys")
 
 
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
