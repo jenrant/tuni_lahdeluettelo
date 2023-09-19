@@ -136,10 +136,11 @@ Journal Article + Book Section - Tutkimusartikkelit, kokoomateoksen artikkelit, 
 - Tukee myös DOI numeroiden ilmoittamisen
 
 Interview - Asiantuntijahaastattelut ja sähköpostiviestit
-- käytetty haastateltavalle tyyppiä Broadcaster, sillä täten haastateltavalle on olemassa BroadcasterTitle johon saadaan haastateltavan arvo tai ammatti
+- käytetty haastateltavalle tyyppiä Interviewee
+- vaihtoehto Title sisältää tässä tapauksessa haastateltavan arvon tai ammatin
 - vaihtoehdon Comments alle välikommentit (ennen haastattelun tyyppiä)
 - - Esimerkiksi "Koulusivistyskielenä ruotsi"
-- vaihtoehto SourceType sisältää onko kyseessä normaali haastattelu, vai sähköposti
+- vaihtoehto Medium sisältää onko kyseessä normaali haastattelu, vai sähköposti
 - vaihtoehto City toimii haastattelupaikkana
 
 Article in a Periodical - Julkaisusarjoissa julkaistut

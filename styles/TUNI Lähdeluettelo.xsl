@@ -78,9 +78,9 @@
             </source>
 
             <source type="Interview">
-                <b:ImportantField>b:Broadcaster/b:Broadcaster/b:NameList</b:ImportantField>
-                <b:ImportantField>b:BroadcasterTitle</b:ImportantField>
-                <b:ImportantField>b:SourceType</b:ImportantField>
+                <b:ImportantField>b:Author/b:Interviewee/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:Medium</b:ImportantField>
                 <b:ImportantField>b:Day</b:ImportantField>
                 <b:ImportantField>b:Month</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
@@ -196,7 +196,7 @@
             </source>
 
             <source type="Interview">
-                <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
+                <format>{%CitationPrefix%}{%Interviewee:1|Interviewer:1|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
             </source>
 
             <source type="ArticleInAPeriodical">
@@ -284,8 +284,8 @@
                 <column id="1">
                     <halign>left</halign>
                     <valign>top</valign>
-                    <format>{%Broadcaster:3|Author:4%{ %BroadcasterTitle%.}{ %Year%{%YearSuffix%}.}{ %Comments%.}
-                        { %SourceType% {{{%Day%}.%Month%}.%Year%.}}{ %City%.}}</format>
+                    <format>{%Interviewee:3%{ %Title%.}{ %Year:r%{%YearSuffix%}.}{ %Comments%.}
+                        { %Medium%{{ %Day%.}%Month%.{%Year%}}.}{ %City%.}}</format>
                 </column>
                 <sortkey>{%Broadcaster:0|Author:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
             </source>
@@ -1260,7 +1260,7 @@
                 <!-- Get the first level to process. -->
                 <xsl:variable name="level" select="substring-before(substring-after($format, '{'), '}')"/>
 
-                <!-- Retrieve the delimeters of the level to process. -->
+                <!-- Retrieve the delimiters of the level to process. -->
                 <xsl:variable name="delim" select="concat('{', $level,'}')"/>
 
                 <xsl:variable name="current">
@@ -3359,7 +3359,7 @@
         <!-- Output. -->
         <b:SortKey>
             <xsl:choose>
-                <!-- If the sortkey is not empty, convert it to uppercase and use that. -->
+                <!-- If the sort-key is not empty, convert it to uppercase and use that. -->
                 <xsl:when test="string-length($sort-key) > 0">
                     <xsl:call-template name="upper-case">
                         <xsl:with-param name="string">
