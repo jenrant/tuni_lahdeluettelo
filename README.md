@@ -1,5 +1,7 @@
 ![Microsoft Word Citation and Bibliography Styles](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/BibWord.png "BibWord")
 
+---
+
 <!-- TOC -->
   * [TUNI Kirjallisen raportoinnin opas:](#tuni-kirjallisen-raportoinnin-opas)
   * [Asennus:](#asennus)
@@ -10,8 +12,20 @@
     * [Kirjat](#kirjat)
     * [Kokoomateoksen artikkelit](#kokoomateoksen-artikkelit)
     * [Tutkimusartikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit](#tutkimusartikkelit-ammattilehtien-artikkelit-verkkouutiset-ja-verkkolehtien-artikkelit)
+    * [Asiantuntijahaastattelut ja sähköpostiviestit](#asiantuntijahaastattelut-ja-sähköpostiviestit)
   * [Vastaavuudet kirjallisen raportoinnin oppaassa:](#vastaavuudet-kirjallisen-raportoinnin-oppaassa)
+    * [Book - Kirjat](#book---kirjat)
+    * [Journal Article + Book Section - Tutkimusartikkelit, kokoomateoksen artikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit](#journal-article--book-section---tutkimusartikkelit-kokoomateoksen-artikkelit-ammattilehtien-artikkelit-verkkouutiset-ja-verkkolehtien-artikkelit)
+    * [Interview - Asiantuntijahaastattelut ja sähköpostiviestit](#interview---asiantuntijahaastattelut-ja-sähköpostiviestit)
+    * [Article in a Periodical - Julkaisusarjoissa julkaistut](#article-in-a-periodical---julkaisusarjoissa-julkaistut)
+    * [Case - Lait ja asetukset](#case---lait-ja-asetukset)
+    * [Conference Proceedings - Konfenssi-, seminaari- ja muut asiantuntijasitelmät ja -luennot](#conference-proceedings---konfenssi--seminaari--ja-muut-asiantuntijasitelmät-ja--luennot)
+    * [Report - Opinnäytteet](#report---opinnäytteet)
+    * [Film - Televisio- ja radio-ohjelmat, podcastit ja elokuvat](#film---televisio--ja-radio-ohjelmat-podcastit-ja-elokuvat)
+    * [Internet Site - Verkkosivut](#internet-site---verkkosivut)
 <!-- TOC -->
+
+---
 
 ## TUNI Kirjallisen raportoinnin opas:
 https://www.tuni.fi/fi/opiskelijan-opas/kasikirja/tamk/opiskelu-0/kirjallisen-raportoinnin-opas
@@ -125,17 +139,30 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 ![Artikkeli 3-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Artikkeli3-2.png)
 </details>
 
+### Asiantuntijahaastattelut ja sähköpostiviestit
+<details> 
+  <summary> Hannikainen, M. O. tutkijatohtori. 2020. Haastattelu 15.9.2020. Helsingin yliopisto. </summary>
+
+![Haastattelu 1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Haastattelu1.png)
+</details>
+
+<details> 
+  <summary> Saarinen, K. lehtori. 2021. Koulusivistyskielenä ruotsi. Sähköpostiviesti 2.9.2021. </summary>
+
+![Haastattelu 2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Haastattelu2.png)
+</details>
+
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
-Book - Kirjat
+### Book - Kirjat
 - Jos teokseen tarvitsee merkitä suomentaja tulee tämä poikkeuksellisesti vaihtoehdon City alle, sillä silloin sen muotoilu on oikein
 - - Esimerkiksi: "Autio P.(suom.) Tampere"
 
-Journal Article + Book Section - Tutkimusartikkelit, kokoomateoksen artikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit
+### Journal Article + Book Section - Tutkimusartikkelit, kokoomateoksen artikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit
 - Kokoomateokset käyttävät tyyppiä Book Section
 - vaihtoehto Issue kohdan alle tulee lehtien julkaisusarja esim. "10 (1)"
 - Tukee myös DOI numeroiden ilmoittamisen
 
-Interview - Asiantuntijahaastattelut ja sähköpostiviestit
+### Interview - Asiantuntijahaastattelut ja sähköpostiviestit
 - käytetty haastateltavalle tyyppiä Interviewee
 - vaihtoehto Title sisältää tässä tapauksessa haastateltavan arvon tai ammatin
 - vaihtoehdon Comments alle välikommentit (ennen haastattelun tyyppiä)
@@ -143,17 +170,17 @@ Interview - Asiantuntijahaastattelut ja sähköpostiviestit
 - vaihtoehto Medium sisältää onko kyseessä normaali haastattelu, vai sähköposti
 - vaihtoehto City toimii haastattelupaikkana
 
-Article in a Periodical - Julkaisusarjoissa julkaistut
+### Article in a Periodical - Julkaisusarjoissa julkaistut
 - Vaihtoehdon Issue julkaisusarja ja numero, käytön esimerkit viitaten kirjallisen raportoinnin oppaaseen:
 - - "Tampereen ammattikorkeakoulun julkaisuja Sarja B. Raportteja 113"
 - - "Raportti 2"
 
-Case - Lait ja asetukset
+### Case - Lait ja asetukset
 - Esimerkki päivästä, jona laki tai asetus on annettu, ja numero säädöskokoelmassa
 - - 9.4.2021/297
 - - Tuotetaan vaihtoehdoilla Day: 9, Month: 4, Year: 2021, CaseNumber: 297
 
-Conference Proceedings - Konfenssi-, seminaari- ja muut asiantuntijasitelmät ja -luennot
+### Conference Proceedings - Konfenssi-, seminaari- ja muut asiantuntijasitelmät ja -luennot
 - Jos esittäjän ammatti tai arvo merkitsevä, sen voi lisätä Tag kohtaan
 - vaihtoehto SourceType kertoo onko kyseessä esimerkiksi luento
 - - SourceType jälkeen myös lisätiedot esim:
@@ -163,17 +190,17 @@ Conference Proceedings - Konfenssi-, seminaari- ja muut asiantuntijasitelmät ja
 - vaihtoehdon City alle voi myös laittaa ensin tarkemman sijainnin esim: "Tampereen ammattikorkeakoulu. Tampere"
 - sisältää myös esim. YouTube videot, jolloin lisättävä url ja katselupäivä DayAccessed yms.
 
-Report - Opinnäytteet
+### Report - Opinnäytteet
 - vaihtoehdon Tag alle voi kirjata tutkinto-ohjelman tai yksikön, esim: "Palveluliiketoiminnan tutkinto-ohjelma"
 - vaihtoehdon ThesisTag eteen myös julkaisun tiedot, jos oleellinen; esimerkki kirjallisen raportoinnin oppaasta:
 - - "Sosiaalitieteiden laitoksen julkaisuja 2012:18. Väitöskirja"
 
-Film - Televisio- ja radio-ohjelmat, podcastit ja elokuvat
+### Film - Televisio- ja radio-ohjelmat, podcastit ja elokuvat
 - vaihtoehdolla Publisher poikkeuksellisesti ohjelman nimi, kirjallisen raportoinnin oppaan esimerkki:
 - - "Kulttuuriykkönen"
 - vaihtoehto Distributor lopullinen julkaisija esim: "Yle Areena", "Sitra"
 - vaihtoehtoon SourceType voi laittaa myös elokuviin liittyvät lisätiedot, esimerkki kirjallisen raportoinnin oppaasta:
 - - "DVD:n lisämateriaali elokuvassa Coppola, S. 2006. Marie Antoinette"
 
-Internet Site - Verkkosivut
+### Internet Site - Verkkosivut
 - vuosiluvun voi jättää pois jos se ei ole tiedossa niin lähdeluettelo korjaa tämän olemaan n.d.
