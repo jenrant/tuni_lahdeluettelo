@@ -39,14 +39,30 @@
                 <b:ImportantField>b:YearAccessed</b:ImportantField>
             </source>
 
-            <source type="JournalArticle">
+            <source type="BookSection">
                 <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
-                <b:ImportantField>b:Editor</b:ImportantField>
+                <b:ImportantField>b:Author/b:Editor/b:NameList</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
                 <b:ImportantField>b:Title</b:ImportantField>
-                <b:ImportantField>b:PublicationTitle</b:ImportantField>
+                <b:ImportantField>b:BookTitle</b:ImportantField>
                 <b:ImportantField>b:Edition</b:ImportantField>
-                <b:ImportantField>b:SourceType</b:ImportantField>
+                <b:ImportantField>b:City</b:ImportantField>
+                <b:ImportantField>b:Publisher</b:ImportantField>
+                <b:ImportantField>b:Medium</b:ImportantField>
+                <b:ImportantField>b:URL</b:ImportantField>
+                <b:ImportantField>b:Comments</b:ImportantField>
+                <b:ImportantField>b:Pages</b:ImportantField>
+                <b:ImportantField>b:DayAccessed</b:ImportantField>
+                <b:ImportantField>b:MonthAccessed</b:ImportantField>
+                <b:ImportantField>b:YearAccessed</b:ImportantField>
+            </source>
+
+            <source type="JournalArticle">
+                <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:Edition</b:ImportantField>
+                <b:ImportantField>b:Medium</b:ImportantField>
                 <b:ImportantField>b:City</b:ImportantField>
                 <b:ImportantField>b:Publisher</b:ImportantField>
                 <b:ImportantField>b:Pages</b:ImportantField>
@@ -173,6 +189,10 @@
                 <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
             </source>
 
+            <source type="BookSection">
+                <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
+            </source>
+
             <source type="JournalArticle">
                 <format>{%CitationPrefix%}{%Author:1|Editor:2|ShortTitle|Title%{ %Year|"n.d."%{%YearSuffix%}}}{%Year%{%YearSuffix%}}{, %CitationPages: :pp. %.}{%CitationSuffix%}</format>
             </source>
@@ -240,13 +260,23 @@
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
             </source>
 
+            <source type="BookSection">
+                <column id="1">
+                    <halign>left</halign>
+                    <valign>top</valign>
+                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title|ShortTitle%.}
+                        {{ Teoksessa %Editor:4%} %BookTitle%.}{ %Medium%.}{ %Edition%.}{ %City%}{: %Publisher%.}
+                        { Viitattu {{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}{ %Comments%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
+                </column>
+                <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
+            </source>
+
             <source type="JournalArticle">
                 <column id="1">
                     <halign>left</halign>
                     <valign>top</valign>
-                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title|ShortTitle%.}{ Teoksessa %Editor% (toim.)
-                        { %PublicationTitle%.{ %Edition%.}}}{ %SourceType%.}{ %City%}{: %Publisher%.}{ %Distributor%
-                         {{{%Day%}.%Month%}.%Year%.}}{ Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}
+                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title|ShortTitle%.}{ %Medium%.}{ %City%}{: %Publisher%.}
+                        { %Distributor% {{{%Day%}.%Month%}.%Year%.}}{ Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}
                         { %Issue%.}{, %Pages%.}{ DOI: %StandardNumber%.}{ %Comments%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>

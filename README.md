@@ -1,5 +1,18 @@
 ![Microsoft Word Citation and Bibliography Styles](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/BibWord.png "BibWord")
 
+<!-- TOC -->
+  * [TUNI Kirjallisen raportoinnin opas:](#tuni-kirjallisen-raportoinnin-opas)
+  * [Asennus:](#asennus)
+  * [Käyttö:](#käyttö)
+    * [Ensimmäisen lähteen lisääminen](#ensimmäisen-lähteen-lisääminen)
+      * [Lähdeluettelon tekeminen](#lähdeluettelon-tekeminen)
+  * [Esimerkkejä käytöstä](#esimerkkejä-käytöstä)
+    * [Kirjat](#kirjat)
+    * [Kokoomateoksen artikkelit](#kokoomateoksen-artikkelit)
+    * [Tutkimusartikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit](#tutkimusartikkelit-ammattilehtien-artikkelit-verkkouutiset-ja-verkkolehtien-artikkelit)
+  * [Vastaavuudet kirjallisen raportoinnin oppaassa:](#vastaavuudet-kirjallisen-raportoinnin-oppaassa)
+<!-- TOC -->
+
 ## TUNI Kirjallisen raportoinnin opas:
 https://www.tuni.fi/fi/opiskelijan-opas/kasikirja/tamk/opiskelu-0/kirjallisen-raportoinnin-opas
 
@@ -75,12 +88,24 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 ![Kirja 5](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kirja5.png)
 </details>
 
+### Kokoomateoksen artikkelit
+<details> 
+  <summary> Kekäle, J. & Puusa, A. 2020. Tiedesodat. Realistinen ja konstruktionistinen maailmankäsitys. Teoksessa Puusa, A. & Juuti, P. (toim.) Laadullisen tutkimuksen näkökulmat ja menetelmät. E-kirja. Helsinki: Gaudeamus, 39–54. </summary>
+
+![Kokoomateos 1-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kokoomateos1-1.png)
+![Kokoomateos 1-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kokoomateos1-2.png)
+</details>
+
+### Tutkimusartikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit
+
+
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 Book - Kirjat
 - Jos teokseen tarvitsee merkitä suomentaja tulee tämä poikkeuksellisesti vaihtoehdon City alle, sillä silloin sen muotoilu on oikein
 - - Esimerkiksi: "Autio P.(suom.) Tampere"
 
-Journal Article - Tutkimusartikkelit, kokoomateoksen artikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit
+Journal Article + Book Section - Tutkimusartikkelit, kokoomateoksen artikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit
+- Kokoomateokset käyttävät tyyppiä Book Section
 - Toimittaja merkitään vaihtoehdon Editor alle
 - Huom, verkkolähteissä tulee käyttää vaihtoehtoa Distributor vaihtoehdon Publisher sijaan
 - - Esimerkiksi tilanteessa jossa on otettu yle uutisten artikkeli yhdeksi lähteeksi, tällöin tulee myös täyttää kohdat Day, Month ja Year
