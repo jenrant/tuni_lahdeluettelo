@@ -96,8 +96,34 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 ![Kokoomateos 1-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kokoomateos1-2.png)
 </details>
 
-### Tutkimusartikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit
+<details> 
+  <summary> Tammelin, T. 2016. Liikunnan merkitys lasten kasvulle, kehitykselle ja terveydelle. Teoksessa Rajantie, J., Mertsola, J. & Heikinheimo, M. (toim.) Lastentaudit. 6. uud. painos. Kustannus Oy Duodecim. Viitattu 19.5.2017. Vaatii käyttöoikeuden. http://www.oppiportti.fi/op/lta00600/do </summary>
 
+![Kokoomateos 2-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kokoomateos2-1.png)
+![Kokoomateos 2-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Kokoomateos2-2.png)
+</details>
+
+### Tutkimusartikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit
+<details> 
+  <summary> Kokkonen, Y. 2021. Kiinan vienti kasvoi alkuvuonna huimasti. Yle Uutiset 7.3.2021. Viitattu 23.4.2021. https://yle.fi/uutiset/3-11825087 </summary>
+
+![Artikkeli 1-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Artikkeli1-1.png)
+![Artikkeli 1-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Artikkeli1-2.png)
+</details>
+
+<details> 
+  <summary> Kukkonen, H. 2015. Merkitysneuvotteluja osallistavasta pedagogiikasta. TAMKjournal 1.4.2015. Viitattu 23.4.2021. https://tamkjournal.tamk.fi/merkitysneuvotteluja-osallistavasta-pedagogiikasta/ </summary>
+
+![Artikkeli 2-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Artikkeli2-1.png)
+![Artikkeli 2-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Artikkeli2-2.png)
+</details>
+
+<details> 
+  <summary> Olsson, H., Backe, H., Sorensen, S. & Kock, M. 2002. The essence of humour and its effects and functions: A qualitative study. Journal of nursing management 10 (1), 21–26. </summary>
+
+![Artikkeli 3-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Artikkeli3-1.png)
+![Artikkeli 3-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Artikkeli3-2.png)
+</details>
 
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 Book - Kirjat
@@ -106,11 +132,8 @@ Book - Kirjat
 
 Journal Article + Book Section - Tutkimusartikkelit, kokoomateoksen artikkelit, ammattilehtien artikkelit, verkkouutiset ja verkkolehtien artikkelit
 - Kokoomateokset käyttävät tyyppiä Book Section
-- Toimittaja merkitään vaihtoehdon Editor alle
-- Huom, verkkolähteissä tulee käyttää vaihtoehtoa Distributor vaihtoehdon Publisher sijaan
-- - Esimerkiksi tilanteessa jossa on otettu yle uutisten artikkeli yhdeksi lähteeksi, tällöin tulee myös täyttää kohdat Day, Month ja Year
-- Tärkeä huomio myös vaihtoehto Edition viitaa kirjan painokseen ja Issue kohdan alle tulee lehtien julkaisusarja esim. "10 (1)"
-- Tukee myös DOI numeroiden ilmoittamisen vaihtoehdon StandardNumber alle
+- vaihtoehto Issue kohdan alle tulee lehtien julkaisusarja esim. "10 (1)"
+- Tukee myös DOI numeroiden ilmoittamisen
 
 Interview - Asiantuntijahaastattelut ja sähköpostiviestit
 - käytetty haastateltavalle tyyppiä Broadcaster, sillä täten haastateltavalle on olemassa BroadcasterTitle johon saadaan haastateltavan arvo tai ammatti
