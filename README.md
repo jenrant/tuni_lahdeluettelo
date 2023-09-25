@@ -207,13 +207,12 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 - - Tuotetaan vaihtoehdoilla Day: 9, Month: 4, Year: 2021, CaseNumber: 297
 
 ### Conference Proceedings - Konfenssi-, seminaari- ja muut asiantuntijasitelmät ja -luennot
-- Jos esittäjän ammatti tai arvo merkitsevä, sen voi lisätä Tag kohtaan
-- vaihtoehto SourceType kertoo onko kyseessä esimerkiksi luento
-- - SourceType jälkeen myös lisätiedot esim:
-- - "Luento. YouTube-video. Julkaisija Aalto University"
-- - "Luento. TAMK konferenssi"
-- vaihtoehtoon Version voi vielä täydentää lisätietoja esim. onko konferenssi pidetty webinaarina, jolloin kohtaan riittää "Webinaari"
-- vaihtoehdon City alle voi myös laittaa ensin tarkemman sijainnin esim: "Tampereen ammattikorkeakoulu. Tampere"
+- Jos esittäjän ammatti tai arvo merkitsevä, sen voi lisätä Comments kohtaan
+- vaihtoehto Medium kertoo onko kyseessä esimerkiksi luento
+- Title kertoo esitelmän/luennon nimen ja kohdassa ConferenceName kerrotaan missä tämä on pidetty
+- Konferenssin päivä/päivät kohtaan StandardNumber (jostain syystä tällä tyypillä ei pysty käyttämään day,month,year)
+- vaihtoehtoon Volume voi vielä täydentää lisätietoja esim. onko konferenssi pidetty webinaarina, jolloin kohtaan riittää "Webinaari"
+- Vaihtoehdon Publisher alle tarkka sijainti esim. "Tampereen ammattikorkeakoulu"
 - sisältää myös esim. YouTube videot, jolloin lisättävä url ja katselupäivä DayAccessed yms.
 
 ### Report - Opinnäytteet

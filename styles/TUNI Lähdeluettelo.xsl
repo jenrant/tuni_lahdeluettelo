@@ -115,16 +115,17 @@
 
             <source type="ConferenceProceedings">
                 <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
-                <b:ImportantField>b:Tag</b:ImportantField>
+                <b:ImportantField>b:Comments</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
+                <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:Medium</b:ImportantField>
                 <b:ImportantField>b:ConferenceName</b:ImportantField>
-                <b:ImportantField>b:SourceType</b:ImportantField>
-                <b:ImportantField>b:Day</b:ImportantField>
-                <b:ImportantField>b:Month</b:ImportantField>
-                <b:ImportantField>b:Version</b:ImportantField>
+                <b:ImportantField>b:StandardNumber</b:ImportantField>
+                <b:ImportantField>b:Volume</b:ImportantField>
                 <b:ImportantField>b:DayAccessed</b:ImportantField>
                 <b:ImportantField>b:MonthAccessed</b:ImportantField>
                 <b:ImportantField>b:YearAccessed</b:ImportantField>
+                <b:ImportantField>b:Publisher</b:ImportantField>
                 <b:ImportantField>b:City</b:ImportantField>
                 <b:ImportantField>b:URL</b:ImportantField>
             </source>
@@ -315,8 +316,8 @@
                 <column id="1">
                     <halign>left</halign>
                     <valign>top</valign>
-                    <format>{%Author:3|Editor:4%{ %Tag%.}{ %Year%{%YearSuffix%}.}{ %ConferenceName%.}{ %SourceType% {{{%Day%}.%Month%}.%Year%}.}
-                        { %Version%.}{ Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}{ %City%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
+                    <format>{%Author:3|Editor:4%{ %Comments%.}{ %Year%{%YearSuffix%}.}{ %Title%.}{ %Medium%.}{ %ConferenceName% {%StandardNumber%}}.}
+                        { %Volume%.}{ Viitattu {{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}{ %Publisher%.}{ %City%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
             </source>
