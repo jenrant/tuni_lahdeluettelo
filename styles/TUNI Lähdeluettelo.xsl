@@ -134,7 +134,7 @@
                 <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
                 <b:ImportantField>b:Title</b:ImportantField>
-                <b:ImportantField>b:Tag</b:ImportantField>
+                <b:ImportantField>b:Department</b:ImportantField>
                 <b:ImportantField>b:Institution</b:ImportantField>
                 <b:ImportantField>b:ThesisType</b:ImportantField>
                 <b:ImportantField>b:DayAccessed</b:ImportantField>
@@ -326,8 +326,8 @@
                 <column id="1">
                     <halign>left</halign>
                     <valign>top</valign>
-                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title%.}{ %Tag%.}{ %Institution%.}{ %ThesisType%.}
-                        { Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
+                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title%.}{ %Department%.}{ %Institution%.}{ %ThesisType%.}
+                        { Viitattu {{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
             </source>
