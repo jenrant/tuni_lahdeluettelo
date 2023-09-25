@@ -217,6 +217,48 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 ![Opinnäyte 3](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Opinnäyte3.png)
 </details>
 
+### Televisio- ja radio-ohjelmat, podcastit ja elokuvat
+<details> 
+  <summary> Perjantai: Voiko nuoruuden elää etänä? 2021. Toimittaja Sean Ricks. Yle 23.4.2021. Yle Areena. Viitattu 28.4.2021. https://areena.yle.fi/tv/suorat/yle-areena/1-50814091 </summary>
+
+![Film 1-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Film1-1.png)
+![Film 1-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Film1-2.png)
+</details>
+
+<details> 
+  <summary> Boheemin, kosmopoliittisen kuvataiteilijan Elin Danielson-Gambogin elämäkerta. 2021. Kulttuuriykkönen. Toimittaja Pia-Maria Lehtola. Yle Radio 1 31.8.2021. Yle Areena. Viitattu 6.9.2021. https://areena.yle.fi/audio/1-50886022 </summary>
+
+![Film 2-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Film2-1.png)
+![Film 2-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Film2-2.png)
+</details>
+
+<details> 
+  <summary> Vahti, J. 2020. Mitä megatrendit kertovat 2020-luvusta. Podcast-tallenne. Sitra. Julkaistu 3.1.2020. Viitattu 23.4.2021. https://www.sitra.fi/artikkelit/mita-megatrendit-kertovat-2020-luvusta/ </summary>
+
+![Film 3-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Film3-1.png)
+![Film 3-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Film3-2.png)
+</details>
+
+<details> 
+  <summary> Tuntematon sotilas. 2017. Ohjaus: Aki Louhimies. Tuotantoyhtiö: Elokuvaosakeyhtiö Suomi. </summary>
+
+![Film 4](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Film4.png)
+</details>
+
+<details> 
+  <summary> TAI Tuntematon sotilas. 2017. Ohjaus: Aki Louhimies. Tuotantoyhtiö: Elokuvaosakeyhtiö Suomi. Yle Areena. Viitattu 29.4.2021. https://areena.yle.fi/1-3554229 </summary>
+
+![Film 5-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Film5-1.png)
+![Film 5-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Film5-2.png)
+</details>
+
+<details> 
+  <summary> The Making of Marie Antoinette. 2006. Ohjaus: Eleanor Coppola. DVD:n lisämateriaali elokuvassa Coppola, S. 2006. Marie Antoinette. Tuotanto: Columbia Pictures. </summary>
+
+![Film 6-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Film6-1.png)
+![Film 6-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Film6-2.png)
+</details>
+
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 ### Book - Kirjat
 - Jos teokseen tarvitsee merkitä suomentaja tulee tämä poikkeuksellisesti vaihtoehdon City alle, sillä silloin sen muotoilu on oikein
