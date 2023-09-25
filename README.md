@@ -178,6 +178,26 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 ![Lait ja Asetukset 2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/LakiAsetus2.png)
 </details>
 
+### Konferenssi-, seminaari- ja muut asiantuntijaesitelmät ja -luennot
+<details> 
+  <summary> Leikomaa, M. 2021. Being boring – are you an online snoozefest? Luento. TAMK konferenssi 4.2.2021. Webinaari. Tampereen ammattikorkeakoulu. Tampere. </summary>
+
+![Konferenssi 1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Konferenssi1.png)
+</details>
+
+<details> 
+  <summary> Karhe, L. TtT. 2019. Kaikilla oikeus hyvään saattohoitoon. Luento 22.3.2019. Sairaanhoitajapäivät 21.–22.3.2019. Helsinki. </summary>
+
+![Konferenssi 2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Konferenssi2.png)
+</details>
+
+<details> 
+  <summary> Saarinen, E. 2021. "The Last Time" - 1/8 Filosofia ja systeemiajattelu. Luento. YouTube-video. Julkaisija Aalto University 29.1.2021. Viitattu 23.4.2021. https://www.youtube.com/watch?v=dshhM8NBZ4k </summary>
+
+![Konferenssi 3-1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Konferenssi3-1.png)
+![Konferenssi 3-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Konferenssi3-2.png)
+</details>
+
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 ### Book - Kirjat
 - Jos teokseen tarvitsee merkitä suomentaja tulee tämä poikkeuksellisesti vaihtoehdon City alle, sillä silloin sen muotoilu on oikein
