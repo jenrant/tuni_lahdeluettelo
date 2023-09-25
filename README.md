@@ -259,6 +259,19 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 ![Film 6-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Film6-2.png)
 </details>
 
+### Verkkosivut
+<details> 
+  <summary> TAMK. n.d. Kansainvälinen TAMK. Verkkosivu. Viitattu 2.9.2021. https://www.tamk.fi/web/tamk/kansainvalinen-tamk </summary>
+
+![Verkkosivu 1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Verkkosivu1.png)
+</details>
+
+<details> 
+  <summary> Kansainvälinen TAMK. n.d. TAMK. Viitattu 2.9.2021. https://www.tamk.fi/web/tamk/kansainvalinen-tamk </summary>
+
+![Verkkosivu 2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Verkkosivu2.png)
+</details>
+
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 ### Book - Kirjat
 - Jos teokseen tarvitsee merkitä suomentaja tulee tämä poikkeuksellisesti vaihtoehdon City alle, sillä silloin sen muotoilu on oikein
