@@ -144,14 +144,17 @@
             </source>
 
             <source type="Film">
-                <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Author/b:ProducerName/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Author/b:Writer/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Author/b:Performer/b:NameList</b:ImportantField>
+                <b:ImportantField>b:Author/b:Director/b:NameList</b:ImportantField>
                 <b:ImportantField>b:Title</b:ImportantField>
+                <b:ImportantField>b:Medium</b:ImportantField>
+                <b:ImportantField>b:ShortTitle</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
-                <b:ImportantField>b:Publisher</b:ImportantField>
-                <b:ImportantField>b:Editor</b:ImportantField>
-                <b:ImportantField>b:Director</b:ImportantField>
+                <b:ImportantField>b:Comments</b:ImportantField>
                 <b:ImportantField>b:ProductionCompany</b:ImportantField>
-                <b:ImportantField>b:SourceType</b:ImportantField>
+                <b:ImportantField>b:StandardNumber</b:ImportantField>
                 <b:ImportantField>b:Distributor</b:ImportantField>
                 <b:ImportantField>b:DayAccessed</b:ImportantField>
                 <b:ImportantField>b:MonthAccessed</b:ImportantField>
@@ -336,10 +339,9 @@
                 <column id="1">
                     <halign>left</halign>
                     <valign>top</valign>
-                    <format>{{{%Author:3%{ %Year%{%YearSuffix%}.}{ %Title%.}}|{%Title%.{ %Year%{%YearSuffix%}.}}}
-                        { %Publisher%.}{ Toimittaja %Editor%.}{ Ohjaus: %Director%.}{ %SourceType%.}
-                        { Tuotantoyhtiö: %ProductionCompany%.} { %Distributor%.}{ Julkaistu {{{%Day%}.%Month%}.%Year%.}}
-                        { Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
+                    <format>{{%ProducerName:3|Title%.}{ %Year:r%{%YearSuffix%}.}{ %Title%.}{ %Medium%.}{ %ShortTitle%.}
+                        { Toimittaja %Writer:6%.}{ Ohjaus: %Director:6%.}{ %Comments%.}{ Tuotantoyhtiö: %ProductionCompany%.}{ %Performer%{ %StandardNumber%}.}
+                        { %Distributor%.}{ Julkaistu %StandardNumber%.}{ Viitattu {{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
             </source>
@@ -453,6 +455,22 @@
                 <overflow>, ym.</overflow>
                 <single_suffix> (toim.)</single_suffix>
                 <multi_suffix> (toim.)</multi_suffix>
+            </list>
+
+            <list name="director" id="6">
+                <single_prefix/>
+                <multi_prefix/>
+                <corporate>{%Corporate%}</corporate>
+                <first_person>{%First|Last|Middle%{ %Middle|Last%{ %Last%}}.}</first_person>
+                <other_persons>{%First|Last|Middle%{ %Middle|Last%{ %Last%}}.}</other_persons>
+                <separator_between_if_two> &amp; </separator_between_if_two>
+                <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
+                <separator_before_last> &amp; </separator_before_last>
+                <max_number_of_persons_to_display>20</max_number_of_persons_to_display>
+                <number_of_persons_to_display_if_more_than_max>20</number_of_persons_to_display_if_more_than_max>
+                <overflow>, ym.</overflow>
+                <single_suffix/>
+                <multi_suffix/>
             </list>
 
         </namelists>
