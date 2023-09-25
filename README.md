@@ -165,6 +165,19 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 ![Julkaisusarja 2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Julkaisusarja2.png)
 </details>
 
+### Lait ja asetukset
+<details> 
+  <summary> Elintarvikelaki 9.4.2021/297. Viitattu 2.9.2021. https://finlex.fi/fi/laki/alkup/2021/20210297 </summary>
+
+![Lait ja Asetukset 1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/LakiAsetus1.png)
+</details>
+
+<details> 
+  <summary> Valtioneuvoston asetus ravitsemisliikkeiden toiminnan väliaikaisesta rajoittamisesta tartuntataudin leviämisen estämiseksi 26.2.2021/166. Viitattu 2.9.2021. https://finlex.fi/fi/laki/alkup/2021/20210166 </summary>
+
+![Lait ja Asetukset 2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/LakiAsetus2.png)
+</details>
+
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 ### Book - Kirjat
 - Jos teokseen tarvitsee merkitä suomentaja tulee tämä poikkeuksellisesti vaihtoehdon City alle, sillä silloin sen muotoilu on oikein
