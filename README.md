@@ -152,6 +152,19 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 ![Haastattelu 2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Haastattelu2.png)
 </details>
 
+### Julkaisusarjoissa julkaisut
+<details> 
+  <summary> Korpela, A. 2018. Suuren kokoluokan energiavarastointiteknologioiden teknis-taloudelliset näkymät. Tampereen ammattikorkeakoulun julkaisuja Sarja B. Raportteja 113. Tampere. </summary>
+
+![Julkaisusarja 1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Julkaisusarja1.png)
+</details>
+
+<details> 
+  <summary> Kaukonen, O. & Kuusisaari, K. 2021. Yhteiskunnan muutos ja päihdepalveluiden tutkimus. Teoksessa Kaukonen, O. & Kuusisaari, K. (toim.) Päihdepalveluiden yhteiskunnalliset haasteet. Raportti 2. Helsinki: Terveyden ja hyvinvoinnin laitos, 108–112. </summary>
+
+![Julkaisusarja 2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Julkaisusarja2.png)
+</details>
+
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 ### Book - Kirjat
 - Jos teokseen tarvitsee merkitä suomentaja tulee tämä poikkeuksellisesti vaihtoehdon City alle, sillä silloin sen muotoilu on oikein
@@ -172,7 +185,7 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 
 ### Article in a Periodical - Julkaisusarjoissa julkaistut
 - Vaihtoehdon Issue julkaisusarja ja numero, käytön esimerkit viitaten kirjallisen raportoinnin oppaaseen:
-- - "Tampereen ammattikorkeakoulun julkaisuja Sarja B. Raportteja 113"
+- - "Raportteja 113"
 - - "Raportti 2"
 
 ### Case - Lait ja asetukset
