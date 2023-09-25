@@ -198,6 +198,25 @@ Esimerkki kirjallisen raportoinnin oppaasta:
 ![Konferenssi 3-2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Konferenssi3-2.png)
 </details>
 
+### Opinnäytteet
+<details> 
+  <summary> Hautamäki, E. & Palosaari, L. 2020. Uuden luonnonkalatuoteperheen kaupallistaminen. Kestävää elintarviketuotantoa kotimaisilla ruokainnovaatioilla. Palveluliiketoiminnan tutkinto-ohjelma. Tampereen ammattikorkeakoulu. Opinnäytetyö. Viitattu 2.9.2021. http://urn.fi/URN:NBN:fi:amk-2020111823198 </summary>
+
+![Opinnäyte 1](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Opinnäyte1.png)
+</details>
+
+<details> 
+  <summary> Isoherranen, K. 2012. Uhka vai mahdollisuus – moniammatillista yhteistyötä kehittämässä. Sosiaalitieteiden laitos. Helsingin yliopisto. Sosiaalitieteiden laitoksen julkaisuja 2012:18. Väitöskirja. Viitattu 9.3.2021. https://helda.helsinki.fi/bitstream/handle/10138/37493/isoherranen_vaitoskirja.pdf </summary>
+
+![Opinnäyte 2](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Opinnäyte2.png)
+</details>
+
+<details> 
+  <summary> Syvänen, P. 2020. Tiimien valmius siirtyä jaettuun johtajuuteen kuntasektorilla. Johtaminen ja organisointi. Kauppakorkeakoulu. Turun yliopisto. Pro gradu -tutkielma. Viitattu 2.9.2021. http://urn.fi/URN:NBN:fi-fe20201223102881 </summary>
+
+![Opinnäyte 3](https://github.com/jenrant/tuni_lahdeluettelo/blob/master/Photos/Opinnäyte3.png)
+</details>
+
 ## Vastaavuudet kirjallisen raportoinnin oppaassa:
 ### Book - Kirjat
 - Jos teokseen tarvitsee merkitä suomentaja tulee tämä poikkeuksellisesti vaihtoehdon City alle, sillä silloin sen muotoilu on oikein
