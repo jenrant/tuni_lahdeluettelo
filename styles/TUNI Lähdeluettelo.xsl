@@ -166,7 +166,7 @@
                 <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
                 <b:ImportantField>b:Year</b:ImportantField>
                 <b:ImportantField>b:Title</b:ImportantField>
-                <b:ImportantField>b:SourceType</b:ImportantField>
+                <b:ImportantField>b:Medium</b:ImportantField>
                 <b:ImportantField>b:DayAccessed</b:ImportantField>
                 <b:ImportantField>b:MonthAccessed</b:ImportantField>
                 <b:ImportantField>b:YearAccessed</b:ImportantField>
@@ -350,8 +350,8 @@
                 <column id="1">
                     <halign>left</halign>
                     <valign>top</valign>
-                    <format>{%Author:3|Editor:4%{ %Year%{%YearSuffix%}.}{ %Title%.}{ %SourceType%.}
-                        { Viitattu {{{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
+                    <format>{{%Author:3|Editor:4%.}{ %Year|"n.d."%{%YearSuffix%}.}{ %Title%.}{ %Medium%.}
+                        { Viitattu {{%DayAccessed%}.%MonthAccessed%}.%YearAccessed%.}{ &lt;u&gt;%URL:l%&lt;/u&gt;}}</format>
                 </column>
                 <sortkey>{%Author:0|Editor:0|Title|ShortTitle%}{%Year%}{%Title|ShortTitle%}</sortkey>
             </source>
